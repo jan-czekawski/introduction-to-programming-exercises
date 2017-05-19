@@ -1,0 +1,3 @@
+In the first program x prints 3, in the second program, there'd be an error,
+because x is a local variable and method puts is invoked outside of
+the methods block.

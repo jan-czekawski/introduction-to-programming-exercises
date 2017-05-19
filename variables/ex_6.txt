@@ -1,0 +1,2 @@
+Variable "shoes" wasn't defined in the current scope (or outer scope(s)).
+Program is trying to access that variable.
