@@ -1,0 +1,4 @@
+This error occurs, because method's definition is not finished with a keyword "end"
+"End" in this code is finishing if/else statement (indentation is misleading) and not the method.
+
+In order to fix it, keyword "end" should be written in the 6th line (after puts "nope").
