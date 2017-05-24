@@ -1,0 +1,2 @@
+"margaret" is a value of the element with index 3.
+To assign different value to that element, you have to change it to names[names.index("margaret")] = "jody"
