@@ -1,0 +1,3 @@
+ruby-docs.org
+api.rubyonrails.org
+apidock.com/
