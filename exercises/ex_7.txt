@@ -1,0 +1,2 @@
+Arrays store ordered elements and to use the element's value, one has to reference array's index.
+Hashes store ordered (since Ruby 1.9) key-value pairs and to use value, person has to reference it by specific key.
