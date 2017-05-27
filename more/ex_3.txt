@@ -1,0 +1,2 @@
+Exception handling runs specific code instead of printing error.
+It prevents from stopping the program, when error occurs.
