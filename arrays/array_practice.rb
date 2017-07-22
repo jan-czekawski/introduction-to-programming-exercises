@@ -113,8 +113,22 @@ p "NEXT"
 
 first = [1, 2, 3]
 second = Array.new(first)
-p first, second, first == second, first.equal?(second)
+p first, second, first.object_id, second.object_id, first == second, first.equal?(second)
 
 first = ["bobby", "jerry"]
 second = Array.new(first)
-p first, second, first == second, first.equal?(second)
+p first, second, first.object_id, second.object_id, first == second, first.equal?(second)
+
+p a = Array.new(2, Hash.new)
+a[0]["cat"] = "boss"
+a[1]["cat"] = "nass"
+p a
+
+p a = Array.new(2) { Hash.new }
+a[0]["cat"] = "boss"
+a[1]["cat"] = "nass"
+p a
+
+p Array.try_convert("1")
+p Array.try_convert(:boss)
+p Array.try_convert([1, 2, 3])
