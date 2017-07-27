@@ -151,3 +151,54 @@ a, b = [1, 2, 3, 30], [30, 40, 50]
 p a, b
 p a - b
 p a, b
+
+# assignment
+arr = [1, 2, 3, 4]
+p arr
+arr[2] = "boom"
+p arr
+arr << "jess" << "come" << "bull"
+p arr
+arr[1, 2] = "kazaam"
+p arr
+arr[2..4] = "abso", "lutely"
+p arr
+arr[1, 1] = "choose"
+p arr
+arr[0] = "boss", "bass"
+p arr
+arr[0, 0] = "case", "lays"
+p arr
+arr[0] = []
+p arr
+arr[-1] = []
+p arr
+arr[2..3] = []
+p arr
+arr[-2..-1] = []
+p arr
+
+arr = [1, nil, 3]
+p arr.any?
+arr = [1, 3, 5]
+p arr.any?(&:even?)
+
+a1 = ["boss", "nass", "jarr"]
+a2 = ["cherry", "apple", "martini"]
+a3 = "cake"
+
+arr = a1, a2, a3
+# arr = [a1, a2, a3] => same syntax
+p arr
+
+p arr.assoc("cherry")
+p arr.assoc("nass")
+p arr.rassoc("nass")
+p arr.assoc("cake")
+
+p arr
+arr.clear
+p arr
+p "#" * 100
+
+# p local_variables  
