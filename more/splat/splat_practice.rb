@@ -8,12 +8,18 @@ end
 
 go("a", "b", "c")
 
-def go(**params)
+# def go(params) #=> would accept hashes and other types; wouldn't accept w/o any argument
+def go(**params) # => would accept ONLY hashes, would accept w/o any argument
   p params
-  puts params.inspect
+  # puts params.inspect
 end
 
-go(x: 100, y: 200)
+go(x: 100, y: 200, z: 1000)
+# go(["boss"])
+# go("boss")
+# go()
+
+
 
 # to use array to pass multiple args
 def go(x, y)
@@ -29,8 +35,9 @@ def go(x:, y:)
 end
 
 point = { x: 30, y: 200 }
+# point = {}
 
-go(point)
+# go(point)
 go(**point)
 
 puts "#" * 100
@@ -77,6 +84,7 @@ puts "#" * 100
 x = *"bob"
 p x
 # BUT p x = *"bob" => SYNTAX ERROR
+# p x = *"bob"
 
 # unless they're nil => rets empty array
 x = *nil
@@ -110,9 +118,8 @@ config = {  }
 
 
 def add_ignores
-# def add_ignores(*args)
-  "scoundrels" # => could also be array like ["scoundrels", "foxes", "bosses"]
-  # args
+  # "scoundrels" 
+  ["scoundrels", "foxes", "bosses"] # => could also be array 
 end
 
 # def add_ignores(*args)
@@ -124,3 +131,85 @@ end
 config[:ignore] = [*config[:ignore], *add_ignores]
 
 p config
+
+# https://blog.simplificator.com/2015/03/20/ruby-and-the-double-splat-operator/
+
+# variable length argument
+def single_splat(argument, *rest)
+  puts "#{rest.size} additional argument(s)"
+end
+
+single_splat("howdy")
+single_splat("howdy", :foo)
+single_splat("howdy", :foo, :bar, :baz)
+
+# unpack values from array
+def unwrapped(a, b, c)
+  puts "#{a} / #{b} / #{c}"
+end
+
+data = [1, 2, 3]
+
+unwrapped(*data)
+# unwrapped(data) => argument error
+
+
+
+# coerce values to arrays
+coerced = *"Hello World"
+p coerced
+
+coerced = *nil
+p coerced
+
+coerced = *[1, 2, 3]
+p coerced
+
+coerced = *{h: 10, i: 20}
+p coerced
+
+
+# to deconstruct arrays
+data = [1, 2, 3, 4]
+
+first, *rest = data
+puts "#{first}, #{rest}"
+
+*list, last = data
+puts "#{list}, #{last}"
+
+first, *center, last = data
+puts "#{first}, #{center}, #{last}"
+
+first, second, *center, third, fourth = data
+puts "#{first}, #{second}, #{center}, #{third}, #{fourth}"
+
+# double splat (since ruby 2.0) behaves similarly for hashes in arg list
+def double_splat(**hash)
+  p hash
+end
+
+double_splat()
+# double_splat(nil) # => arg error
+double_splat(a: 1)
+double_splat(a: 1, b: 2)
+# double_splat('a non hash argument') => arg error
+
+# ** vs standard arg
+def standard_argument(hash = {})
+  puts hash
+end
+
+standard_argument()
+standard_argument(nil) # => rets no hash => nil
+
+
+
+# common in rails
+def extracted_options(*names, **options)
+  puts "#{names} / #{options}"
+end
+
+extracted_options()
+extracted_options('pascal', 'lukas', color: '#123456', offset: 3, other_option: :foo)
+extracted_options("Patrick", "Michal", "John", h: 10, i: 20, j: 30)
