@@ -169,3 +169,40 @@ result = [1, 2, 3].each do |value|
          end
 
 p result
+
+
+# next
+result = [1, 2, 3].map do |value|
+           next value * 10 if value.even?
+           value * 2
+         end
+p result
+
+result = [1, 2, 3].map do |value|
+           next if value.even?
+           value * 2
+         end
+p result
+
+
+# redo
+res = Array.new
+
+while res.size < 10
+  res << res.size
+  redo if res.last.even?
+  res << res.size + 1
+end
+
+p res
+p 0.even? # => true
+
+
+# flip-flop
+selected = Array.new
+0.upto(10) do |value|
+  # selected << value if value == 2..value == 2
+  selected << value if value == 2...value == 2
+end
+
+p selected
