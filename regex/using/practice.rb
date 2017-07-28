@@ -9,26 +9,28 @@ strings.each do |str|
   end
 end
 
-fetch_url(text) if text.match(/\Ahttps?:\/\/\S+\z/)
+# fetch_url(text) if text.match(/\Ahttps?:\/\/\S+\z/)
 
-fetch_url(text) if text =~ /\Ahttps?:\/\/\S+\z/
+# fetch_url(text) if text =~ /\Ahttps?:\/\/\S+\z/
 
 record = "xyz\tabscas\t123423\tabs023"
-fields = record.split("\t")
+p fields = record.split("\t")
 
 record = "xyzz  3456    \t   3334\t\t\tabc"
-fields = record.split(/\s+/)
+p fields = record.split(/\s+/)
 
-"abc:xyz".split(/:*/)
+p "abc:xyz".split(/:*/)
+p "abc:xyz".split(/:+/)
 
 string = "'house\" is a great \"tv show'"
 # capture = string.match(/['"].+['"]/)
 capture = string.match(/['"].+?['"]/)
+p capture[0]
 capture = string.match(/(['"]).+?\1/)
 p capture[0]
 
 text = "Four score and seven"
-voweless = text.gsub(/[aeiou]/, "")
+p voweless = text.gsub(/[aeiou]/, "")
 
 text = %(We read "War of the Worlds".)
 puts text.sub(/(['"]).+\1/, '\1The Time Machine\1')

@@ -25,7 +25,7 @@ strings.each do |str|
 end
 
 regexes = [/\d/, /\D/, /\h/, /\H/]
-strings = ["Launch School", "July 4th, 1776", "0xABCDef12"]
+strings = ["Launch School", "July 4th, 1776", "0xABCDef12"] # => 'x' is \H
 
 strings.each do |str|
   regexes.each do |regex|

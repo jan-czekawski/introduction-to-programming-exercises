@@ -1,7 +1,7 @@
 str = "Four score + seven"
 
-regexes = [/[FX]/, /[e+]/, /[abAB]/, /[*+]/]
-
+regexes = [/[FX]/, /[e+]/, /[abAB]/, /[*+]/] # => [*+] matches "*" and "+"
+                                             # => *+ => 1 or more; 0 or more (only quantifiers) 
 regexes.each do |regex|
   puts "#{str} matches #{regex}" if str.match(regex)
   puts "#{str} does not match #{regex}" unless str.match(regex)

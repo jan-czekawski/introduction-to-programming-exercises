@@ -1,7 +1,7 @@
 regexes = [/\b\d\d\d\d*\b/]
 strings = ["Four and 20 black birds", "365 days in a year, 100 years in a century.",
            "My phone number is 222-555-1212.", "My serial number is 345678912."]
-
+                            # => before and after "-" there's \b word boundry
 strings.each do |str|
   regexes.each do |regex|
     puts "#{str} matches #{regex}" if str.match(regex)
