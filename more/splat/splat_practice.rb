@@ -100,7 +100,6 @@ x = *{h: 10, t: 11}
 p x
 
 
-
 puts "#" * 100
 
 # let's say you want to create array of strings
@@ -112,7 +111,7 @@ puts "#" * 100
 
 
 # your config hash, may or may not have an array :ignore
-config = {  }
+config = { ignore: ["choose", "boss"] }
 
 # callback function might return array, or might return single item (string)
 
@@ -213,3 +212,41 @@ end
 extracted_options()
 extracted_options('pascal', 'lukas', color: '#123456', offset: 3, other_option: :foo)
 extracted_options("Patrick", "Michal", "John", h: 10, i: 20, j: 30)
+extracted_options("Patrick", "Michal", "John", h: 10, i: 20, j: 30, &:even?)
+extracted_options("Patrick", h: 10, &:even?)
+
+
+def my_meth(*args)
+  args
+end
+
+hash = { }
+hash[:ignore] = nil # => no coersion, cause it's only unpacking array
+# hash[:ignore] = *hash[:ignore]
+hash[:ignore] = [*hash[:ignore], *my_meth(10, 20, 30)]
+p hash
+
+hash[:ignore] = [*hash[:ignore], *my_meth(10)]
+p hash
+
+hash[:ignore] = [*hash[:ignore], *my_meth("check")]
+p hash
+
+def sec_meth
+  "case"
+end
+
+hash[:ignore] = [*hash[:ignore], *sec_meth()]
+p hash
+
+hash[:ignore] = [*hash[:ignore], sec_meth()]
+p hash
+
+a = sec_meth()
+b = *sec_meth()
+p a, b
+
+arr = ["boss", "choose", *"case"]
+p arr
+arr = ["boss", "choose", *["case"]]
+p arr

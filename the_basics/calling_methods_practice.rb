@@ -105,3 +105,81 @@ end
 my_meth2(200, 1000) do |x, y|
   p x + 1, y + 1
 end
+
+# local block argument => by using ; before arguments name
+def my_method
+  yield(self)
+end
+
+place = "world"
+
+my_method do |obj;place|
+# my_method do |obj|
+  place = "block"
+  puts "Hello #{obj} this is #{place}"
+end
+puts "Place is #{place}"
+
+
+def my_method(a, b, c)
+  p [a: a, b: b, c: c]
+end
+
+arr = [100, 200, 300]
+my_method(*arr)
+arr = [200, 300]
+my_method(1, *arr)
+
+# if method accepts keyword args, splat will convert hash at the end of array
+# into keyword args
+def my_method(a, b, d, c: 3)
+  p [a, b, c, d]
+end
+
+args = [1, 2, { c: 4 } ]
+my_method(*args)
+
+
+# using ** to conv hash to keyword args
+def my_method(a: 1, b: 2, c: 3)
+  p a: a, b: b, c: c
+end
+
+hash = { a: 999, b: 99, c: 9 }
+my_method(**hash)
+
+hash = { a: 100, b: 200 }
+my_method(c: 300, **hash)
+
+# if * and ** are present in the args, ** would gather only keyword args (not hash args)
+# * would gather remaining types
+def my_method(*a, **kw)
+  p arguments: a, keywords: kw
+end
+
+my_method(1, 2, "3" => 4, five: 6)
+my_method(1, 2, three: 4, "5" => 6)
+my_method(1, 2, three: 4, "5" => 6, seven: 8)
+my_method(1, 2, "3" => 4, "5" => 6)
+
+def my_method(**kw)
+  p kw
+end
+
+my_method(:home => "3", tom: "boss", :jerry => "tom")
+my_method(home: "3", jerry: "tom")
+
+
+# proc to block conversion
+def my_method(*args)
+  # yield()
+  # yield(self)
+  # yield("booyaka")
+  # yield("booyaka", "come and get it")
+  yield(args)
+end
+data = [1, 2, 3]
+argument = proc { |a| puts "#{a.inspect} was yielded"}
+# argument = proc { |*a| puts "#{a.inspect} was yielded"}
+my_method(1, 2, &argument)
+my_method(1, 2, *data, &argument)

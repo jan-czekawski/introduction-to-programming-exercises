@@ -152,7 +152,8 @@ p dd
 
 # same as above
 class E
-  attr_accessor :value
+  # attr_accessor :value
+  attr_writer :value
 end
 
 ee = E.new
