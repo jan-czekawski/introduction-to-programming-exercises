@@ -259,3 +259,65 @@ end
 my_method(11, [22, 33], 34)
 my_method(11, [22, 33, 100, 200], 34)
 my_method(11, [22], 34) # => c is empty array in this case
+
+def my_method(((a, b), c))
+  p a: a, b: b, c: c
+end
+
+# my_method(10, 20, 30) => error
+my_method([10, 20, 30])
+my_method([[100, 200], 20, 30])
+my_method([[100, 200, 300], 20, 30])
+my_method([[100, 200, 300]])
+my_method("home")
+
+p "array/hash"
+# array/hash argument
+
+def gather_arg(*arg)
+  p arg: arg
+end
+
+gather_arg(1, 2, 3)
+gather_arg(1, 2, c: 3)
+gather_arg(1, 2, :c => 3)
+gather_arg(1, 2, :c => 3, d: 10)
+gather_arg(1, 2, :c => 3, d: 10, :e => 100) # => all into the same hash
+# gather_arg(1, 2, :c => 3, d: 10, :e => 100, "hello") # => error
+
+def gather_arg(*arg, key: "default")
+  p arg: arg, key: key
+end
+
+gather_arg(10, 20, 30, key: 2)
+# gather_arg(10, 20, 30, key: 2, 20) # => error
+gather_arg(10, 20, 30)
+gather_arg(10, 20, 30, key: 200)
+
+# gather_arg(10, 20, 30, key: 2, 20) # => error
+
+
+# to ignore arguments
+def ignore(*)
+  10 + 20 + 30
+end
+
+p ignore(100, 20, 300)
+p ignore(100)
+p ignore(["hope"])
+
+# keyword arguments
+def add_value(first: 1, second: 2)
+  first + second
+end
+
+def gather_args(first: nil, **rest)
+  p first, rest
+end
+
+gather_args(first: 1, second: 2, third: 3, fourth: 4)
+
+# blocks
+def my_method(&my_block)
+  my_block.call(self)
+end
