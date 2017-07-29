@@ -102,3 +102,160 @@ def a=(value)
 end
 
 p a=(11)
+
+# scope
+
+def my_method
+  # scop
+end
+
+class A
+  # instance method => accessed by instance of the class => objects
+  def my_method
+    puts "change"
+  end
+  
+  # class method => accessed by class, its subclasses
+  def self.second_method
+    puts "home"
+  end
+end
+
+class AA < A
+end
+
+a = A.new
+p a
+
+a.my_method
+# a.second_method  # => error, second method is class method
+A.second_method
+
+
+aa = AA.new
+aa.my_method
+# aa.second_method  # => error
+AA.second_method
+
+# adding method to an object
+greeting = "Hello"
+
+def greeting.broaden
+  self + ", world!"
+end
+
+p greeting
+p greeting.broaden
+
+# p "boss".broaden # => other strings can't use that method
+# p String.broaden # => nor String class
+
+def String.mate
+  "Oy mate!"
+end
+
+# p mate # => error, cause that method is on String class
+# p "string".mate # => error, cause it's an instance of a class String
+p String.mate
+
+# overriding
+p "42".to_i
+
+# class String
+#   def to_i
+#     100
+#   end
+# end
+
+# p "42".to_i
+# p "home".to_i
+
+# arguments
+def add_one(value)
+  value + 1
+end
+
+p add_one(100)
+
+def add_one value
+  value + 1
+end
+
+p add_one(100)
+
+def add_args(a, b)
+  a + b
+end
+
+p add_args(11, 200)
+
+p "#" * 100
+
+# default values
+def add_values(a, b = 1)
+  a + b
+end
+
+p add_values(10, 20)
+p add_values(10)
+
+def add_values(a = 2, b = 7, c)
+  a + b + c
+end
+
+p add_values(10)
+p add_values(10, 2)
+p add_values(10, 2, 20)
+
+# def add_values(a = 2, b, c = 23) # => syntax error
+#   a + b + c
+# end
+
+p add_values(1)
+
+# array decomposition
+# def my_method(a, b) # => ArgError w/o (1 arg)
+def my_method((a, b))
+  # a: a, b: b # => error
+  # [a: a, b: b] # => ok
+  p a: a, b: b # => ok
+end
+
+my_method(["hope", "man"])
+# my_method(["hope", "man"], "check") # => ArgError (2 args)
+my_method("string")
+my_method("string".split(""))
+
+
+def my_method((a, b))
+  p a: a, b: b
+end
+
+my_method([1, 2, 3])
+
+def my_method((a, *b))
+  p a: a, b: b
+end
+
+my_method([1, 2, 3, 4])
+
+def my_method(a, (b, c), d)
+  p a: a, b: b, c: c, d: d
+end
+
+my_method(11, [22, 33], 34)
+my_method(11, [22, 33, 100, 200], 34)
+my_method(11, [22], 34) # => c is nil in this case
+my_method(11, 22, 34)
+my_method(11, "ehllo", 34)
+my_method(11, { h: 10 }, 34)
+
+p "splat"
+
+def my_method(a, (b, *c), d)
+  p a: a, b: b, c: c, d: d
+end
+
+my_method(11, [22, 33], 34)
+my_method(11, [22, 33, 100, 200], 34)
+my_method(11, [22], 34) # => c is empty array in this case
