@@ -317,7 +317,42 @@ end
 
 gather_args(first: 1, second: 2, third: 3, fourth: 4)
 
+def hate(a: 10, b:, c: 20)
+  p a: a, b: b, c: c
+end
+
+hate(b: 20)
+# hate(a: 20) # => argerror
+hate(b: 300, c: 100, a: 200)
+# hate(c: 1000, a: 200) # => argError
+
 # blocks
 def my_method(&my_block)
   my_block.call(self)
 end
+
+def each_item(&block)
+  @items.each(&block)
+end
+
+def my_method
+  yield(self)
+end
+
+# exception handling
+def my_method
+  begin
+    # code that might raise an exception
+  rescue
+    # code run when exception was raised => handle exception
+  end
+end
+
+def my_method
+  a + 10
+  rescue => mess
+  puts "we don't know the name a"
+  warn(mess.message)
+end
+
+my_method
