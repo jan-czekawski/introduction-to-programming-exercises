@@ -111,7 +111,7 @@ puts "#" * 100
 
 
 # your config hash, may or may not have an array :ignore
-config = { ignore: ["choose", "boss"] }
+config = { :ignore => ["boss", "nass"] }
 
 # callback function might return array, or might return single item (string)
 
@@ -128,6 +128,10 @@ end
 
 # no matter what you start with, you get an array of things to ignore
 config[:ignore] = [*config[:ignore], *add_ignores]
+# config[:ignore] = add_ignores # => if string => returns string
+# config[:ignore] = *add_ignores
+# config[:ignore] = [add_ignores] # => if array => returns array of arrays
+# config[:ignore] = [*add_ignores]
 
 p config
 

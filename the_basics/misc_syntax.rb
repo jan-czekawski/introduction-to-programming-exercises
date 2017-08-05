@@ -97,9 +97,11 @@ def my_method(a)
   # BEGIN {                   # => error
   #   puts "at the begining"
   # }
-  END {
+  END {                       # => warning
     puts "no error only warning"
   }
 end
+
+my_method(1)
 
 # ruby -ne 'BEGIN { count = 0 }; END { puts count }; count += gets.to_i'

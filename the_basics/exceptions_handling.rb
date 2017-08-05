@@ -62,3 +62,14 @@ else
 ensure
   puts "regardless of exceptions"
 end
+
+boss = NoMethodError.new("undefined method for #{self}")
+
+begin
+  raise(boss)
+# rescue ArgumentError
+rescue NoMethodError => exc
+  p "exception is rescued"
+end
+
+p exc

@@ -20,7 +20,7 @@ p hello
 # unary methods
 class C
   def -@
-    puts "you inverted this object"
+    puts "#{self} you inverted this object"
   end
 end
 
@@ -104,7 +104,6 @@ end
 p a=(11)
 
 # scope
-
 def my_method
   # scop
 end

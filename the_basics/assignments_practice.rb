@@ -164,8 +164,8 @@ p ee
 # You must always have a receiver (instance var) => otherwise ruby'll think 
 # you want to assign local var
 class F
-  # attr_reader :value # => only method value works
-  # attr_writer :value # => only value=
+  # attr_reader :value # => only method .value works
+  # attr_writer :value # => only .value=
   attr_accessor :value # => both
   
   def my_method
@@ -216,7 +216,7 @@ self.value, $global = 1, 2
 p $global
 
 
-# can use multipla assignment to swap values
+# can use multiple assignment to swap values
 old_value = 1
 new_value, old_value = old_value, 2
 
@@ -241,3 +241,4 @@ p a: a, b: b, c: c
 a, (b, *c), *d = 1, [2, 3, 4], 5, 6 # => each decomposition is assignment => more splats
 # # a, b, *c, *d = 1, [2, 3, 4], 5, 6 # => error => 2 splats!! in 1 assignment
 p a: a, b: b, c: c, d: d
+

@@ -70,7 +70,8 @@ def my_key(h, i)
   p [h, i]
 end
 
-# my_key(h: 999, i: 1000) => arg error
+# my_key(h: 999, i: 1000) #=> arg error (1 given, expected 2)
+my_key(100, h: 999, i: 1000) #=> OK
 
 def first_method(*arg)
   p "first start"
@@ -113,7 +114,10 @@ end
 
 place = "world"
 
-my_method do |obj;place|
+# my_method do |obj;place|
+# my_method do |obj, ;place|
+# my_method do |obj,;place|
+my_method do |obj, place|
 # my_method do |obj|
   place = "block"
   puts "Hello #{obj} this is #{place}"
@@ -134,7 +138,11 @@ my_method(1, *arr)
 # into keyword args
 def my_method(a, b, d, c: 3)
   p [a, b, c, d]
+  p a: a, b: b, c: c, d: d
 end
+
+args = [1, 2, 10, { c: 4 } ]
+my_method(*args)
 
 args = [1, 2, { c: 4 } ]
 my_method(*args)
@@ -151,16 +159,27 @@ my_method(**hash)
 hash = { a: 100, b: 200 }
 my_method(c: 300, **hash)
 
-# if * and ** are present in the args, ** would gather only keyword args (not hash args)
-# * would gather remaining types
+# if * and ** are present in the args, ** would gather only keyword args and hash args (symbols)
+# * would gather remaining types (including hash args (keys = not symbols)
 def my_method(*a, **kw)
   p arguments: a, keywords: kw
 end
 
+# if key in hash arg is not symbol => it's gathered by *
+# if key in hash arg is symbol => it's gathered by **
 my_method(1, 2, "3" => 4, five: 6)
+my_method(1, 2, [3] => 4, five: 6)
+my_method(1, 2, {ten: 10} => 4, five: 6)
+
+my_method(1, 2, :three => 4, five: 6)
 my_method(1, 2, three: 4, "5" => 6)
-my_method(1, 2, three: 4, "5" => 6, seven: 8)
+my_method(1, 2, three: 4, :five => 6, seven: 8)
+
 my_method(1, 2, "3" => 4, "5" => 6)
+my_method(1, 2, :"3" => 4, :"5" => 6)
+my_method(1, 2, :three => 4, :five => 6)
+my_method(1, 2, :three => 4, "five" => 6)
+my_method(1, 2, :"three" => 4, :"five" => 6)
 
 def my_method(**kw)
   p kw
@@ -183,3 +202,4 @@ argument = proc { |a| puts "#{a.inspect} was yielded"}
 # argument = proc { |*a| puts "#{a.inspect} was yielded"}
 my_method(1, 2, &argument)
 my_method(1, 2, *data, &argument)
+my_method(1, 2, data, &argument)

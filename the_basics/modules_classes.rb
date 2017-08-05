@@ -148,13 +148,44 @@ end
 class J < I
 end
 
+class K < J
+end
+
 h = H.new
 i = I.new
 j = J.new
+k = K.new
 
 p j.n(i) # => J is subclass of I
+p k.n(i) # => K is sub-subclass of I
+p k.n(j) # => K and J are subclasses of I
+p i.n(j) # => J is subclass of I, I is defining class
 p i.n(i) # => m called on defining class (I)
 # p h.n(i)  # => error H is NOT subclass of I
+
+class Oompa
+  def home
+    "oompa home"
+  end
+end
+
+p Oompa.new.home
+
+class Loompa < Oompa
+  def lost
+    # self.second # => error, can't be called with ANY receiver (self included)
+    second
+  end
+  
+  private
+  
+  def second
+    "loompa home"
+  end
+end
+
+# p Loompa.new.second # => error, Loompa.new is a receiver
+p Loompa.new.lost # => OK, because .lost is a public method, which calls private method .second
 
 # classes
 class MyClass

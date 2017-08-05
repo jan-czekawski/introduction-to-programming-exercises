@@ -39,9 +39,9 @@ c = C.new(b, a)
 serial_object = Marshal::dump(c)
 puts Marshal::load(serial_object)
 
-serialized_object = YAML::dump(c)
-# puts serialized_object
-puts YAML::load(serialized_object)
+# serialized_object = YAML::dump(c)
+# # puts serialized_object
+# puts YAML::load(serialized_object)
 
 File.open("marshal_print.dat", "w") do |file|
   (1..10).each do |index|

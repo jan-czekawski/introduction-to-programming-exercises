@@ -95,7 +95,7 @@ result = <<~'HEREDOC'
 p result
 
 result = <<~`HEREDOC`
-cat #{__FILE__}
+cat {__FILE__}
         HEREDOC
 
 # p result

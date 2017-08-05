@@ -83,6 +83,9 @@ else
 end
 
 p /^1/ == "12345"
+p /^1/ === "12345"
+p /^1/ =~ "12345"
+p "12345".match(/^1/)
 
 case "2"
 when /^1/, "2"
@@ -165,14 +168,16 @@ c = values.each do |value|
 p c
 
 result = [1, 2, 3].each do |value|
-           break value * 2 if value.even?
+          break value * 2 if value.even?
          end
 
 p result
 
 
 # next
-result = [1, 2, 3].map do |value|
+p "NEXT"
+# result = [1, 2, 3].each do |value|  # => returns [1, 2, 3]
+result = [1, 2, 3].map do |value|     # => returns [2, 20, 6] 
            next value * 10 if value.even?
            value * 2
          end

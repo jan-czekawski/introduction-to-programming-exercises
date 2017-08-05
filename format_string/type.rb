@@ -1,4 +1,3 @@
-=begin
 # INTEGERS
 str = 123
 # binary
@@ -39,8 +38,8 @@ puts format("%.4E", str)
 puts format("%.4f", str)
 puts format("%.1f", str)
 puts format("%.100f", str)
-puts 1.32 == format("%.100f", str)
-puts str == format("%.100f", str)
+puts 1.32 == format("%.100f", str) # => it's int == string
+puts str == format("%.100f", str) # => it's int == string
 puts str == 1.32
 
 # exp for small numbers
@@ -175,7 +174,7 @@ p format("%-+20d", 123)
 p format("%- 20d", 123)
 p format("%020x", -123)
 
-=end
+
 # precision
 
 # min num of digits
@@ -218,6 +217,7 @@ p format("%20.20s", "string test")
 
 # EXAMPLES
 p format("%d %04x", 123, 123)
+p format("%d %0x", 123, 123)
 p format("%08b '%4s'", 123, 123)
 p format("%016b '%4s'", 123, 123)
 p format("%1$*2$s %2$d %1$s", "hello", 8)
@@ -234,6 +234,58 @@ p format("%<foo>d : %<bar>e", { :foo => 1, :bar => 2})
 p format("%{foo}f", { :foo => 1 })
 
 
+# def likes(names)
+#   formats = [
+#     'no one likes this',
+#     '%s likes this',
+#     '%s and %s like this',
+#     '%s, %s and %s like this'
+#   ]
+#   if names.length > 3
+#     return '%s, %s and %d others like this' % [names[0], names[1], names.length - 2]
+#   else
+#     return formats[names.length] % names
+#   end
+# end
+
+# # p likes(["Mike", "John", "Mary", "Hobbit"])
+
+# p "%s hates %s" % ["Mike", "Jerry"]
+# p "%s hates %s and he is %d feet tall" % ["Mike", "Jerry", "Boy".size]
+# p format("%s hates %s and he is %d feet tall", "Mike", "Jerry", "Boy".size)
+# p sprintf("%s hates %s and he is %d feet tall", "Mike", "Jerry", "Boy".size)
+
+p "%s hates %s and he is %b feet tall" % ["Mike", "Jerry", "Boy".size * 200]
+p "%s hates %s and he is %o feet tall" % ["Mike", "Jerry", "Boy".size * 200]
+p "%s hates %s and he is %x feet tall" % ["Mike", "Jerry", "Boy".size * 200]
+p "%s hates %s and he is %.2f feet tall" % ["Mike", "Jerry", "Boy".size * 200]
+p "%s hates %s and he is %g feet tall" % ["Mike", "Jerry", "Boy".size * 200]
+p "%s hates %s and he is %.3g feet tall" % ["Mike", "Jerry", "Boy".size * 200]
+p "%s hates %s and he is %.2g feet tall" % ["Mike", "Jerry", "Boy".size * 200]
+p "%s hates %s and he is %g feet tall" % ["Mike", "Jerry", "Boy".size / 20.0]
+p "%s hates %s and he is %g feet tall" % ["Mike", "Jerry", "Boy".size / 200000.0]
+p "%s hates %s and he is %G feet tall" % ["Mike", "Jerry", "Boy".size / 200000.0]
+p "%s hates %s and he is %a feet tall" % ["Mike", "Jerry", "Boy".size]
+p "%s hates %s and he is %a feet tall" % ["Mike", "Jerry", "Boy".size * 200]
+p "%s hates %s and he is %a feet tall" % ["Mike", "Jerry", "Boy".size / 2000000.0]
+p "%s hates %s and he is %A feet tall" % ["Mike", "Jerry", "Boy".size / 2000000.0]
 
 
+p "%p hates %s and he is %c feet tall" % ["Mike", "Jerry", "Boy".size * 10]
+p "%p hates %s and he is %c feet tall" % ["Mike", "Jerry", "Boy".size * 100]
+p "%p hates %s and he is %c feet tall" % ["Mike", "Jerry", "Boy".size * 1000]
+p "%p hates %s and he is %c feet tall" % ["Mike", "Jerry", "B"]
+p "%% hates %s and he is %c feet tall" % ["Mike", "B"]
 
+p "%10.2s hates %20.3s and he is %.2g feet tall" % ["Mike", "Jerry", 121]
+p "%-10.2s hates %20.3s and he is %.2g feet tall" % ["Mike", "Jerry", 121]
+p "%-10.2s hates %20.3s and he is %10.2g feet tall" % ["Mike", "Jerry", 121]
+p "%10.2s hates %-20.3s and he is %010.2g feet tall" % ["Mike", "Jerry", 121]
+
+p "classic: %1$d %2$s" % [30, "Hope"]
+p "change width: %1$*1$d %2$s" % [30, "Hope"]
+p "change width: %1$d %2$*1$s" % [30, "Hope"]
+p "change width: %1$d %-2$*1$s" % [30, "Hope", "Mary", "Jerry"]
+p "change width: %1$d %2$*1$s %4$s %3$*1$s" % [30, "Hope", "Mary", "Jerry"]
+p "His name is %<name>s and he's a %<occupation>s. He's %<age>s years old and %<height>s feet tall!" % 
+  { name: "Jerry", occupation: "Comedian", age: 35, height: 6 }
