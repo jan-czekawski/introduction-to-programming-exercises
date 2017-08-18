@@ -220,7 +220,8 @@ class BB < AA
   end
 end
 
-p BB.new.z
+p BB.new.c
+# p AA.new.c # => NoMethodError
 
 class AA
   def x
@@ -309,3 +310,68 @@ end
 p o, r
 p o.my_method, r.my_method
 
+class ZZZ
+end
+
+class << ZZZ
+  def home
+    "et wan't go home"
+  end
+end
+
+p ZZZ.home
+p ZZZ.methods.grep(/home/)
+
+class XXX < ZZZ
+end
+
+p XXX.home
+p XXX.methods.grep(/home/)
+
+class << ZZZ
+  alias :boy :home
+end
+
+p ZZZ.boy
+p XXX.boy
+
+p "UNDEFINE"
+
+class << ZZZ
+  undef :home
+end
+
+# class AAAA
+#   def self.check
+#     "check please"
+#   end
+# end
+
+# class BBBB < AAAA
+# end
+
+# p AAAA.check
+# p BBBB.check
+
+# class AAAA
+#   remove_method :check
+# end
+
+p ZZZ.boy
+p XXX.boy
+# p ZZZ.home
+# p XXX.home
+
+class << ZZZ
+  alias :girl :boy
+end
+
+p ZZZ.girl
+p XXX.girl
+
+class << ZZZ
+  remove_method :boy
+end
+
+p ZZZ.girl
+# p ZZZ.boy

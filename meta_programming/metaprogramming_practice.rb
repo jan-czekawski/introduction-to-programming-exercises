@@ -1,5 +1,8 @@
 # http://rubylearning.com/blog/2010/11/23/dont-know-metaprogramming-in-ruby/
 
+# http://ruby-metaprogramming.rubylearning.com/
+
+
 # adding method in context of an object
 
 # new instance of Object
@@ -30,7 +33,7 @@ class MyClass
   end
 end
 
-print MyClass.capitalize_name
+p MyClass.capitalize_name
 
 # same thing different syntaxes
 
@@ -61,7 +64,7 @@ end
 
 # WRITING CODES THAT WRITES CODE
 
-# app to store and access car's data on models
+# application to store and access car's data on models
 
 class CarModel
   def engine_info=(info)
@@ -73,7 +76,7 @@ class CarModel
   end
   
   def engine_price=(price)
-    @engine_price
+    @engine_price = price
   end
   
   def engine_price
@@ -130,8 +133,8 @@ class CarModel
   # define class macro for setting features
   def self.features(*args)
     args.each do |feature|
-      # attr_accessor "#{feature}_price", "#{feature}_info"
-      attr_accessor :"#{feature}_price", :"#{feature}_info"
+      attr_accessor "#{feature}_price", "#{feature}_info"
+      # attr_accessor :"#{feature}_price", :"#{feature}_info"
     end
   end
   
@@ -173,6 +176,7 @@ class MyGhostClass
     if name.to_s =~ /awesome/
       puts "#{name} was called with arguments: #{args.join(",")}"
     else
+      # goes to superclass upto BasicObject
       super
     end
   end

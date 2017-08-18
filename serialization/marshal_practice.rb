@@ -16,7 +16,7 @@ class B
   end
   
   def to_s
-    "In B: #{@number} \n #{@a_object.to_s}\n"
+    "In B: #{@number} \n #{@a_object}\n"
   end
 end
 

@@ -281,8 +281,19 @@ gather_arg(1, 2, 3)
 gather_arg(1, 2, c: 3)
 gather_arg(1, 2, :c => 3)
 gather_arg(1, 2, :c => 3, d: 10)
+gather_arg(1, 2, :c => 3, "d" => 10, e: 999) # => doesn't care if key is a string
 gather_arg(1, 2, :c => 3, d: 10, :e => 100) # => all into the same hash
 # gather_arg(1, 2, :c => 3, d: 10, :e => 100, "hello") # => error
+
+p "without splat"
+def gather_arg(arg)
+  p arg: arg
+end
+
+gather_arg(2)
+gather_arg(4)
+gather_arg(c: 3, d: 10, :e => 100, f: 999)
+gather_arg(c: 3, "d" => 10, :e => 100, f: 999) # => doesn't care if key is a string
 
 def gather_arg(*arg, key: "default")
   p arg: arg, key: key
@@ -324,6 +335,18 @@ hate(b: 20)
 # hate(a: 20) # => argerror
 hate(b: 300, c: 100, a: 200)
 # hate(c: 1000, a: 200) # => argError
+
+def take(*args, **options)
+  p "#{args}/#{options}"
+end
+
+take(1, 2, 3, 4, c: 10, d: 20, e: 30)
+take(1, 2, 3, 4, c: 10, :d => 20, e: 30)
+take(1, 2, 3, 4, c: 10, "d" => 20, e: 30)
+take(1, 2, 3, 4, "c" => 10, "d" => 20, e: 30)
+take(1, 2, 3, 4, "d" => 10, "d" => 20, e: 30)
+take(1, 2, 3, 4, :c => 10, :d => 20, e: 30)
+# take(1, 2, 3, 4, :c => 10, :d => 20, e: 30, 20) # => error
 
 # blocks
 def my_method(&my_block)
