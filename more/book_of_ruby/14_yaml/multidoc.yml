@@ -1,0 +1,40 @@
+---
+- - abba
+  - gamma
+  - beta
+- - 10
+  - 20
+  - 30
+---
+- !ruby/range
+  begin: 1
+  end: 20
+  excl: false
+- !ruby/range
+  begin: 30
+  end: 50
+  excl: true
+- !ruby/range
+  begin: 100
+  end: 900
+  excl: true
+---
+- - 100
+  - 200
+  - 300
+- - 400
+  - 500
+  - 600
+---
+- !ruby/object:Set
+  hash:
+    1: true
+    2: true
+    3: true
+    4: true
+    5: true
+- !ruby/object:Set
+  hash:
+    10: true
+    20: true
+    30: true

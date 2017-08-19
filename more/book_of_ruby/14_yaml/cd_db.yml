@@ -1,0 +1,16 @@
+---
+- !ruby/object:PopCD
+  name: Ooops, I did it again.
+  artist: Britney Spears
+  num_tracks: 12
+  genre: Pop
+- !ruby/object:CD
+  name: Americana
+  artist: Offspring
+  num_tracks: 10
+- !ruby/object:ClassicalCD
+  name: Rocky Soundtrack
+  artist: Bill Conti
+  num_tracks: 15
+  conductor: Bill Conti
+  composer: Hans Zimmer
