@@ -17,6 +17,11 @@ class MyClass
     def use_ob(ob)
       ob.pub
       ob.prot
+      prot
+      p "private without any receiver:"
+      priv
+      # self.priv # => not even self
+      p "but private with receiver aaaaand"
       ob.priv
     end
 end

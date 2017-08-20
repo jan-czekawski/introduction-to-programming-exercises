@@ -31,7 +31,7 @@ boxes = [MyClass.new("box1 is empty"),
 boxes.each do |item|
   item.say_something
   item.congratulate if item.singleton_methods.include?(:congratulate)
-  # item.congratulate if item.respond_to?(:congratulate)
+  # item.congratulate if item.respond_to?(:congratulate) # => same result
 end
 
 p starprize.singleton_methods
