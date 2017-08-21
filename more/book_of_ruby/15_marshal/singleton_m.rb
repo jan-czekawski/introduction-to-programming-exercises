@@ -21,9 +21,19 @@ end
 
 ob.xxx("new string")
 p ob
+p ob.singleton_methods
 
 File.open("test.yml") do |f|
   ob = YAML.load(f)
 end
 
 p ob
+p ob.singleton_methods
+
+begin
+  ob.xxx("hope")
+rescue => e
+  p e
+  p e.backtrace
+  p caller
+end
