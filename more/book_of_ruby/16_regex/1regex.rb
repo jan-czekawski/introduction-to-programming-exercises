@@ -2,6 +2,8 @@ regex1 = Regexp.new("^[a-z]*$")
 regex2 = /^[a-z]*$/
 regex3 = %r(^[a-z]*$)
 
+"holla holla"
+
 p regex1
 p regex1 == regex2
 p regex1 == regex3
