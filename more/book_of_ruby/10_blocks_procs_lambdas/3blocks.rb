@@ -8,6 +8,7 @@ b.call(200)
 # b.call(200, 300, 400) # => arg error
 
 c = proc { |x| x.capitalize! }
+# c = proc { |x| x.capitalize }
 
 c1 = c.call("hello")
 p c1
@@ -17,6 +18,7 @@ p c1
 
 
 # d = lambda { |x| x.capitalize! }
+# d = ->(x){ x.capitalize }
 d = ->(x){ x.capitalize! }
 d1 = ["hello", "good day", "how do you do"].each { |s| d.call(s) }
 puts d1.inspect

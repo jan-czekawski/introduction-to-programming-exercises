@@ -52,3 +52,4 @@ def home
 end
 
 p eval(:home.id2name)
+p eval(:home.to_s)

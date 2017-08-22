@@ -7,7 +7,7 @@ multi_arr = [ ["one", "two", "three", "four"],
               [1,     2,     3,       4],
               [:a,    :b,    :c,      :d],
               [1.1,   2.2,   3.3,     4.4 ] ]
-   
+
 p "first try".upcase           
 multi_arr[0].length.times do |i|
   puts multi_arr[0][i], multi_arr[1][i]

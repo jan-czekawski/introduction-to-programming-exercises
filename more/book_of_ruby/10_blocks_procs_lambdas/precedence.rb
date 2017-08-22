@@ -25,6 +25,7 @@ end
 
 p "do/end"
 foo bar do |s|
+# foo(bar) do |s|
   puts s
 end
 p "{}"

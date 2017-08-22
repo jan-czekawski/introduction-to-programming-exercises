@@ -11,6 +11,8 @@ def say_hello(name)
     end
   rescue => e
     puts e.class
+    p e
+    puts e
     puts "error message: " + e.to_s
     puts e.backtrace
   else
