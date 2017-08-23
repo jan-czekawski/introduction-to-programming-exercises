@@ -11,5 +11,22 @@ def MyModule.lose
 end
 
 p MyModule.lose
-# p prize           # => error
-# p MyModule.prize  # => error
+
+begin
+  p prize           # => error
+rescue => e
+  p e
+end
+
+begin
+  p MyModule.prize  # => error
+rescue => e
+  p e
+end
+
+include MyModule
+p prize
+p MyModule.prize
+p 10.prize
+p "home".prize
+p self.prize

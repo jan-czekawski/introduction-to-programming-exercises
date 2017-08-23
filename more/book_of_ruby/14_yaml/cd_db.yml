@@ -14,3 +14,18 @@
   num_tracks: 15
   conductor: Bill Conti
   composer: Hans Zimmer
+- !ruby/object:CD
+  name: Merry
+  artist: Christmas
+  num_tracks: 100
+- !ruby/object:PopCD
+  name: Bye bye bye
+  artist: NSync
+  num_tracks: 11
+  genre: pop
+- !ruby/object:ClassicalCD
+  name: 4th Seasons
+  artist: Vivaldi
+  num_tracks: 99
+  conductor: Perrotta
+  composer: Simone

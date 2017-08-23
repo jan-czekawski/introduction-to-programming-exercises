@@ -1,0 +1,1 @@
+puts Thread.main.priority

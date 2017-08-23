@@ -59,7 +59,7 @@ def classic_cd
   print "Enter composer's name: "
   comp_name = gets.chomp
   cd_info << con_name << comp_name
-  cd_info
+  # cd_info
 end
 
 def pop_cd
@@ -67,7 +67,7 @@ def pop_cd
   print "Enter genre of music: "
   genre = gets.chomp
   cd_info << genre
-  cd_info
+  # cd_info
 end
 
 # add CD object to the array variable, $cd_arr
@@ -79,6 +79,7 @@ end
 def save_db
   File.open($fn, "w") do |f|
     f.write($cd_arr.to_yaml)
+    # YAML.dump($cd_arr, f)
   end
 end
 

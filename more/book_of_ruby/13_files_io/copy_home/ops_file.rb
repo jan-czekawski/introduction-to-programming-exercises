@@ -1,8 +1,5 @@
-direct = Dir.getwd
+direct = `pwd`.chomp
 p direct
-
-direct2 = `pwd`
-p direct2
 
 p File.exist?(direct + "a")
 p File.exist?(direct)
@@ -20,18 +17,10 @@ p File.directory?("./myfile.txt")
 p File.directory?("./")
 
 def dir_or_file(name)
-  if File.exist?(name)
-    if File.directory?(name)
-      puts "#{name} is a directory"
-    else
-      puts "#{name} is a file"
-    end
+  if File.directory?(name)
+    puts "#{name} is a directory"
   else
-    puts "There's no file/directory of that name in current directory."
+    puts "#{name} is a file"
   end
 end
 
-dir_or_file("myfile.txt")
-dir_or_file("..")
-dir_or_file("holla holla")
-dir_or_file("../boy")

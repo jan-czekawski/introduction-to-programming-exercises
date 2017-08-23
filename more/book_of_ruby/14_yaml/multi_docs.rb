@@ -12,6 +12,8 @@ File.open("multidoc.yml", "w") do |f|
   YAML.dump(arr4, f)
 end
 
+
+
 File.open("multidoc.yml") do |f|
   # $arr = Psych.load(f)
   # $arr = Psych.load_file(f)

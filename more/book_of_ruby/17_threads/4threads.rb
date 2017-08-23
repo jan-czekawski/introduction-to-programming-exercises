@@ -14,7 +14,8 @@ t3 = Thread.new do
        0.upto(50) { factor(50); print "t3\n" }
      end
 
-t1.priority = 0
-t2.priority = 0
-t3.priority = 0
+t1.priority = -1
+t2.priority = -1
+t3.priority = -2
 
+[t1, t2, t3].each { |item| item.join }

@@ -34,7 +34,7 @@ else
   $files = $files.sort { |a, b| a[1] <=> b[1] }
   $files.each { |fname, fsize| p "#{fname} : #{fsize} bytes" }
   p "Directory sizes (descdending)..."
-  $dirs = $dirs.sort { |a, b| a[1] <=> b[1] }
+  $dirs = $dirs.sort { |a, b| b[1] <=> a[1] }
   $dirs.each { |dname, dsize| p "#{dname} : #{dsize}K"}
 end
 
