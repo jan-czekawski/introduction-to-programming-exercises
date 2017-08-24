@@ -12,4 +12,6 @@ File.open("friends.sav") do |f|
   x = Marshal.load(f)
 end
 
+p x
+
 p x[0], x[0].ord, x[1], x[1].ord

@@ -4,8 +4,8 @@ if RUBY_VERSION.to_f > 1.8
   vMajor = f.getc.ord
   vMinor = f.getc.ord
 else
-  vMajor = f.getc.ord
-  vMinor = f.getc.ord
+  vMajor = f.getc
+  vMinor = f.getc
 end
 
 File.open("home.txt", "w") do |f|

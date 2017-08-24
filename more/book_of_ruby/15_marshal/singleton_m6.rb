@@ -10,7 +10,13 @@ class X
   end
 end
 
-ob = X.new
+# ob = Array.new
+# ob = String.new
+# ob = Hash.new
+# ob = BasicObject.new
+ob = Object.new
+
+p ob, ob.singleton_methods
 
 # a) if file exists, load data into ob - a generic X object
 if File.exist?(FILENAME)
@@ -24,15 +30,20 @@ end
 p ob, ob.singleton_methods
 
 # b) now transform ob in a singleton
-class << ob
-  def xxx=(str)
-    @x = str
+def make_into_singleton(some_ob)
+  class << some_ob
+    def xxx=(str)
+      @x = str
+    end
+    
+    def xxx
+      @x
+    end
   end
-  
-  def xxx
-    @x
-  end
+  # some_ob
 end
+
+make_into_singleton(ob)
 
 p ob, ob.singleton_methods
 
@@ -41,6 +52,8 @@ if ob.xxx == "hello"
 else
   ob.xxx = "hello"
 end
+
+p ob, ob.singleton_methods
 
 File.open(FILENAME, "w") do |f|
   Marshal.dump(ob, f)

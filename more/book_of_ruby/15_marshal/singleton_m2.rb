@@ -26,11 +26,14 @@ File.open("test2.sav", "w") do |f|
   Marshal.dump(ob, f)
 end
 
+
 ob.xxx("new string")
+p ob
 p ob.singleton_methods
 
 File.open("test2.sav") do |f|
   ob = Marshal.load(f)
 end
 
+p ob
 p ob.singleton_methods
