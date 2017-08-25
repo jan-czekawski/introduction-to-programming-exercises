@@ -20,8 +20,8 @@ def process_files(base_dir)
   end
 end
 
-process_files(".")
-# process_files("..")
+# process_files(".")
+process_files("..")
 puts "Files..."
 puts $files.sort
 puts "\nDirectories..."
