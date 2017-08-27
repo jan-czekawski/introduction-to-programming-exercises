@@ -53,3 +53,12 @@ String.class_eval do
 end
 
 "Hello".bye
+
+check = Y.class_eval("@@x")
+p check
+
+new_y = Y.new
+
+Y.class_eval('def hi;puts "hello";end')
+
+new_y.hi
