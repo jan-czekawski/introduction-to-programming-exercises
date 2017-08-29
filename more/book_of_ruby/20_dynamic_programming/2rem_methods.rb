@@ -18,3 +18,4 @@ class Z
 end
 
 zob.some_method
+
