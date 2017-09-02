@@ -1,0 +1,399 @@
+Started GET "/" for 10.240.1.31 at 2017-08-25 17:35:40 +0200
+Cannot render console from 10.240.1.31! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rvm/gems/ruby-2.4.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.4.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (10.6ms)
+Completed 200 OK in 422ms (Views: 21.5ms)
+
+
+Started GET "/" for 10.240.1.4 at 2017-08-25 17:50:49 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rvm/gems/ruby-2.4.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.4.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (3.7ms)
+Completed 200 OK in 264ms (Views: 10.6ms)
+
+
+Started GET "/" for 10.240.1.31 at 2017-08-25 17:50:53 +0200
+Cannot render console from 10.240.1.31! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rvm/gems/ruby-2.4.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.4.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 7ms (Views: 4.3ms)
+
+
+Started GET "/index" for 10.240.1.67 at 2017-08-25 17:52:19 +0200
+Cannot render console from 10.240.1.67! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 10.240.0.224 at 2017-08-25 17:52:23 +0200
+Cannot render console from 10.240.0.224! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rvm/gems/ruby-2.4.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.4.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 5ms (Views: 3.4ms)
+
+
+Started GET "/" for 10.240.1.4 at 2017-08-25 17:52:43 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rvm/gems/ruby-2.4.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.4.1/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 7ms (Views: 5.3ms)
+
+
+Started GET "/" for 10.240.1.18 at 2017-08-25 17:57:29 +0200
+Cannot render console from 10.240.1.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+Completed 500 Internal Server Error in 349ms
+
+
+  
+ActionView::MissingTemplate (Missing template say_hello/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ubuntu/code/launch_school/more/book_of_ruby/19_rails/basic_app/app/views"
+):
+  
+app/controllers/say_hello_controller.rb:3:in `index'
+Started GET "/" for 10.240.1.45 at 2017-08-25 18:00:15 +0200
+Cannot render console from 10.240.1.45! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+Completed 406 Not Acceptable in 276ms
+
+
+  
+ActionController::UnknownFormat (SayHelloController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.3) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 10.240.1.14 at 2017-08-25 18:01:45 +0200
+Cannot render console from 10.240.1.14! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 1255ms (Views: 1253.2ms)
+
+
+Started GET "/logout" for 10.240.1.4 at 2017-08-25 18:01:53 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#bye as HTML
+  Rendering say_hello/bye.html.erb within layouts/application
+  Rendered say_hello/bye.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 23ms (Views: 21.2ms)
+
+
+Started GET "/logout" for 10.240.1.45 at 2017-08-25 18:08:38 +0200
+Cannot render console from 10.240.1.45! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#bye as HTML
+  Rendering say_hello/bye.html.erb within layouts/application
+  Rendered say_hello/bye.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 478ms (Views: 203.9ms)
+
+
+Started GET "/" for 10.240.0.224 at 2017-08-25 18:08:41 +0200
+Cannot render console from 10.240.0.224! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 168ms (Views: 166.8ms)
+
+
+Started GET "/" for 10.240.1.45 at 2017-08-25 18:09:27 +0200
+Cannot render console from 10.240.1.45! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+Completed 500 Internal Server Error in 251ms
+
+
+  
+ActionView::MissingTemplate (Missing template say_hello/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ubuntu/code/launch_school/more/book_of_ruby/19_rails/basic_app/app/views"
+):
+  
+app/controllers/say_hello_controller.rb:15:in `show_family'
+app/controllers/say_hello_controller.rb:13:in `show_family'
+app/controllers/say_hello_controller.rb:13:in `show_family'
+app/controllers/say_hello_controller.rb:13:in `show_family'
+app/controllers/say_hello_controller.rb:13:in `show_family'
+app/controllers/say_hello_controller.rb:13:in `show_family'
+app/controllers/say_hello_controller.rb:13:in `show_family'
+app/controllers/say_hello_controller.rb:13:in `show_family'
+app/controllers/say_hello_controller.rb:20:in `index'
+Started GET "/" for 10.240.1.18 at 2017-08-25 18:10:23 +0200
+Cannot render console from 10.240.1.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 519ms (Views: 201.8ms)
+
+
+Started GET "/" for 10.240.1.67 at 2017-08-25 18:11:09 +0200
+Cannot render console from 10.240.1.67! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 101ms (Views: 99.4ms)
+
+
+Started GET "/" for 10.240.1.31 at 2017-08-25 18:11:20 +0200
+Cannot render console from 10.240.1.31! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 525ms (Views: 231.5ms)
+
+
+Started GET "/" for 10.240.1.18 at 2017-08-25 18:11:34 +0200
+Cannot render console from 10.240.1.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+Completed 500 Internal Server Error in 104ms
+
+
+  
+NoMethodError (undefined method `show_famisly' for #<SayHelloController:0x007f4a7c070468>
+Did you mean?  show_family):
+  
+app/controllers/say_hello_controller.rb:20:in `index'
+Started GET "/" for 10.240.0.189 at 2017-08-25 18:14:26 +0200
+Cannot render console from 10.240.0.189! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering text template
+  Rendered text template (0.1ms)
+Completed 200 OK in 301ms (Views: 7.3ms)
+
+
+Started GET "/" for 10.240.1.67 at 2017-08-25 18:15:14 +0200
+Cannot render console from 10.240.1.67! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 287ms (Views: 7.7ms)
+
+
+Started GET "/" for 10.240.1.31 at 2017-08-25 18:15:54 +0200
+Cannot render console from 10.240.1.31! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 314ms (Views: 3.8ms)
+
+
+Started GET "/logout" for 10.240.1.45 at 2017-08-25 18:15:59 +0200
+Cannot render console from 10.240.1.45! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+AbstractController::ActionNotFound (The action 'bye' could not be found for SayHelloController):
+  
+actionpack (5.1.3) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 10.240.1.18 at 2017-08-25 18:16:03 +0200
+Cannot render console from 10.240.1.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.6ms)
+
+
+Started GET "/" for 10.240.1.4 at 2017-08-25 18:32:41 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 444ms (Views: 170.4ms)
+
+
+Started GET "/" for 10.240.0.224 at 2017-08-25 18:33:02 +0200
+Cannot render console from 10.240.0.224! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 94ms (Views: 91.3ms)
+
+
+Started GET "/" for 10.240.1.31 at 2017-08-25 22:08:06 +0200
+Cannot render console from 10.240.1.31! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 812ms (Views: 298.1ms)
+
+
+Started GET "/" for 10.240.0.189 at 2017-08-25 22:08:52 +0200
+Cannot render console from 10.240.0.189! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 141ms (Views: 138.4ms)
+
+
+Started GET "/" for 10.240.1.45 at 2017-08-25 22:09:29 +0200
+Cannot render console from 10.240.1.45! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 421ms (Views: 169.6ms)
+
+
+Started GET "/" for 10.240.1.18 at 2017-08-25 22:19:43 +0200
+Cannot render console from 10.240.1.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 542ms (Views: 229.3ms)
+
+
+Started GET "/" for 10.240.1.4 at 2017-08-25 22:27:09 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 426ms (Views: 165.6ms)
+
+
+Started GET "/" for 10.240.1.4 at 2017-08-25 22:33:45 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SayHelloController#index as HTML
+  Rendering say_hello/index.html.erb within layouts/application
+  Rendered say_hello/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 21ms (Views: 19.4ms)
+
+
