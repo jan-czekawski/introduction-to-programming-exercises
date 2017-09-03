@@ -53,6 +53,7 @@ String.class_eval do
 end
 
 "Hello".bye
+# String.bye # error => instance method, not class
 
 check = Y.class_eval("@@x")
 p check

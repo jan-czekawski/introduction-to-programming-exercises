@@ -7,6 +7,8 @@ end
 ob = X.new
 
 X.freeze
-if !(X.frozen?)
+# if !(X.frozen?)
   ob.add_method(:def) { puts "'def' is not a good name for a method" }
-end
+# end
+
+ob.def
