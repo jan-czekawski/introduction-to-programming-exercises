@@ -17,6 +17,10 @@ def method_missing(method_name, *args)
 end
 
 ob.aaa
+p "now method is defined"
+ob.aaa
 ob.aaa(10, 20, 30)
+ob.bbb
+p "again it's defined"
 ob.bbb
 ob.bbb("home", "boy")

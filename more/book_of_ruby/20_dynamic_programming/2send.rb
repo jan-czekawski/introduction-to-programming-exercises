@@ -1,7 +1,7 @@
 class MyString < String
   def initialize(str)
-    super
-    # super(str)
+    # super
+    super(str)
   end
   
   def show

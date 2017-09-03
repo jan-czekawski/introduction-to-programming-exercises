@@ -1,4 +1,4 @@
-puts "What shall we call this class? "
+print "What shall we call this class? "
 class_name = gets.strip.capitalize
 p "class name after input"
 p class_name

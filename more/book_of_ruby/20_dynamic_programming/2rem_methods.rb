@@ -15,6 +15,7 @@ zob.some_method  # Z's method
 
 class Z
   remove_method(:some_method) # remove some_method from Z class
+  # undef_method(:some_method) # undef some_method => will cause NoMethodError
 end
 
 zob.some_method

@@ -38,4 +38,4 @@ p a
 
 X::const_set(:HOME, "busta rhymes")
 p X::const_get("HOME")
-
+p X::HOME

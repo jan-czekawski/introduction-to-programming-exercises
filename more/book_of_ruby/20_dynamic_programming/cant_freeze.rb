@@ -1,6 +1,7 @@
 class X 
   def add_method(m, &block)
     self.class.send(:define_method, m, &block)
+    # self.send(:define_singleton_method, m, &block) => cannot add singleton method to obj
   end
 end
 
