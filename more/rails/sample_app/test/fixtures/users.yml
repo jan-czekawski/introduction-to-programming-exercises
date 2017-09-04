@@ -4,8 +4,27 @@ jerry:
   name: Jerry Seinfeld
   email: terry@example.com
   password_digest: <%= User.digest("password") %>
+  admin: true
   
 george:
   name: George Costanza
   email: george@example.com
   password_digest: <%= User.digest("password") %>
+  
+kramer:
+  name: Cosma Kramer
+  email: kramer@example.com
+  password_digest: <%= User.digest("password") %>
+  
+newman:
+  name: John Newman
+  email: newman@example.com
+  password_digest: <%= User.digest("password") %>
+  
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest("password") %>
+<% end %>
+  
