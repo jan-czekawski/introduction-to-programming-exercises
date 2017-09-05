@@ -11017,3 +11017,415 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 1769ms (Views: 1160.6ms | ActiveRecord: 34.2ms)
 
 
+Started GET "/users?page=2" for 10.240.1.4 at 2017-09-05 19:29:02 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."activated" = ?[0m  [["activated", "t"]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."activated" = ? LIMIT ? OFFSET ?[0m  [["activated", "t"], ["LIMIT", 30], ["OFFSET", 30]]
+  Rendered collection of users/_user.html.erb [30 times] (37.1ms)
+  Rendered users/index.html.erb within layouts/application (123.1ms)
+  Rendered layouts/_rails_default.html.erb (266.6ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (8.2ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 743ms (Views: 446.7ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/help" for 10.240.0.189 at 2017-09-05 20:08:43 +0200
+Cannot render console from 10.240.0.189! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (34.2ms)
+  Rendered layouts/_rails_default.html.erb (531.0ms)
+  Rendered layouts/_shim.html.erb (3.1ms)
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (518.8ms)
+  Rendered layouts/_footer.html.erb (5.1ms)
+Completed 200 OK in 1239ms (Views: 1193.9ms | ActiveRecord: 23.7ms)
+
+
+Started GET "/" for 10.240.1.31 at 2017-09-05 20:08:50 +0200
+Cannot render console from 10.240.1.31! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (12.4ms)
+  Rendered layouts/_rails_default.html.erb (89.1ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 125ms (Views: 122.6ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for 10.240.1.45 at 2017-09-05 20:08:54 +0200
+Cannot render console from 10.240.1.45! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QsePQQ4H712i4sPZTZBX/hK3hkIN90eQOR6uxOYYqPGc+5xb5eehm9EjYIPn2eObM6xBERqCijDuk5B5z9+57Q=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-project-second-michal8888.c9users.io:8080/
+Completed 302 Found in 16ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 10.240.1.14 at 2017-09-05 20:08:55 +0200
+Cannot render console from 10.240.1.14! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (114.8ms)
+  Rendered layouts/_rails_default.html.erb (406.2ms)
+  Rendered layouts/_shim.html.erb (2.9ms)
+  Rendered layouts/_header.html.erb (11.3ms)
+  Rendered layouts/_footer.html.erb (4.6ms)
+Completed 200 OK in 662ms (Views: 625.5ms)
+
+
+Started GET "/login" for 10.240.1.4 at 2017-09-05 20:09:01 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (73.9ms)
+  Rendered layouts/_rails_default.html.erb (139.6ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (3.3ms)
+Completed 200 OK in 244ms (Views: 238.6ms)
+
+
+Started POST "/login" for 10.240.1.4 at 2017-09-05 20:09:04 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EFl8flT47xYe9bSq2dC+hO0VQ4DhZlL0kH8U9Enz6qse47bpXcQ+7SbsclOZSJspSfPrU/rzFsFLKDG6zL5d5Q==", "session"=>{"email"=>"harry@hogwarts.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "harry@hogwarts.com"], ["LIMIT", 1]]
+Redirected to http://rails-project-second-michal8888.c9users.io:8080/users/1
+Completed 302 Found in 109ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/users/1" for 10.240.1.14 at 2017-09-05 20:09:05 +0200
+Cannot render console from 10.240.1.14! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_rails_default.html.erb (352.8ms)
+  Rendered layouts/_shim.html.erb (1.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (18.5ms)
+  Rendered layouts/_footer.html.erb (2.5ms)
+Completed 200 OK in 836ms (Views: 416.8ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/users" for 10.240.1.67 at 2017-09-05 20:09:08 +0200
+Cannot render console from 10.240.1.67! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."activated" = ?[0m  [["activated", "t"]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."activated" = ? LIMIT ? OFFSET ?[0m  [["activated", "t"], ["LIMIT", 30], ["OFFSET", 0]]
+  Rendered collection of users/_user.html.erb [30 times] (43.7ms)
+  Rendered users/index.html.erb within layouts/application (94.8ms)
+  Rendered layouts/_rails_default.html.erb (106.2ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 242ms (Views: 223.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users?page=4" for 10.240.1.67 at 2017-09-05 20:09:10 +0200
+Cannot render console from 10.240.1.67! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Parameters: {"page"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."activated" = ?[0m  [["activated", "t"]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."activated" = ? LIMIT ? OFFSET ?[0m  [["activated", "t"], ["LIMIT", 30], ["OFFSET", 90]]
+  Rendered collection of users/_user.html.erb [13 times] (7.3ms)
+  Rendered users/index.html.erb within layouts/application (16.3ms)
+  Rendered layouts/_rails_default.html.erb (107.6ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 140ms (Views: 135.5ms | ActiveRecord: 1.3ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started DELETE "/logout" for 10.240.0.189 at 2017-09-05 20:09:34 +0200
+Cannot render console from 10.240.0.189! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"P45QUC7HhhV1crtMweM1s5EFYNkZyAbkBED8BBpwQYPhskNKxSfI0wazGBZrqoHWsB6nig69y0TTzcK5M7dQnw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-project-second-michal8888.c9users.io:8080/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 10.240.1.45 at 2017-09-05 20:09:34 +0200
+Cannot render console from 10.240.1.45! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_rails_default.html.erb (126.8ms)
+  Rendered layouts/_shim.html.erb (1.5ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 188ms (Views: 173.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.240.1.67 at 2017-09-05 20:09:36 +0200
+Cannot render console from 10.240.1.67! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (25.9ms)
+  Rendered layouts/_rails_default.html.erb (72.7ms)
+  Rendered layouts/_shim.html.erb (3.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 114ms (Views: 112.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.240.0.189 at 2017-09-05 20:09:38 +0200
+Cannot render console from 10.240.0.189! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2LNZGwmF7zKzGAzQEY4ROcLQ8GPdnIWpseYSiIaOEk7WCZOMALk+yYsByilRFjSUZjZYsMYJwZxqsTfGA8OlAA==", "session"=>{"email"=>"harry@hogwarts.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "harry@hogwarts.com"], ["LIMIT", 1]]
+Redirected to http://rails-project-second-michal8888.c9users.io:8080/users/1
+Completed 302 Found in 73ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 10.240.1.45 at 2017-09-05 20:09:38 +0200
+Cannot render console from 10.240.1.45! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_rails_default.html.erb (72.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 108ms (Views: 102.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 10.240.1.67 at 2017-09-05 20:09:39 +0200
+Cannot render console from 10.240.1.67! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_rails_default.html.erb (184.7ms)
+  Rendered layouts/_shim.html.erb (2.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 202ms (Views: 200.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signup" for 10.240.1.18 at 2017-09-05 20:09:41 +0200
+Cannot render console from 10.240.1.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (5.5ms)
+  Rendered users/_form.html.erb (25.6ms)
+  Rendered users/new.html.erb within layouts/application (27.5ms)
+  Rendered layouts/_rails_default.html.erb (40.3ms)
+  Rendered layouts/_shim.html.erb (4.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 89ms (Views: 82.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/signup" for 10.240.1.45 at 2017-09-05 20:09:59 +0200
+Cannot render console from 10.240.1.45! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DWawhjY48FQaypo7fYUSB2q1ORGQqrcVTBjOJ6GZGrN9ntNFFWJmT/DJeGdFiwtpzSWtbgnB2cy/TCqDEx54Lw==", "user"=>{"name"=>"sebulba", "email"=>"sebulba@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (1.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "sebulba@email.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "sebulba"], ["email", "sebulba@email.com"], ["created_at", "2017-09-05 18:10:00.054767"], ["updated_at", "2017-09-05 18:10:00.054767"], ["password_digest", "$2a$10$QIl1jSSYkna6EqnimSLwteo9yzn2NQgY8Z0BfQbyWcjvG9ipf6yBG"], ["activation_digest", "$2a$10$P6Ua5qjFARj8yo2C/fKT5uBRrCWXFW0ObTKwGAsf8QfMGuVkrksb."]]
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (2.3ms)
+  Rendering user_mailer/account_activation.text.erb within layouts/mailer
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (2.3ms)
+UserMailer#account_activation: processed outbound mail in 27.4ms
+Sent mail to sebulba@email.com (31.4ms)
+Date: Tue, 05 Sep 2017 20:10:00 +0200
+From: noreply@example.com
+To: sebulba@email.com
+Message-ID: <59aee8784a73d_18bb3228929888181@michal8888-rails-project-second-4400295.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59aee8784479d_18bb32289298880af";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59aee8784479d_18bb32289298880af
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi sebulba,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+https://rails-project-second-michal8888.c9users.io:8080/account_activations/7b9mjywv4-Ufm5KCLE5j2A/edit?email=sebulba%40email.com
+                            
+
+----==_mimepart_59aee8784479d_18bb32289298880af
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Sample App</h1>
+
+<p>Hi sebulba,</p>
+
+<p>
+  Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="https://rails-project-second-michal8888.c9users.io:8080/account_activations/7b9mjywv4-Ufm5KCLE5j2A/edit?email=sebulba%40email.com">Activate</a>
+                                                    
+
+  </body>
+</html>
+
+----==_mimepart_59aee8784479d_18bb32289298880af--
+
+Redirected to http://rails-project-second-michal8888.c9users.io:8080/
+Completed 302 Found in 347ms (ActiveRecord: 15.1ms)
+
+
+Started GET "/" for 10.240.1.18 at 2017-09-05 20:10:00 +0200
+Cannot render console from 10.240.1.18! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_rails_default.html.erb (92.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (2.2ms)
+Completed 200 OK in 115ms (Views: 113.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 10.240.1.4 at 2017-09-05 20:10:05 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_rails_default.html.erb (134.2ms)
+  Rendered layouts/_shim.html.erb (1.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 161ms (Views: 158.4ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout" for 10.240.1.4 at 2017-09-05 20:10:08 +0200
+Cannot render console from 10.240.1.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"prjAdGkxBgOir2D2Pa1+W9ZbseHl/El98iNMxkxVMnd4hNNugtFIxdFuw6yX5Mo+90B2svKJhN0lrnJ7ZZIjaw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-project-second-michal8888.c9users.io:8080/
+Completed 302 Found in 15ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 10.240.1.67 at 2017-09-05 20:10:09 +0200
+Cannot render console from 10.240.1.67! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_rails_default.html.erb (190.5ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 208ms (Views: 206.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.240.1.67 at 2017-09-05 20:10:16 +0200
+Cannot render console from 10.240.1.67! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_rails_default.html.erb (110.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 133ms (Views: 131.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.240.1.45 at 2017-09-05 20:10:17 +0200
+Cannot render console from 10.240.1.45! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FWX4zOaKPGqXb6Q8ht6fSXexP+5e5i86oEh+mDm3a+kb3zJb77btka92YsXGRrrk01eXPUVzaw97H1vWvPrcpw==", "session"=>{"email"=>"harry@hogwarts.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "harry@hogwarts.com"], ["LIMIT", 1]]
+Redirected to http://rails-project-second-michal8888.c9users.io:8080/users/1
+Completed 302 Found in 79ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 10.240.1.67 at 2017-09-05 20:10:17 +0200
+Cannot render console from 10.240.1.67! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_rails_default.html.erb (49.6ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 70ms (Views: 66.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 10.240.1.31 at 2017-09-05 20:10:19 +0200
+Cannot render console from 10.240.1.31! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."activated" = ?[0m  [["activated", "t"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."activated" = ? LIMIT ? OFFSET ?[0m  [["activated", "t"], ["LIMIT", 30], ["OFFSET", 0]]
+  Rendered collection of users/_user.html.erb [30 times] (10.1ms)
+  Rendered users/index.html.erb within layouts/application (16.9ms)
+  Rendered layouts/_rails_default.html.erb (148.7ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 183ms (Views: 179.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users?page=4" for 10.240.1.31 at 2017-09-05 20:10:21 +0200
+Cannot render console from 10.240.1.31! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Parameters: {"page"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."activated" = ?[0m  [["activated", "t"]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."activated" = ? LIMIT ? OFFSET ?[0m  [["activated", "t"], ["LIMIT", 30], ["OFFSET", 90]]
+  Rendered collection of users/_user.html.erb [13 times] (8.0ms)
+  Rendered users/index.html.erb within layouts/application (57.7ms)
+  Rendered layouts/_rails_default.html.erb (56.1ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 132ms (Views: 123.4ms | ActiveRecord: 1.2ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
