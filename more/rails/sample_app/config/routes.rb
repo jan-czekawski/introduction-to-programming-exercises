@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root "static_pages#home"
   get "/about", to: "static_pages#about"
   get "/help", to: "static_pages#help"#, as: "helf"
@@ -9,7 +10,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   resources :users
-  resources :account_activations, only: [:edit]
-
+  resources :account_activations, only: %i(edit)
+  resources :password_resets, only: %i(new create edit update)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
