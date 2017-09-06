@@ -26,3 +26,26 @@ micropost_<%= n %>:
   created_at: <%= 42.days.ago %>
   user: jerry
 <% end %>
+
+ants:
+  content: "Oh is that what you want? Cause that's how you get ants."
+  created_at: <%= 2.years.ago %>
+  user: george
+  
+zone:
+  content: "O-zone was pretty good band."
+  created_at: <%= 3.days.ago %>
+  user: george
+
+tone:
+  content: "You better change your tone girl!"
+  created_at: <%= 2.months.ago %>
+  user: kramer
+  
+van:
+  content: "This looks like an a-team van!"
+  created_at: <%= 11.days.ago %>
+  user: kramer
+
+
+  
