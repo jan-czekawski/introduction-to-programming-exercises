@@ -1,11 +1,10 @@
-require 'test_helper'
+require "test_helper"
 
 class MicropostInterfaceTest < ActionDispatch::IntegrationTest
-  
   def setup
     @user = users(:jerry)
   end
-  
+
   test "micropost interface" do
     log_in_as(@user)
     get root_path
@@ -37,7 +36,7 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
     get user_path(users(:george))
     assert_select "a", text: "delete", count: 0
   end
-  
+
   test "micropost sidebar count" do
     log_in_as(@user)
     get root_path
@@ -51,7 +50,4 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
     get root_path
     assert_match "#{other_user.microposts.count} micropost", response.body
   end
-  
-  
-  
 end
