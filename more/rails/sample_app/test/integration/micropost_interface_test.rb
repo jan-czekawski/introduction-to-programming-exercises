@@ -9,6 +9,7 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get root_path
     assert_select "div.pagination"
+    # TODO: uncomment elaine's posts and figure out why test fails
     assert_select "input[type=file]"
     # invalid submission
     assert_no_difference "Micropost.count" do
