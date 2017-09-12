@@ -35,6 +35,8 @@ p "AFTER OVERRIDE"
 p things
 p things.min
 p things.max
+p "SORT WORKS DIFFERENT THOUGH!!!"
+p things.sort # but sort still sorts based on value of the chars in string
 
 # p things.add("home")
 class MyCollection
@@ -52,5 +54,6 @@ p things
 p things + "jerry"
 p things + "tom", "jones", "chuck"  # => only "tom" is added, "jones" and "chuck" are printed
 # p things + ("tom", "jones", "chuck") # => error
+# p things+("berry", "karma", "jeely") # => error
 p things.+("tom", "jones", "chuck")
 # p things. +("tom", "jones", "chuck") # => same result
