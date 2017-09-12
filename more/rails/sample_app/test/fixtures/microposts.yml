@@ -27,6 +27,13 @@ micropost_<%= n %>:
   user: jerry
 <% end %>
 
+# <% 10.times do |n| %>
+# micropost_<%= n %>:
+#   content: <%= Faker::Lorem.sentence(5) %>
+#   created_at: <%= 42.days.ago %>
+#   user: elaine
+# <% end %>
+
 ants:
   content: "Oh is that what you want? Cause that's how you get ants."
   created_at: <%= 2.years.ago %>
