@@ -5,7 +5,7 @@ class Thing
   end
   
   def name=(value)
-    @name = name
+    @name = value
   end
   
   def name

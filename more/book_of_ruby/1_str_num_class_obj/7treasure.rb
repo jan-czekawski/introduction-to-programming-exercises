@@ -46,5 +46,6 @@ puts 100.to_s
 puts NewThing.to_s
 
 n = NewThing.new("Harry")
+puts n.to_s
 puts n
 p n

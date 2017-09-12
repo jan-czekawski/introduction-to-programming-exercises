@@ -2,7 +2,7 @@ class Thing
   @@num_things = 0
   
   attr_reader :name, :description
-  attr_writer :description
+  attr_writer :description # not necessary @description is modified with <<
   
   def initialize(name, description)
     @name = name
