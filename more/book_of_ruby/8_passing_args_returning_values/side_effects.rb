@@ -9,7 +9,7 @@ str1 = "hello"
 str2 = "world"
 str3 = string_process(str1, str2)
 
-# p "#{str3}"
+p "#{str3}"
 
 # impatient programmer uses modified arguments
 p "#{str1} #{str2}"

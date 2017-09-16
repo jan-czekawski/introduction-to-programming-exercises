@@ -1,5 +1,5 @@
 def calc(val1, val2)
-  begin
+  # begin
     result = val1 / val2
   rescue TypeError, NoMethodError => e
     puts e.class
@@ -10,8 +10,9 @@ def calc(val1, val2)
     puts e.class
     puts e
     result = nil
-  end
-  return result
+  # end
+  # return result
+  result
 end
 
 p calc(20, 0)

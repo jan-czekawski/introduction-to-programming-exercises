@@ -38,6 +38,7 @@ end
 
 puts "\nOTHER METHODS"
 ob1 = X.new
+# ob1.y => error
 ob1.x
 puts
 ob1.y

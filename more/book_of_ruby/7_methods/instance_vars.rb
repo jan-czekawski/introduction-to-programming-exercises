@@ -24,7 +24,7 @@ puts MyClass.instance_variable_get(:@instance_var)
 puts "-" * 30
 
 3.times do
-  # MyClass.class_methods
+  MyClass.class_method
   ob.instance_method
   puts "MyClass @inst=#{MyClass.instance_variable_get(:@instance_var)}"
   puts "ob @inst=#{ob.instance_variable_get(:@instance_var)}"

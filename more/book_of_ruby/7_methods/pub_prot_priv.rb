@@ -18,6 +18,7 @@ class MyClass
       ob.pub
       ob.prot
       prot
+      self.prot
       p "private without any receiver:"
       priv
       # self.priv # => not even self
@@ -31,8 +32,8 @@ myob = MyClass.new
 myob2 = MyClass.new
 
 myob.pub
-# myob.priv # => error
-# myob.prot # => error
+# myob.priv # => error (can't have any receivers, also not the same scope)
+# myob.prot # => error (myob is not in the same scope as defined method)
 
 begin
   myob.use_ob(myob2) # => protected is good

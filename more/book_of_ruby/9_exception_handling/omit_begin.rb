@@ -4,7 +4,8 @@ def calc
     puts e.class
     puts e
     result = nil
-  return result
+  # return result
+  result
 end
 
 class X
@@ -12,6 +13,7 @@ class X
   rescue => e
     puts e.class
     puts e
+    # puts @@x NameError (uninitialized)
 end
 
 module Y
@@ -19,6 +21,7 @@ module Y
   rescue => e
     puts e.class
     puts e
+    # puts @@x NameError (uninitialized)
 end
 
 p calc

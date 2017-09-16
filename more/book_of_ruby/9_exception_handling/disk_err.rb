@@ -12,6 +12,6 @@ def ch_disk(char)
   end
 end
 
-p ch_disk("D")
-p ch_disk("X")
-p ch_disk("ABC")
+ch_disk("D")
+ch_disk("X")
+ch_disk("ABC")
