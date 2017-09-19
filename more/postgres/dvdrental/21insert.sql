@@ -40,7 +40,11 @@ INSERT INTO link (url, name, last_update)
 VALUES
  ('http://www.tumblr.com', 'Tumblr', DEFAULT);
 
+
+-- creating table this way will not copy DEFAULT VALUES, PRIMARY KEY, SERIAL
+-- will copy NOT NULL constraint
 CREATE TABLE link_tmp (LIKE link);
+
 
 INSERT INTO link_tmp
 SELECT 

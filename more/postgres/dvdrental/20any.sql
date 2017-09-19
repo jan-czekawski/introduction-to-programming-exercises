@@ -24,6 +24,23 @@ USING
  (film_id)
 GROUP BY
  category_id);
+
+-- no error (limit 1 and order by max)
+SELECT title, length
+FROM film
+WHERE length >= (SELECT
+ MAX(length)
+FROM
+ film
+INNER JOIN 
+ film_category
+USING
+ (film_id)
+GROUP BY
+ category_id
+ORDER BY MAX(length) DESC
+LIMIT 1);
+
  
 -- get the films whose category is either Action or Drama
 SELECT
@@ -61,7 +78,7 @@ WHERE
    NAME = 'Action'
    OR NAME = 'Drama');
    
--- to get films that are out of stuck (not in the inventory)
+-- to get films that are out of stock (not in the inventory)
 SELECT
  title
 FROM

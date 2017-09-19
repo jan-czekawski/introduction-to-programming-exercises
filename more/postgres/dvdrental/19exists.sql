@@ -23,7 +23,7 @@ WHERE NOT EXISTS (
 ORDER BY first_name,
 		  last_name;
 		  
-
+-- EXISTS(SELECT NULL) RETURNS TRUE
 SELECT
  first_name,
  last_name
@@ -32,3 +32,21 @@ WHERE
 EXISTS ( SELECT NULL )
 ORDER BY first_name,
 		  last_name;
+
+-- WON'T RETURN ANYTHING
+SELECT
+ first_name,
+ last_name
+FROM customer
+WHERE FALSE
+ORDER BY first_name,
+      last_name;
+
+-- RETURNS ALL ROWS FROM customer
+SELECT
+ first_name,
+ last_name
+FROM customer
+WHERE TRUE
+ORDER BY first_name,
+      last_name;

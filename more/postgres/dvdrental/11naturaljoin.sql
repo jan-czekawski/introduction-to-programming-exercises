@@ -7,7 +7,7 @@ CREATE TABLE products (
  product_id serial PRIMARY KEY,
  product_name VARCHAR (255) NOT NULL,
  category_id INT NOT NULL,
- FOREIGN KEY (category_id) REFERENCES category (category_id)
+ FOREIGN KEY (category_id) REFERENCES category (category_id) -- maybe should've been categories (category_id)
 );
 
 INSERT INTO categories (category_name)
