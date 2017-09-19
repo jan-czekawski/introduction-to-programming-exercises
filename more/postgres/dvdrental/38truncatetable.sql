@@ -1,0 +1,5 @@
+TRUNCATE TABLE invoices;
+
+TRUNCATE TABLE invoices CASCADE;
+
+
