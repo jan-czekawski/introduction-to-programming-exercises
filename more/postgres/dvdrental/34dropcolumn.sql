@@ -1,3 +1,11 @@
+ALTER TABLE table_name
+DROP COLUMN column_name CASCADE;
+
+ALTER TABLE table_name
+DROP COLUMN IF EXISTS column_name;
+
+
+
 CREATE TABLE publishers (
   publisher_id serial PRIMARY KEY,
   name VARCHAR NOT NULL
@@ -32,7 +40,18 @@ INNER JOIN publishers P
 ON P.publisher_id = b.publisher_id
 ORDER BY title;
 
-
+-- it will also remove foreign key constraint
 ALTER TABLE books DROP COLUMN category_id;
 
 -- \d books; => show books table
+
+-- error, because other objects depend on it ()
+ALTER TABLE books DROP COLUMN publisher_id;
+
+-- only displays notice, query executed and returned
+ALTER TABLE books DROP COLUMN publisher_id CASCADE;
+
+
+ALTER TABLE books
+  DROP COLUMN isbn,
+  DROP COLUMN description;
