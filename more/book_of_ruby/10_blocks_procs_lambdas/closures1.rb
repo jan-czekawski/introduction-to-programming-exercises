@@ -37,3 +37,4 @@ end
 
 x = X.new
 x.y(clos)
+x.y(clos)
