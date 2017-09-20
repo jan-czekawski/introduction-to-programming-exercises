@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   private
+  # TODO: check if can be inside users_controller with other methods
     def logged_in_user
       unless logged_in?
         store_location
