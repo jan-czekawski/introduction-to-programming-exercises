@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   private
   # TODO: check if can be inside users_controller with other methods
+    # solution: this method is used in the users controller and micropost controller
+    # so has to be defined here (not in sessions helper, cause it won't be used in views, only controllers)
     def logged_in_user
       unless logged_in?
         store_location
