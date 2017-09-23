@@ -85,3 +85,37 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
+-- to get 5 titles => in pgAdmin in data output there'll be empty column, in messages there'll be notices
+SELECT for_loop_through_query(5);
+
+-- function accepts 2 params: sort_type (1 => sort by title, 2 => by release year); n (number of rows to query from
+-- the "film" table. Notice that will be used in the USING clause.
+CREATE OR REPLACE FUNCTION for_loop_through_dyn_query(sort_type INTEGER, n INTEGER)
+RETURNS VOID AS $$
+DECLARE
+  rec RECORD;
+  query text;
+BEGIN
+  query := 'SELECT title, release_year FROM film ';
+  IF sort_type = 1 THEN
+    query := query || 'ORDER BY title';
+  ELSIF sort_type = 2 THEN
+    query := query || 'ORDER BY release_year';
+  ELSE
+    RAISE EXCEPTION 'Invalid sort type %s', sort_type;
+  END IF;
+
+  query := query || ' LIMIT $1';
+
+  FOR rec IN EXECUTE query USING n LOOP
+    RAISE NOTICE '% - %', rec.release_year, rec.title;
+  END LOOP;
+END;
+$$ LANGUAGE PLPGSQL;
+
+
+-- 5 films, sort by title
+SELECT for_loop_through_dyn_query(1, 5);
+
+-- 5 films, sort by release_year
+SELECT for_loop_through_dyn_query(1, 5);
