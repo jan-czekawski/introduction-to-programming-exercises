@@ -24,7 +24,7 @@ def process_files(dir)
   total_bytes
 end
 
-dir_name = ".."
+dir_name = "."
 
 if !(File.directory?(dir_name))
   puts "#{dir_name} is not a valid directory"

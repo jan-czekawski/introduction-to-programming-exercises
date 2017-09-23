@@ -1,5 +1,5 @@
 class Being
-  include Comparable
+  include Comparable # => comment out causes NoMethodError
   
   BEINGS = ["hobbit", "dwarf", "elf", "orc", "giant", "oliphant", "dragon"]
   

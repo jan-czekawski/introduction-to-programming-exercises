@@ -24,7 +24,7 @@ def process_files(dir)
 end
 
 # dir_name = ".." # => parent of the current dir, but can change it
-dir_name = "." # => parent of the current dir, but can change it
+dir_name = "." # => current dir, but can change it
 
 unless File.directory?(dir_name)
   puts "#{dir_name} is not a valid directory"
