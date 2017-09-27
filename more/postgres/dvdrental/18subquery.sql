@@ -40,7 +40,7 @@ WHERE
  return_date BETWEEN '2005-05-29'
 AND '2005-05-30';
 
--- using subquery and displayin film_id and title
+-- using subquery and displaying film_id and title
 SELECT
  film_id,
  title

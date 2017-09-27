@@ -1,3 +1,4 @@
+
 -- maximum length of film grouped by category
 SELECT
  MAX(length)
@@ -11,7 +12,7 @@ GROUP BY
  category_id;
  
 -- finds films whose lengths are greater or equal to max length of any film
--- in the categor => but there's error, cause subquery used as expression returns more than 1 row
+-- in the category => but there's error, cause subquery used as expression returns more than 1 row
 SELECT title
 FROM film
 WHERE length >= (SELECT
