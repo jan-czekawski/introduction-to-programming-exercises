@@ -31,7 +31,8 @@ BEGIN
   BEGIN
     counter := counter + 10; -- incremented (by 10) counter in subblock
     RAISE NOTICE 'The current value of counter in the subblock is %', counter;
-    RAISE NOTICE 'The current value of counter in the outer block is %', outer_block.counter; -- use block label to qualify its name
+    RAISE NOTICE 'The current value of counter in the outer block is %', outer_block.counter;
+    -- use block label to qualify its name
   END;
 
   RAISE NOTICE 'The current value of counter in the outer block is %', counter;

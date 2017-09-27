@@ -47,7 +47,8 @@ LANGUAGE plpgsql;
 -- function has similar name => but 2 params (function overload)
 -- we use for loop to process each individual row before returning it
 -- inside each iteration we use UPPER to make the title of the film upper case
--- RETURN NEXT adds row to the result set of the function; execution continues and result set is building up in each
+-- RETURN NEXT adds row to the result set of the function; 
+-- execution continues and result set is building up in each
 -- iteration of the loop
 
 SELECT * FROM get_film('Al%', 2006);
