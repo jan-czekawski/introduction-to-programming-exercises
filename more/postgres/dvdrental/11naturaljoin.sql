@@ -7,8 +7,16 @@ CREATE TABLE products (
  product_id serial PRIMARY KEY,
  product_name VARCHAR (255) NOT NULL,
  category_id INT NOT NULL,
- FOREIGN KEY (category_id) REFERENCES category (category_id) -- maybe should've been categories (category_id)
+ FOREIGN KEY (category_id) REFERENCES categories (category_id) 
+ -- It should've been categories (category_id) NOT "category"
 );
+
+-- later products had group_id instead of category_id => but categories still have category_id col
+ALTER TABLE products ADD FOREIGN KEY (group_id) REFERENCES categories (category_id);
+-- but it's been changed since then with:
+ALTER TABLE products RENAME COLUMN group_id TO category_id;
+
+
 
 INSERT INTO categories (category_name)
 VALUES
