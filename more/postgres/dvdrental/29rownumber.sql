@@ -48,7 +48,7 @@ WITH prices AS (
  price,
  ROW_NUMBER() OVER (ORDER BY price)
 FROM
- prices;
+ prices;  -- table "prices" doesn't exist => it uses "prices" defined in WITH
 
 -- or we can use subquery in the FROM clause to get list of unique price, then apply row_number
 SELECT
@@ -60,7 +60,7 @@ FROM
    price
   FROM
    products
- ) prices;
+ ) prices;   -- alias is required for subquery
 
 
 -- can use pagination technique to display subset of rows instead of all table (beside using LIMIT)
