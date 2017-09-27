@@ -30,7 +30,8 @@ FROM
 WHERE
   country_id = 103
 ORDER BY
-  city WITH CHECK OPTION;
+  city 
+WITH CHECK OPTION;
 
 
 -- error => violates check option
@@ -44,7 +45,7 @@ SET country_id = 102
 WHERE
   city_id = 135;
 
--- create view with all cities starting with "A" => no with check option clause
+-- create view with all cities starting with "A" => not with check option clause
 CREATE VIEW city_a AS SELECT
   city_id,
     city,
@@ -65,10 +66,12 @@ WHERE
   country_id = 103
 WITH CASCADED CHECK OPTION; -- with cascaded check option
 
--- error => violates check option (from "city") => even though it doesn't have with check option clasue
+-- error => violates check option (from "city_A" => LIKE 'A%') => even though it doesn't have 
+-- with check option clasue
 INSERT INTO city_a_usa (city, country_id)
 VALUES ('Houston', 103);
--- when used with cascaded check option for "city_a_usa", PG check view defining condition of the "city_a_usa"
+-- when used with cascaded check option for "city_a_usa", PG check view defining condition 
+-- of the "city_a_usa"
 -- view and also all the underlying views ("city_a" including)
 
 
@@ -83,7 +86,7 @@ WHERE
   country_id = 103
 WITH LOCAL CHECK OPTION;
 
--- this time it worked => new row satisfies view-defining condition of the city_a_use view
+-- this time it worked => new row satisfies view-defining condition of the city_a_usa view
 -- PG didn't check view-defining condition of the base (underlying) views
 INSERT INTO city_a_usa (city, country_id)
 VALUES

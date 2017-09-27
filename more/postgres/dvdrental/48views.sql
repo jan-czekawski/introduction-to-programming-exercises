@@ -1,6 +1,7 @@
 CREATE VIEW  view_name AS query;
 
 -- we have customer, address, city, country
+-- NO NEED FOR ALL THOSE PARENTHESIS !!! => IT WORKS WITHOUT IT
 SELECT 
   cu.customer_id AS id,
   (((cu.first_name)::text || ' '::text) || (cu.last_name)::text) AS name,
