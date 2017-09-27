@@ -1,4 +1,5 @@
--- trigger function is similar to ordinary function => but doesn't tak args and returns val type trigger:
+-- trigger function is similar to ordinary function => but doesn't take 
+-- args and returns val type trigger:
 CREATE FUNCTION trigger_function() RETURN trigger AS
 
 CREATE TABLE employees1 (
@@ -16,7 +17,8 @@ CREATE TABLE employee_audits (
 );
 
 -- create trigger function
--- it will check if last name of employee changes => it will insert old last name into employee_audits
+-- it will check if last name of employee changes => it will insert old last name 
+-- into employee_audits
 -- (including employee id, last name, time of change)
 CREATE OR REPLACE FUNCTION log_last_name_changes()
   RETURNS trigger AS

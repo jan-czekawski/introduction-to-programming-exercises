@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION get_rental_duration(p_customer_id INTEGER)
 DECLARE
   rental_duration INTEGER;
 BEGIN
--- get the rate based on film_id
+-- get the rate based on customer_id
 SELECT INTO rental_duration SUM(EXTRACT(DAY FROM return_date - rental_date))
 FROM rental
 WHERE customer_id = p_customer_id;
