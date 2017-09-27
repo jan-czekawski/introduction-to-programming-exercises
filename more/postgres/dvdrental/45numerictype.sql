@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS products1 (
     price NUMERIC (5, 2)
 );
 
--- scale exceeds defined scale (number of digits) => postgres will round it
+-- scale exceeds defined scale (number of digits after ".") => postgres will round it
 INSERT INTO products1 (NAME, price)
 VALUES
   ('Phone', 500.215), # => 500.22

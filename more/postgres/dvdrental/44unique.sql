@@ -42,12 +42,12 @@ CREATE TABLE IF NOT EXISTS equipment(
 CREATE UNIQUE INDEX CONCURRENTLY equipment_equip_id
 ON equipment (equip_id);
 
--- third, we add unique constraint to "equipment" table using "equipment_equip_id"
+-- third, we add unique constraint to "equipment" table using "equipment_equip_id" index
 ALTER TABLE equipment
 ADD CONSTRAINT unique_equip_id
 UNIQUE USING INDEX equipment_equip_id;
 
--- that query needs exclusie lock on the table => if you have many pendign transactions it will wait
+-- that query needs exclusie lock on the table => if you have many pending transactions it will wait
 -- till they're finished
 
 -- to check how many pending transactions are in place => "idle in transaction" => pending to complete
