@@ -1,8 +1,8 @@
 -- declare cursors
 DECLARE
   cur_films CURSOR FOR SELECT * FROM film; -- encapsulates all rows in "film" table
-  cur_films2 CURSOR (year integer) FOR SELECT * FROM film WHERE release_year = year; -- e. film with particular
-  -- release year in the film table
+  cur_films2 CURSOR (year integer) FOR SELECT * FROM film WHERE release_year = year; 
+  -- encapsulates film with particular release year in the film table
 
 OPEN my_cursor FOR SELECT * FROM city WHERE counter = p_country;
 
@@ -12,7 +12,7 @@ OPEN cur_city FOR EXECUTE query USING sort_field;
 
 -- open those cursors
 OPEN cur_films;
-OPEN cur_films2(year :=2005);
+OPEN cur_films2(year := 2005);
 
 -- fetching cursors
 FETCH cur_films INTO row_film;
@@ -30,7 +30,7 @@ WHERE CURRENT OF cur_films;
 
 
 -- function accepts argument that represents the release_year of film. Inside the function,
--- we query all films release year equals to the released year passed to the function
+-- we query all films release years equals to the released year passed to the function;
 -- we use the cursor to loop through the rows and concatenate title and release year of film that
 -- has title containing "ful" word
 CREATE OR REPLACE FUNCTION get_film_titles(p_year INTEGER)
@@ -39,7 +39,7 @@ DECLARE
   titles TEXT DEFAULT '';
   rec_film RECORD;
   cur_films CURSOR(p_year INTEGER)
-  FOR SELECT
+  FOR SELECT * -- have to select sth (was nothing previously) for cursor to work
   FROM film
   WHERE release_year = p_year;
 BEGIN

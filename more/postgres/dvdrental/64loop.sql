@@ -55,7 +55,7 @@ END; $$
 -- 5 TO 1
 DO $$
 BEGIN
-  FOR counter IN REVERSE 5..1 LOOP
+  FOR counter IN REVERSE 5..1 LOOP -- reverse is necessary to change auto_incrementation of loop
     RAISE NOTICE 'Counter: %', counter;
   END LOOP;
 END; $$
@@ -68,7 +68,8 @@ BEGIN
   END LOOP;
 END; $$
 
--- this function accepts int which specifies number of rows to query from "film" table in "sample" db
+-- this function accepts int which specifies number of rows to query from "film" table in 
+-- "sample" db
 -- for loop statement loops through rows returned from the query and print the film title
 CREATE OR REPLACE FUNCTION for_loop_through_query(n INTEGER DEFAULT 10)
 RETURNS VOID AS $$
@@ -85,10 +86,12 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
--- to get 5 titles => in pgAdmin in data output there'll be empty column, in messages there'll be notices
+-- to get 5 titles => in pgAdmin in data output there'll be empty column, 
+-- in messages there'll be notices
 SELECT for_loop_through_query(5);
 
--- function accepts 2 params: sort_type (1 => sort by title, 2 => by release year); n (number of rows to query from
+-- function accepts 2 params: sort_type (1 => sort by title, 2 => by release year); 
+-- n (number of rows to query from
 -- the "film" table. Notice that will be used in the USING clause.
 CREATE OR REPLACE FUNCTION for_loop_through_dyn_query(sort_type INTEGER, n INTEGER)
 RETURNS VOID AS $$

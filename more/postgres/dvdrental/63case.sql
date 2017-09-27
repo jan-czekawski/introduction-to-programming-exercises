@@ -35,7 +35,6 @@ DECLARE
   total_payment NUMERIC;
   service_level VARCHAR(25);
 BEGIN
--- get the rate based on film_id
   SELECT
     INTO total_payment SUM (amount)
   FROM
