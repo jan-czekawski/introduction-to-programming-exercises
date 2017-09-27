@@ -18,7 +18,7 @@ VALUES
   ('Server', '10001', 'Server room', '2017-01-01'),
     ('UPS', '10002', 'Server room', '2017-02-01');
 
-
+-- alter column data type
 ALTER TABLE assets ALTER COLUMN name TYPE VARCHAR;
 
 
@@ -30,6 +30,6 @@ ALTER TABLE assets
 ALTER TABLE assets
   ALTER COLUMN asset_no TYPE INT;
 
--- no error, when explicitly using USING
+-- no error, when explicitly using USING => doing cast to integer as expression
 ALTER TABLE assets
   ALTER COLUMN asset_no TYPE INT USING asset_no::integer;

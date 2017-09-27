@@ -42,7 +42,8 @@ CREATE TABLE so_items (
 
 
 
--- untill all referenced rows from child table are deleted, cannot delete row from parent table (so_headers.id) 
+-- untill all referenced rows from child table are deleted, cannot delete row from parent table
+-- (so_headers.id) 
 CREATE TABLE so_items (
   item_id int4 NOT NULL,
     so_id int4 REFERENCES so_headers(id) ON DELETE RESTRICT,
@@ -52,7 +53,8 @@ CREATE TABLE so_items (
     PRIMARY KEY (item_id, so_id)
 );
 
--- all referenced rows in child table (so_items.so_id) will be deleted when rows are deleted from parent (so_headers.id)
+-- all referenced rows in child table (so_items.so_id) will be deleted when rows 
+-- are deleted from parent (so_headers.id)
 CREATE TABLE so_items (
   item_id int4 NOT NULL,
     so_id int4 REFERENCES so_headers(id) ON DELETE CASCADE,
