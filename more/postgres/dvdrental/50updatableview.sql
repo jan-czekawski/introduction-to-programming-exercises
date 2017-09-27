@@ -10,7 +10,7 @@ WHERE
 -- check data
 select * from usa_cities;
 
--- insert new city to city table through "usa_cities" view
+-- insert new city to "city" table through "usa_cities" view
 INSERT INTO usa_cities (city, country_id)
 VALUES ('San Jose', 103);
 

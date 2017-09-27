@@ -2,12 +2,12 @@ CREATE MATERIALIZED VIEW view_name
 AS
 query
 WITH [NO] DATA; -- to (not) load data when view is created => 
--- with no data => view is unreadable, untill data is inserted => can't view it untill
+-- with no data => view is unreadable, until data is inserted => can't view it until then
 
 REFRESH MATERIALIZED VIEW view_name -- => load data into mat view (it locks table during update)
 REFRESH MATERIALIZED VIEW CONCURRENTLY view_name -- => (this doesn't lock it)
 
-
+-- NO NEED FOR ALL THAT PARENTHESIS (except next to SUM())
 CREATE MATERIALIZED VIEW rental_by_category
 AS
   SELECT
