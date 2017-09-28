@@ -15,5 +15,16 @@ mongoose.connection
     console.warn('Warning', error);
   });
 
+// it's a hook => done => it tells mocha, that after done is finished, you can run next test
+beforeEach((done) => {
+  // reference to collection of users sitting in our database
+  // mongoose.connection.collections.users
+  
+  // delete all of them (drop accepts callback function, executed after users are drop)
+  mongoose.connection.collections.users.drop(() => {
+    // ready to run the next test!
+    done();
+  }); 
+});
 
 // fat arrow    =>        skinny arrow  ->
