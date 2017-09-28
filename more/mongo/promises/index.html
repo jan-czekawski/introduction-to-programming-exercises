@@ -5,7 +5,8 @@
 <body>
   <button>Click!</button>
 
-  <script type="text/javascript">
+<!-- NO PROMISES -->
+<!--   <script type="text/javascript">
     // 2 steps
 
     // first: add logic to watch for button to be clicked => whenever it's clicked we will increment
@@ -29,5 +30,29 @@
         alert('Sorry, you lost');
       }
     }, 2000)
+  </script> -->
+
+  <!-- USING PROMISES -->
+  <script type="text/javascript">
+    // we will refactor this code into single function, where another developer can choose what he wants to do if user succeeds and what to do when he fails
+
+  //HERE WE'VE ENCAPSULATED INTO A FUNCTION, BUT CAN'T CHOOSE WHAT TO DO 
+    function startGame() {
+      let counter = 0;
+
+      document.querySelector('button').addEventListener('click', () => {
+        ++counter;
+      });
+
+      setTimeout(() => {
+        if (counter > 5) {
+          alert('You won! You have clicked it ' + counter + ' times.');
+        } else {
+          alert('Sorry, you lost');
+        }
+      }, 2000);
+    }
+
+    startGame();
   </script>
 </body>
