@@ -30,11 +30,23 @@ beforeEach((done) => {
   // reference to collection of users sitting in our database
   // mongoose.connection.collections.users
   
-  // delete all of them (drop accepts callback function, executed after users are drop)
-  mongoose.connection.collections.users.drop(() => {
-    // ready to run the next test!
-    done();
-  }); 
+  // ES6 will find users/comments/blogPosts collections in mongoose, so can shorten command
+  // when mongoose associates collections it normalize collections name => blogPosts => blogposts
+  const { users, comments, blogposts } = mongoose.connection.collections;
+  users.drop(() => {
+    comments.drop(() => {
+      blogposts.drop(() => {
+        done();
+      });
+    });
+  });
+
+
+  // // delete all of them (drop accepts callback function, executed after users are drop)
+  // mongoose.connection.collections.users.drop(() => {
+  //   // ready to run the next test!
+  //   done();
+  // }); 
 });
 
 // fat arrow    =>        skinny arrow  ->

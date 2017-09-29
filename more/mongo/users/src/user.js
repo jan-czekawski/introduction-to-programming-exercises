@@ -21,7 +21,11 @@ const UserSchema = new Schema({
     required: [true, 'Name is required.'] // require validation
   },
   posts: [PostSchema],
-  likes: Number
+  likes: Number,
+  blogPosts: [{ // connect to blogPosts model
+    type: Schema.Types.ObjectId,
+    ref: 'blogPost'
+  }]          
 });
 
 
