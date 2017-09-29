@@ -20,8 +20,14 @@ const UserSchema = new Schema({
     },
     required: [true, 'Name is required.'] // require validation
   },
-  postCount: Number,
-  posts: [PostSchema]
+  posts: [PostSchema],
+  likes: Number
+});
+
+
+// will add virtual property, define function on the property
+UserSchema.virtual('postCount').get(function(){
+  return this.posts.length;
 });
 
 // create User Model => reassign it to User var (User class/model)
