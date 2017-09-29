@@ -20,7 +20,7 @@ describe('Deleting a user', () => {
       .then((user) => { // it will be called with user found in the previous .then
         assert(user === null);
         done();
-      }) // it will be called when query after first .then is finished
+      }); // it will be called when query after first .then is finished
 
   });
 
@@ -31,27 +31,36 @@ describe('Deleting a user', () => {
           .then((user) => { 
             assert(user === null);
             done();
-        }) 
+        }); 
       });
   });
 
   it('class method remove', (done) => {
     // remove multiple records at the same time with given criteria
     User.remove({ name: 'Joe' })
-      .then(() => { 
-        User.findOne({ name: 'Joe'})
-          .then((user) => { 
-            assert(user === null);
-            done();
-        }) 
+      .then(() => User.findOne({ name: 'Joe'})) 
+      .then((user) => {
+        assert(user === null);
+        done();
       });
   });
 
-  it('class method findAndRemove', () => {
-
+  it('class method findAndRemove', (done) => {
+    // User.findOneAndRemove({ _id: joe._id }) // same as findByIdAndRemove
+    User.findOneAndRemove({ name: 'Joe' })
+      .then(() => User.findOne({ name: 'Joe'})) 
+      .then((user) => {
+        assert(user === null);
+        done();
+      });
   });
 
-  it('class method findByIdAndRemove', () => {
-
+  it('class method findByIdAndRemove', (done) => {
+    User.findByIdAndRemove(joe._id) // don't have to care about ObjectId type
+      .then(() => User.findOne({ name: 'Joe'})) 
+      .then((user) => {
+        assert(user === null);
+        done();
+      }); 
   });
 });
