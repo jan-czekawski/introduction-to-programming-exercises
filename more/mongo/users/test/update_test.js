@@ -5,7 +5,7 @@ describe('Updating records', () => {
   let joe;
 
   beforeEach((done) => {
-    joe = new User({ name: 'Joe' });
+    joe = new User({ name: 'Joe', postCount: 0 });
     joe.save()
       .then(() => done())
   });
@@ -71,4 +71,21 @@ describe('Updating records', () => {
     );
   });
 
-});
+  it('A user can have their postcount incremented by 1', (done) => {
+    // joe.set('postCount', 1); // could do it this way, but want to focus on class methods
+    // User.update({ name: 'Joe' }, { postCount: 1 }) // would set to 1, NOT INCREMENT BY 1
+
+    // type of operator, point to object and provide value (can use negative for decrement)
+    User.update({ name: 'Joe' }, { $inc: { postCount: 1 } })
+      .then(() => User.findOne({ name: 'Joe' }))
+      .then((user) => {
+        // WE CAN'T JUST LOOK AT JOE
+        // findOne doesn't know we have var joe => joe is our serverside representation
+        // result of findOne is assigned to "user"
+        // assert(joe.postCount === 1);
+        assert(user.postCount === 1);
+        done();
+      });
+  });
+
+}); 

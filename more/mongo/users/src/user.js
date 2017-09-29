@@ -9,7 +9,8 @@ const Schema  = mongoose.Schema;
 
 const UserSchema = new Schema({
   // expect every user to have "name" property and for it to be string
-  name: String
+  name: String,
+  postCount: Number
 });
 
 // create User Model => reassign it to User var (User class/model)
