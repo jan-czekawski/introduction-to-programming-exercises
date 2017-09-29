@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+// require post schema
+const PostSchema = require('./post');
 // create schema object
 const Schema  = mongoose.Schema;
 
@@ -18,7 +20,8 @@ const UserSchema = new Schema({
     },
     required: [true, 'Name is required.'] // require validation
   },
-  postCount: Number
+  postCount: Number,
+  posts: [PostSchema]
 });
 
 // create User Model => reassign it to User var (User class/model)
