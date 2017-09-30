@@ -34,6 +34,18 @@ UserSchema.virtual('postCount').get(function(){
   return this.posts.length;
 });
 
+// middleware 
+UserSchema.pre('remove', function(next) {
+  // this === joe
+  const BlogPost = mongoose.model('blogPost'); // this model will only load when function is called
+
+  // this.blogPosts => array of all the posts we want to delete
+  // $in => go through all the records in BlogPost collection and look at their id's
+  // if id is in array (this.blogPosts) it will remove that record
+  BlogPost.remove({ _id: { $in: this.blogPosts } })
+    .then(() => next());
+})
+
 // create User Model => reassign it to User var (User class/model)
 // it represents entire collection of data (all users)
 // 'user' is not available => mongoose creates that model
