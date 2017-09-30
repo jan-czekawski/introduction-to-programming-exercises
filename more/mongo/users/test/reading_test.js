@@ -3,10 +3,15 @@ const User = require('../src/user');
 
 describe('Reading users out of the database', () => {
   let joe; // this way joe will be in the functions (multiple: eg beforeEach, it etc) scope  
+  let maria, alex, zach
 
   beforeEach((done) => {
+    alex = new User({ name: 'Alex' });
     joe = new User({ name: 'Joe' });
-    joe.save()
+    maria = new User({ name: 'Maria' });
+    zach = new User({ name: 'Zach' });
+
+    Promise.all([alex.save(), maria.save(), zach.save(), joe.save()])
       .then(() => done()); // done will be called after it's successfully saved
   });
 
@@ -31,4 +36,19 @@ describe('Reading users out of the database', () => {
         done();
       });
   });
+
+  it('can skip and limit result set', (done) => {
+    // -Alex- [Joe Maria] Zach
+    User.find({})
+      .sort({ name: 1 }) // sort all users by name in ascending order(1), desc(-1)
+      .skip(1)
+      .limit(2)
+      .then((users) => {
+        assert(users.length === 2);
+        assert(users[0].name === 'Joe');
+        assert(users[1].name === 'Maria');
+        done();
+      });
+  });
+
 });
