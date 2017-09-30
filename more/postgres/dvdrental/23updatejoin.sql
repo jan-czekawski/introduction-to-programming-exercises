@@ -49,4 +49,4 @@ SET
 FROM
  product_segment
 WHERE
- product.segment_id = pr-oduct_segment.id;
+ product.segment_id = product_segment.id;

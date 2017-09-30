@@ -11,6 +11,5 @@ const AlbumSchema = new Schema({
   revenue: Number
 });
 
-const Album = mongoose.model('album', AlbumSchema);
-
-module.exports = Album;
+// it's not a model, so we're only exporting schema
+module.exports = AlbumSchema;
