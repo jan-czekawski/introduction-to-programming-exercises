@@ -33,7 +33,7 @@ INNER JOIN supplier_groups g ON g.id = s.group_id;
 
 
 ALTER TABLE supplier_groups RENAME TO groups;
--- check \d suppliers again => fk constraint now refernces "groups" table (it's updated)  
+-- check \d suppliers again => fk constraint now references "groups" table (it's updated)  
 
 
 -- can check \d+ supplier_data => to show the supplier_data view
