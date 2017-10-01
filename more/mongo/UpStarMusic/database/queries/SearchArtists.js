@@ -27,7 +27,8 @@ module.exports = (criteria, sortProperty, offset = 0, limit = 20) => {
     .limit(limit);               // set that value as key and set value of the key as 1
 
 
-  return Promise.all([query, Artist.count()]) // count is asynchronous
+  return Promise.all([query, Artist.find(buildQuery(criteria)).count()]) // count is asynchronous
+  // return Promise.all([query, Artist.count()]) // count is asynchronous
     .then((results) => {
       return {
         all: results[0],  // result of the "query"
