@@ -21,7 +21,7 @@ module.exports = (criteria, sortProperty, offset = 0, limit = 20) => {
   // sortOrder[sortProperty] = 1;
 
   // ES6 way
-  const query = Artist.find({})
+  const query = Artist.find(buildQuery(criteria))
     .sort({ [sortProperty]: 1 }) // [sortProperty] is NOT ARRAY, it's ES6 interpolated property
     .skip(offset)                // at runtime look at the sortProperty, whatever the value is equal
     .limit(limit);               // set that value as key and set value of the key as 1
@@ -36,4 +36,34 @@ module.exports = (criteria, sortProperty, offset = 0, limit = 20) => {
         limit: limit
       };
     });
+};
+
+
+const buildQuery = (criteria) => {
+  // criteria is not standard object => we won't be modifying it, we will assign values from it to another
+  // at default criteria only has "name" and it's empty
+  const query = {};
+
+  if (criteria.name) {
+    // have to specify the field to search for in db
+    // by the default this query would only match with entire word (part of the name would get nothing)
+    query.$text = { $search: criteria.name }  
+  }
+
+  // modyfiy query if user changed age in UI
+  if (criteria.age) {
+    query.age = {
+      $gte: criteria.age.min,
+      $lte: criteria.age.max
+    };
+  }
+
+  if (criteria.yearsActive) {
+    query.yearsActive = {
+      $gte: criteria.yearsActive.min,
+      $lte: criteria.yearsActive.max
+    };
+  }
+
+  return query;
 };
