@@ -6,4 +6,11 @@ const Artist = require('../models/artist');
  * @return {promise} A promise that resolves after the update
  */
 module.exports = (_ids) => {
+  // this cause to only 1 user be retired (if try to select multiple users at once)
+  // model.update has option multi(boolean) defaulted to false (can't update multiple docs)
+  return Artist.update(
+    { _id: { $in: _ids } },
+    { retired: true },
+    { multi: true } // have to pass that option !!!
+  );
 };
