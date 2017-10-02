@@ -8,7 +8,7 @@ const app = require('../../app');
 const Driver = mongoose.model('driver');
 
 describe('Drivers controller', () => {
-  it('Posts to /api/drivers creates a new driver', done => {
+  it('Posts to /api/drivers creates a new driver', (done) => {
     // run count first
     Driver.count().then(count => {
       // only after we got the count we start the request

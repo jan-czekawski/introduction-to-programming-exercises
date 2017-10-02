@@ -7,7 +7,7 @@ const app = express();
 
 mongoose.Promise = global.Promise;
 // connect mongoose with instance of the mongo
-mongoose.connect('mongodb://localhost:/muber');
+mongoose.connect('mongodb://localhost/muber');
 
 // request handler (2nd arg is callback function)
 // whenever you get http request with method GET
