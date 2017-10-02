@@ -10,7 +10,7 @@ mongoose.Promise = global.Promise;
 // connect to test db in test_helper (easier to check that mongoose connected to mongo and run tests after connection)
 if (process.env.NODE_ENV !== 'test') {
   // connect mongoose with instance of the mongo
-  mongoose.connect('mongodb://localhost/muber');  
+  mongoose.connect('mongodb://localhost/muber_test');  
 }
 
 

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 before(done => {
-  mongoose.connect('mongodb://localhost/muber');
-  // mongoose.connect('mongodb://localhost/muber_test');
+  // mongoose.connect('mongodb://localhost/muber');
+  mongoose.connect('mongodb://localhost/muber_test');
   // handler => show status of connection
   mongoose.connection
     .once('open', () => done())

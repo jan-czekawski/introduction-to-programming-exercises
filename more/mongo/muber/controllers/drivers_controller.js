@@ -20,7 +20,7 @@ module.exports = {
     Driver.create(driverProps)
       .then(driver => res.send(driver))
       .catch(next);
-  }
+  },
 
   edit(req, res, next) {
     const driverId = req.params.id; // .id has to match with :id in app.put('/api/drivers/:id') in routes.js
@@ -30,5 +30,15 @@ module.exports = {
       .then(() => Driver.findById({ _id: driverId }))
       .then(driver => res.send(driver))
       .catch(next);    
+  },
+
+  delete(req, res, next) {
+    const driverId = req.params.id;
+
+    Driver.findByIdAndRemove({ _id: driverId }) // we will include the delete driver in the response
+      .then(driver => res.status(204).send(driver)) // 204 => record successfully deleted 
+      .catch(next);   
   }
+
+
 };
