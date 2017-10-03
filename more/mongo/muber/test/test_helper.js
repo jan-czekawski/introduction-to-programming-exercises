@@ -14,6 +14,8 @@ before(done => {
 beforeEach(done => {
   const { drivers } = mongoose.connection.collections;
   drivers.drop()
+    // it makes sure before any tests are run that index is in place 
+    .then(() => drivers.ensureIndex({ 'geometry.coordinates': '2dsphere' }))
     .then(() => done())
     .catch(() => done());
 });
