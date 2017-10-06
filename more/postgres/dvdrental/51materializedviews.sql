@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW view_name
+  CREATE MATERIALIZED VIEW view_name
 AS
 query
 WITH [NO] DATA; -- to (not) load data when view is created => 
