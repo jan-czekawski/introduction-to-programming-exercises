@@ -8,7 +8,7 @@ AS $$
 BEGIN
   RETURN QUERY SELECT
     title,
-    cast (release_year as integer) -- cols must match select => date cas to be casted to integer
+    cast (release_year as integer) -- cols must match select => date has to be casted to integer
   FROM
     film
   WHERE
