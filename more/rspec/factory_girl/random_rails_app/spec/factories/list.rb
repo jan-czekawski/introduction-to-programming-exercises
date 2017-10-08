@@ -27,5 +27,10 @@ FactoryGirl.define do
   # double_agents = build_list(:spy, 3, name: 'Vesper Lynd', skills: 'Seduction and bookkeeping')
   # smug_spies # => [#<Spy id: 1, name: \"Marty McSpy\", function: \"Covert agent\", skills: \"Smug jokes\", created_at: \"2015-10-18 19:08:07\", updated_at: \"2015-10-18 19:08:07\">, #<Spy id: 2, name: \"Marty McSpy\", function: \"Covert agent\", skills: \"Smug jokes\", created_at: \"2015-10-18 19:08:07\", updated_at: \"2015-10-18 19:08:07\">, #<Spy id: 3, name: \"Marty McSpy\", function: \"Covert agent\", skills: \"Smug jokes\", created_at: \"2015-10-18 19:08:07\", updated_at: \"2015-10-18 19:08:07\">]
   # double_agents # => [#<Spy id: nil, name: \"Vesper Lynd\", function: \"Covert agent\", skills: \"Seduction and bookkeeping\", created_at: nil, updated_at: nil>, #<Spy id: nil, name: \"Vesper Lynd\", function: \"Covert agent\", skills: \"Seduction and bookkeeping\", created_at: nil, updated_at: nil>, #<Spy id: nil, name: \"Vesper Lynd\", function: \"Covert agent\", skills: \"Seduction and bookkeeping\", created_at: nil, updated_at: nil>] 
-  
+
+  # CREATE PAIR 
+  # create_pair(:spy)
+  # => [#<Spy id: 1, name: \"Marty McSpy\", function: \"Covert agent\", skills: \"Infiltration and espionage\", created_at: \"2015-10-18 19:31:41\", updated_at: \"2015-10-18 19:31:41\">, #<Spy id: 2, name: \"Marty McSpy\", function: \"Covert agent\", skills: \"Infiltration and espionage\", created_at: \"2015-10-18 19:31:41\", updated_at: \"2015-10-18 19:31:41\">]
+  # build_pair(:spy)
+  # => [#<Spy id: nil, name: \"Marty McSpy\", function: \"Covert agent\", skills: \"Infiltration and espionage\", created_at: nil, updated_at: nil>, #<Spy id: nil, name: \"Marty McSpy\", function: \"Covert agent\", skills: \"Infiltration and espionage\", created_at: nil, updated_at: nil>]
 end
