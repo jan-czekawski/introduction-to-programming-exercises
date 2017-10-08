@@ -3,7 +3,7 @@ const User = require('../src/user');
 
 describe('Reading users out of the database', () => {
   let joe; // this way joe will be in the functions (multiple: eg beforeEach, it etc) scope  
-  let maria, alex, zach
+  let maria, alex, zach;
 
   beforeEach((done) => {
     alex = new User({ name: 'Alex' });
@@ -24,7 +24,7 @@ describe('Reading users out of the database', () => {
         // console.log(joe._id);
         // compare id of the first user in array to joes => without toString => error
         // cause _id wrapped in ObjectId
-        assert(users[0]._id.toString() === joe._id.toString()) 
+        assert(users[0]._id.toString() === joe._id.toString()) ;
         done();
       });
   });
