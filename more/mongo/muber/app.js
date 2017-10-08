@@ -24,9 +24,9 @@ if (process.env.NODE_ENV !== 'test') {
 // APP.USE(BODYPARSER) HAVE TO BE DECLARED BEFORE ROUTES(APP) !!!
 
 // body parser
-app.use(bodyParser.json()) // .json is functioned (invoked here) => any incoming request are parsed into JSON
+app.use(bodyParser.json()); // .json is functioned (invoked here) => any incoming request are parsed into JSON
 // route handler
-routes(app)
+routes(app);
 // error handler
 app.use((err, req, res, next) => {
   res.status(422).send({ error: err.message }); // status 422 => unprocessable entity (validation err)
