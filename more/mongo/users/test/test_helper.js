@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // define diff library for promise
 mongoose.Promise = global.Promise;
 
-// we connect with mongo (localhost => we till mongoose to look for mongo on local machine)
+// we connect with mongo (localhost => we tell mongoose to look for mongo on local machine)
 // /users_test => name of the db to connect to (if we have multiple db's, mongo has to choose this)
 // no need to create that db beforehand; as soon as we connect to it, mongo will create it
 mongoose.connect('mongodb://localhost/users_test');

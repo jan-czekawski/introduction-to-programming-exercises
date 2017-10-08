@@ -2,7 +2,7 @@
 const assert = require('assert');
 // import specific file to have access to User model
 // it's entire collection of data that sits in our database
-const User = require('../src/user')
+const User = require('../src/user');
 
 // make sure we can create a user and save it in the db
 describe('Creating records', () => {

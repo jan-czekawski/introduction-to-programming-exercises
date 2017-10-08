@@ -44,7 +44,7 @@ UserSchema.pre('remove', function(next) {
   // if id is in array (this.blogPosts) it will remove that record
   BlogPost.remove({ _id: { $in: this.blogPosts } })
     .then(() => next());
-})
+});
 
 // create User Model => reassign it to User var (User class/model)
 // it represents entire collection of data (all users)
