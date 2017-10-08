@@ -48,7 +48,7 @@ const buildQuery = (criteria) => {
   if (criteria.name) {
     // have to specify the field to search for in db
     // by the default this query would only match with entire word (part of the name would get nothing)
-    query.$text = { $search: criteria.name }  
+    query.$text = { $search: criteria.name }; 
   }
 
   // modyfiy query if user changed age in UI

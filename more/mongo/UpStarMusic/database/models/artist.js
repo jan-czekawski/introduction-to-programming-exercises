@@ -14,8 +14,8 @@ const ArtistSchema = new Schema({
   labelName: String,
   retired: Boolean,
   albums: [AlbumSchema]
-})
+});
 
 const Artist = mongoose.model('artist', ArtistSchema);
 
-module.exports = Artist
+module.exports = Artist;
