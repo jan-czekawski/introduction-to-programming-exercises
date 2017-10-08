@@ -32,6 +32,6 @@ describe('Validating records', () => {
 
         assert(message === 'Name must be longer than 2 characters.');
         done();
-      })
+      });
     });
 });

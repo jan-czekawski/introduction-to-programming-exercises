@@ -12,7 +12,7 @@ describe('Creating records', () => {
     // create user => we're creating new instance of User model
     // joe => becomes instance of the user
     // joe is in the memory (not in the db yet)
-    const joe = new User({ name: 'Joe' })
+    const joe = new User({ name: 'Joe' });
 
     // save a user
     // but it's gonna take some time, we need make sure that assertions starts after

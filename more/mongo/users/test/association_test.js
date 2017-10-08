@@ -57,7 +57,7 @@ describe('Associations', () => {
         assert(user.blogPosts[0].comments[0].user.name === 'Joe');
 
         done();
-      })
+      });
   });
 
 });
