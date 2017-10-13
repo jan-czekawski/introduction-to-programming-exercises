@@ -3,6 +3,11 @@ FactoryGirl.define do
   factory :aston_martin do
     sequence(:vehicle_id_number) {|n| "A_M_#{n}"}
   end
+  
+  # to start sequence from 9
+  factory :second_aston_martin do
+    sequence(:vehicle_id_number, 9) {|n| "A_M_#{n}"}
+  end
  
 end
  
