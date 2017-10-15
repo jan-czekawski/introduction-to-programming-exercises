@@ -18,3 +18,9 @@ FactoryGirl.define do
   # end
   
 end
+
+# both objects use build and nothing gets saved in the db
+thinkpad = build(:computer)
+
+thinkpad.new_record? # => true
+thinkpad.quatermaster.new_record? # => true
