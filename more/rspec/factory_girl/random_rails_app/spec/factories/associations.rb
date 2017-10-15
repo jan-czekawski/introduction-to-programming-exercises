@@ -12,3 +12,7 @@ FactoryGirl.define do
   end
   
 end
+# BUT if you used create(:quatermaster) it will build and save both Q and ThinkPad
+# using build(:quatermaster) wouldn't hit db, but would only apply to quatermaster,
+# ThinkPad would still get saved
+
