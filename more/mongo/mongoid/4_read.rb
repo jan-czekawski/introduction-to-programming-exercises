@@ -9,3 +9,7 @@ pp db[:zips].find(:city => 'GERMANTOWN', :state => "MD").first
 
 db[:zips].find().each { |r| puts r }
 db[:zips].find().each { |r| pp r }
+
+# projections/limits
+db[:zips].find(:state => "MD").projection(state: true).first
+db[:zips].find(:state => "MD").projection(state: true, _id: false).first
