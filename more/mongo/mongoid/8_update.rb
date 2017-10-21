@@ -12,3 +12,7 @@ db[:zips].find(:_id => "100").replace_one(:_id => "100",
                                           :pop => 2000,
                                           :state => "MD")
 db[:zips].find(:_id => "100").to_a
+
+# update_one
+db[:zips].find(:_id => "100").update_one(:$set => {:city => "name2"})
+db[:zips].find(:_id => "100").to_a
