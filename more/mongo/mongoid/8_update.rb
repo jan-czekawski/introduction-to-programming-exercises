@@ -16,3 +16,10 @@ db[:zips].find(:_id => "100").to_a
 # update_one
 db[:zips].find(:_id => "100").update_one(:$set => {:city => "name2"})
 db[:zips].find(:_id => "100").to_a
+
+# update_many
+db[:zips].find(:state => "MD").count
+
+db[:zips].find(:state => "MD").update_many(:"$set" => { state: "XX" })
+db[:zips].find(:state => "MD").count
+db[:zips].find(:state => "XX").count
