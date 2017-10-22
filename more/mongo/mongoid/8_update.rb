@@ -23,3 +23,14 @@ db[:zips].find(:state => "MD").count
 db[:zips].find(:state => "MD").update_many(:"$set" => { state: "XX" })
 db[:zips].find(:state => "MD").count
 db[:zips].find(:state => "XX").count
+
+# delete_one
+db[:zips].find(:city => "name2").count
+db[:zips].find(:city => "name2").delete_one()
+db[:zips].find(:city => "name2").count
+
+
+# delete_many
+db[:zips].find(:state => "MD").count
+db[:zips].find(:state => "MD").delete_many()
+db[:zips].find(:state => "MD").count
