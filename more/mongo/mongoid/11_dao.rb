@@ -10,4 +10,14 @@ class Zip
   def self.collection
     self.mongo_client['zips']
   end
+  
+  def self.all(prototype = {}, sort = { :population=> 1 }, offset = 0, limit = 100)
+  end
 end
+
+# try using:
+Zip.mongo_client
+Zip.mongo_client[:zips]
+Zip.collection.find.count
+Zip.all.count
+Zip.all({ :state => "NY" }, { :population => -1 }, 0, 1).first
