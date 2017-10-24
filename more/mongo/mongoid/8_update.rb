@@ -34,3 +34,11 @@ db[:zips].find(:city => "name2").count
 db[:zips].find(:state => "MD").count
 db[:zips].find(:state => "MD").delete_many()
 db[:zips].find(:state => "MD").count
+
+
+# upsert
+db[:zips].find(:city => "ODENVILLE1").count
+db[:zips].find(:city => "ODENVILLE2").count
+db[:zips].find(:city => "ODENVILLE1").update_one({:$set => {:city => "ODENVILLE2"}}, :upsert => true)
+db[:zips].find(:city => "ODENVILLE1").count
+db[:zips].find(:city => "ODENVILLE2").count
