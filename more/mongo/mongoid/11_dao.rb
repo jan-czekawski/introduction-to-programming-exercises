@@ -113,7 +113,22 @@ class Post
     @population=params[:pop].nil? ? params[:population] : params[:pop]
   end
   
-  
+  # update
+  def update(updates)
+    Rails.logger.debug { "updating #{self} with #{updates}" }
+    
+    updates[:pop] = updates[:population] if !updates[:population].nil?
+    updates.slice(:city, :state, :pop) if !updates.nil?
+    
+    self.class.collection
+              .find(_id: @id)
+              .update_one(updates)
+  end
+  # to check if updated have to reload from Post to local var
+  # post = Post.find("0099")
+  # post.update({:population => 999, :city => "Chicago", :state => "NY"}
+  # post = Post.find("0099")
+  # post.to_s => to see results
   
   # FULL FILE SHOULD LOOK LIKE THIS: (but with Post instead of Zip)
   class Zip
