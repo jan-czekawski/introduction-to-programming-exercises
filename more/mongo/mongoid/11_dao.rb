@@ -100,5 +100,16 @@ class Post
   def population
     self.pop
   end
+  # post = Post.new({:id => "000002", :city => "Dummy_City2", :state => "WY", :population => 300})  
+  # OTHER METHODS (EG INITIALIZER WEREN'T DEFINED => IT CAUSED PROBLEMS)
   
+  
+  # initialize from both a Mongo and Web hash
+  def initialize(params={})
+    #switch between both internal and external views of id and population
+    @id=params[:_id].nil? ? params[:id] : params[:_id]
+    @city=params[:city]
+    @state=params[:state]
+    @population=params[:pop].nil? ? params[:population] : params[:pop]
+  end
 end
