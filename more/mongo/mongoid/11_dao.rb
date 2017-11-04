@@ -139,6 +139,32 @@ class Post
   end
   # post = Post.find("0099")
   
+  # to allow ruby objects to work with action pack; allow validation, conversion etc
+  include ActiveModel::Model
+  
+  # check if primary key is set
+  def persisted?
+    !@id.nil?
+  end
+  
+  # json marshall expects both methods
+  def created_at
+    nil
+  end
+  
+  def updated_at
+    nil
+  end
+  
+  # in app/helpers/post_helper.rb
+  module PostsHelper
+    def toPost(value)
+      # change value to a Post if not already a Post
+      return value.is_a?(Post) ? value : Post.new(value)
+    end
+  end
+  
+  
   # FULL FILE SHOULD LOOK LIKE THIS: (but with Post instead of Zip)
   class Zip
   include ActiveModel::Model
