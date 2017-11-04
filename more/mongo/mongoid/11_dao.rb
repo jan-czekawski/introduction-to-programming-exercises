@@ -130,6 +130,15 @@ class Post
   # post = Post.find("0099")
   # post.to_s => to see results
   
+  def destroy
+    Rails.logger.debug { "destroying #{self}" }
+    
+    self.class.collection
+              .find(_id: @id)
+              .delete_one
+  end
+  # post = Post.find("0099")
+  
   # FULL FILE SHOULD LOOK LIKE THIS: (but with Post instead of Zip)
   class Zip
   include ActiveModel::Model
