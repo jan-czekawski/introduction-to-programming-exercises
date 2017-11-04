@@ -164,6 +164,9 @@ class Post
     end
   end
   
+  # ADD will_paginate and will_paginate_mongoid gems => and <%= will_paginate @posts %>
+  # in the view
+  
   
   # FULL FILE SHOULD LOOK LIKE THIS: (but with Post instead of Zip)
   class Zip
