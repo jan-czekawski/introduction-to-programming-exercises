@@ -80,6 +80,8 @@ class Post
     return result
   end  
   
+  # have to add this module to use find
+  include Mongoid::Attributes::Dynamic
   def self.find(id)
     Rails.logger.debug { "getting zip #{id}" }
     
@@ -88,4 +90,15 @@ class Post
                     .first
     doc.nil? ? nil : Post.new(doc)
   end
+  
+  # Post.find("11226") would get the record but can't just check Post.find("11226").population,
+  # can check with Post.find("11226")[:pop]
+  
+  # to access #population
+  attr_accessor :id, :city, :state, :pop
+  # and
+  def population
+    self.pop
+  end
+  
 end
