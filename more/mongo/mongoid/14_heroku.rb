@@ -18,6 +18,7 @@
 # git remote -v
 # heroku create michal8888-zips
 # heroku config:add MONGOLAB_URI=mongodb...  => same with dbuser and dbpassword
+# git push heroku master
 
 # errors => heroku run rails console --trace
 
