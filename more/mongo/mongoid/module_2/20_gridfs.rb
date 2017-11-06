@@ -1,5 +1,6 @@
 # load the file
 require "./gridfs_loader"
+require "pp"
 
 # connection to database
 GridfsLoader.mongo_client
@@ -51,3 +52,26 @@ grid_file.info
 
 # insert into db with the grid file that has all the properties
 r = c.database.fs.insert_one(grid_file)
+
+# finding files and finding metadata we've just inserted
+
+# at the root level (file name and content type)
+c.database.fs.find_one(:contentType => "image/jpeg", :filename => "myfile.jpg")
+
+# at the metadata level
+c.database.fs.find_one(:"metadata.author" => "kiran", :"metadata.topic" => { :$regex => "spot" })
+
+# print it
+pp c.database.fs.find(:contentType => "image/jpeg", :filename => "myfile.jpg").first
+pp c.database.fs.find(:"metadata.author" => "kiran", :"metadata.topic" => { :$regex => "spot" }).first
+
+# DELETING A FILE
+# get the id
+id = c.database.fs.find(:"metadata.author" => "kiran").first[:_id]
+
+# delete single file
+r = c.database.fs.find(:_id => id).delete_one # => save the operation into the file
+r.deleted_count # => to confirm that it was deleted
+
+# delete many
+r = c.database.fs.find.delete_many
