@@ -51,3 +51,23 @@ pp f
 
 # can delete it
 f.destroy
+
+
+
+
+
+
+
+
+# NEW VERSION
+# rails new grid_app --skip-active-records
+
+# in Gemfile
+# gem 'mongoid', '~> 6.1.0'
+# gem 'mongoid-grid_fs'
+# gem 'will_paginate'
+# gem 'will_paginate_mongoid'
+
+# bundle
+
+# rails g mongoid:config
