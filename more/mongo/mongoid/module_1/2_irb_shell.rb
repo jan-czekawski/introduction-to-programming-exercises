@@ -1,6 +1,7 @@
 #irb
 require "mongo"
-Mongo::Logger.logger.level = ::Logger::INFO #(cluters with less info)
+#(cluters with less info)
+Mongo::Logger.logger.level = ::Logger::INFO 
 db = Mongo::Client.new("mongodb://localhost:27017")
 db = db.use("test")
 db.database.name

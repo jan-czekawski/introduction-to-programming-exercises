@@ -13,3 +13,4 @@ db[:zips].find(:loc => { :$near => { :$geometry => { :type => "Point",
                                                      :$minDistance => 10000,
                                                      :$maxDistance => 50000 }
                         }).limit(5).each { |r| pp r }
+
