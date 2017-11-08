@@ -75,4 +75,36 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:id, :city, :state, :pop)
     end
+    
+    def post_markers posts
+      # build the marker for the center of the map
+      if @post
+        center_marker = Gmaps4rails.build_markers(@post) do |post, marker|
+          marker.lat post.latitude
+          marker.lng post.longitude
+          marker.infowindow post.city
+          marker.picture(:url => "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+                         :width => 32,
+                         :height => 32)
+        end
+      end
+      
+      # build markers for map
+      marked_post = @post.nil?
+      locations = Gmaps4rails.build_markers(posts) do |post, marker|
+        marker.lat post.latitude
+        marker.lng post.longitude
+        marker.infowindow post.city
+        # add special marker for target city
+        if @post && post.id == @post.id
+          marker.picture center_marker[0][:picture]
+          marked_post = true
+        end
+      end
+      
+      # add target city of left out
+      locations << center_marker[0] if !marked_post
+      return locations
+    end
+
 end
