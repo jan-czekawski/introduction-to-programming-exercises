@@ -20,10 +20,12 @@ function score(playerA, playerB){
   var scoreB = playerB.height + playerB.age * 5;
 
   if (scoreA > scoreB) {
-    console.log(playerA.name + "won this round. His score is " + scoreA);
+    console.log(playerA.name + " won this round. His score is " + scoreA);
   } else if (scoreA < scoreB) {
-    console.log(playerB.name + "won this round. His score is " + scoreB);
+    console.log(playerB.name + " won this round. His score is " + scoreB);
   } else {
     console.log("It's a draw. Both players had following score: " + scoreA);
   }
 }
+
+score(john, mark);
