@@ -14,3 +14,22 @@ for (var i = 0; i < years.length; i++){
     console.log("Person born in " + years[i] + " is a minor.");
   }
 }
+
+function printFullAge(ages){
+  var boolAges = [];
+
+  for (var i = 0; i < ages.length; i++){
+    if (2017 - years[i] >= 18){
+      boolAges[i] = true;
+    } else {
+      boolAges[i] = false;
+    }
+  }
+
+  return boolAges;
+}
+
+var firstTry = printFullAge([1964, 2008, 1988]);
+var secondTry = printFullAge([2000, 1900, 2010]);
+console.log(firstTry);
+console.log(secondTry);
