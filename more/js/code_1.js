@@ -5,9 +5,15 @@ var john = {
 };
 
 var mark = {
-  age: 29,
-  height: 190,
+  age: 22,
+  height: 185,
   name: "Mark"
+};
+
+var jerry = {
+  age: 22,
+  height: 185,
+  name: "Jerry"
 };
 
 // var johnHeight = 185;
@@ -24,8 +30,27 @@ function score(playerA, playerB){
   } else if (scoreA < scoreB) {
     console.log(playerB.name + " won this round. His score is " + scoreB);
   } else {
-    console.log("It's a draw. Both players had following score: " + scoreA);
+    console.log("It's a draw. Both players have following score: " + scoreA);
+  }
+}
+
+function betterScore(playerA, playerB, playerC){
+  var scoreA = playerA.height + playerA.age * 5;
+  var scoreB = playerB.height + playerB.age * 5;
+  var scoreC = playerC.height + playerC.age * 5;
+
+  if (scoreA == scoreB && scoreB == scoreC){
+    console.log("It's a draw. All players have following score: " + scoreA);
+  }
+
+  if (scoreA > scoreB && scoreA > scoreC){
+    console.log(playerA.name + " won this round. His score is " + scoreA); 
+  } else if (scoreB > scoreA && scoreB > scoreC){
+    console.log(playerB.name + " won this round. His score is " + scoreB);
+  } else if (scoreC > scoreA && scoreC > scoreB){
+    console.log(playerC.name + " won this round. His score is " + scoreC);
   }
 }
 
 score(john, mark);
+betterScore(john, mark, jerry);
