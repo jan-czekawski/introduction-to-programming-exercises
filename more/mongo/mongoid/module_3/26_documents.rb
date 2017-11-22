@@ -48,3 +48,6 @@ rocky26.save
 # now timestamps will be different
 rocky26.created_at
 rocky26.updated_at 
+
+# touch will also change updated_at
+rocky26.touch
