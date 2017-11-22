@@ -33,3 +33,18 @@ end
 # .touch => will update doc's updated_at timestamp
 
 pp Movie.find("tt0036775")
+
+# to check timestamps we will first create new movie
+rocky26 = Movie.create(:_id => "tt9000031", :title => "Rocky XXVI")
+
+# can get timestamps
+rocky26.created_at
+rocky26.updated_at
+
+# will change field to confirm that timestamps update
+rocky26.year = 2017
+rocky26.save
+
+# now timestamps will be different
+rocky26.created_at
+rocky26.updated_at 
