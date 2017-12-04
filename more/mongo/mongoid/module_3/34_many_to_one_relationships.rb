@@ -15,3 +15,6 @@ class Director
 end
 
 director = Director.where(residence: { :$exists => 0 }).first
+
+# look for it in the db
+pp Director.collection.find(:_id => director.id).first
