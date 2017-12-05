@@ -22,7 +22,22 @@ pp Director.collection.find(:_id => director.id).first
 # assign place to oakland
 oakland = Place.where(:city => "Oakland").first
 
-# assign it to director
+# assign it to director (it didn't actually save)
 director.residence = oakland
 
+# residence is still not saved
 pp Director.collection.find(:_id => director.id).first
+
+# now it's good
+director.save
+
+# Related object is now in the separate collection => director has only
+# FK stored locally to that related doc
+
+director.residence.state
+# it need separate, additional query to db => have to make a call to Place
+# to get associated state/city based on that id (based on that FK)
+
+
+# but if you want to access only FK, just access relationship_id
+director.residence_id
