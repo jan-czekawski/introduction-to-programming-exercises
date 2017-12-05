@@ -40,4 +40,4 @@ director.residence.state
 
 
 # but if you want to access only FK, just access relationship_id
-director.residence_id
+director.residence_id 
