@@ -174,3 +174,22 @@ Movie.where(id: rocky31.id).first.sequel_of if Movie.where(id: rocky31.id).exist
 Writer.where(id: writer.id).exists?
 # nothing from writer
 Writer.where(id: writer.id).first.movie_ids if Writer.where(id: writer.id).exists?
+
+
+# RESTRICT
+has_and_belongs_to_many :writers, dependent: :restrict
+has_one :sequel, foreign_key: :sequel_of, class_name:"Movie", dependent: :restrict
+
+# script code
+rocky30.destroy
+# exception raised!!! => can't delete Movie => dependent on writers
+
+# check the db
+
+# all it's there => nothing was deleted
+Movie.where(id: rocky30.id).exists?
+Movie.where(id: rocky30.id).first.writer_ids if Movie.where(id: rocky30.id).exists?
+Movie.where(id: rocky31.id).exists?
+Movie.where(id: rocky31.id).first.sequel_of if Movie.where(id: rocky31.id).exists?
+Writer.where(id: writer.id).exists?
+Writer.where(id: writer.id).first.movie_ids if Writer.where(id: writer.id).exists?
