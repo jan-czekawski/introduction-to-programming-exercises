@@ -48,3 +48,7 @@ rocky26.roles << role
 pp Movie.collection.find(title: "Rocky XXVI").first
 rocky26.save
 pp Movie.collection.find(title: "Rocky XXVI").first
+
+# embedded object (role) can provide reference to its parent doc
+role.movie.title
+
