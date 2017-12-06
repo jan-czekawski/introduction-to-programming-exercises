@@ -34,4 +34,23 @@ movie = Movie.where(:"roles._id" => damon.id).first
 role = movie.roles.where(:id => damon.id).first
 pp role.attributes
 
-# 1:11:10
+# try defined method #roles to get the roles associated with the actor
+pp damon.roles.map { |role| "#{role.movie.title} => #{role.character}"}
+
+# we'll try add actor to fake role in fake movie
+
+# create fake movie
+rocky26 = Movie.create(:_id => "tt9000015", :title => "Rocky 26")
+
+# add fake role
+rocky = rocky26.roles.create(_id: damon.id, character: "Rocky", actorName: "Matt", main: true)
+
+# can see Matt Damon in the fake role in fake movie
+pp Movie.collection.find(title: "Rocky 26").first
+
+# try to find associated movies to actor Matt Damon => rocky 26 is there
+pp damon.roles.map { |role| "#{role.movie.title} => #{role.character}" }
+
+# "one" side has primary key and typically has no reference to the child within the doc
+
+# "many" side will typically host the foreign key
