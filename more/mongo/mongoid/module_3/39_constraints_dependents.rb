@@ -87,3 +87,90 @@ Movie.where(id: rocky31.id).exists?
 Movie.where(id: rocky31.id).first.sequel_of if Movie.where(id: rocky31.id).exists?
 Writer.where(id: writer.id).exists?
 Writer.where(id: writer.id).first.movie_ids if Writer.where(id: writer.id).exists?
+
+# DELETE
+has_and_belongs_to_many :writers, dependent: :delete
+has_one :sequel, foreign_key: :sequel_of, class_name:"Movie", dependent: :delete
+# script code
+rocky30.id
+rocky31.id
+Writer.where(id: writer.id).first.movie_ids
+Movie.where(id: rocky30.id).first.writer_ids
+
+rocky30.destroy
+# no callbacks for writer where executed, but writer was accessed
+# relationship is deleted before the movie is deleted (but writer is not deleted)
+
+# it's 1:M relationship => parent (first movie) and child (sequel) are both deleted
+# writer is not deleted
+
+# checking if it's there
+
+# nothing
+Movie.where(id: rocky30.id).exists?
+Movie.where(id: rocky30.id).first.writer_ids if Movie.where(id: rocky30.id).exists?
+Movie.where(id: rocky31.id).exists?
+Movie.where(id: rocky31.id).first.sequel_of if Movie.where(id: rocky31.id).exists?
+# writer is there
+Writer.where(id: writer.id).exists? 
+Writer.where(id: writer.id).first.movie_ids if Writer.where(id: writer.id).exists?
+
+
+# NULLIFY
+has_and_belongs_to_many :writers, dependent: :nullify
+has_one :sequel, foreign_key: :sequel_of, class_name:"Movie", dependent: :nullify
+# script code
+rocky30.id
+rocky31.id
+Writer.where(id: writer.id).first.movie_ids
+Movie.where(id: rocky30.id).first.writer_ids
+
+rocky30.destroy
+
+# it get's info about writer and sequel, but they are not deleted
+# writer and sequel is set to nil
+
+# relationship and writer of the rocky30 is set to nil first, before rocky30 is deleted
+
+# check what's in the db
+
+# nothing
+Movie.where(id: rocky30.id).exists?
+Movie.where(id: rocky30.id).first.writer_ids if Movie.where(id: rocky30.id).exists?
+# we have rocky 31
+Movie.where(id: rocky31.id).exists?
+# but sequel will get nil
+Movie.where(id: rocky31.id).first.sequel_of if Movie.where(id: rocky31.id).exists?
+# writer is there
+Writer.where(id: writer.id).exists? 
+Writer.where(id: writer.id).first.movie_ids if Writer.where(id: writer.id).exists?
+
+
+# DEFAULT SETUP => no dependent
+has_and_belongs_to_many :writers
+has_one :sequel, foreign_key: :sequel_of, class_name:"Movie"
+# script code
+rocky30.id
+rocky31.id
+Writer.where(id: writer.id).first.movie_ids
+Movie.where(id: rocky30.id).first.writer_ids
+
+rocky30.destroy
+
+# parent is deleted first, relationship is deleted second (M:M, but not 1:1 => movie <-> sequel stays)
+# movie sequel and writer will existed in the db => writer in nullified state (orphan state)
+# it will still reference parent which no longer exists
+
+# check the db
+
+# parent object is gone
+Movie.where(id: rocky30.id).exists?
+Movie.where(id: rocky30.id).first.writer_ids if Movie.where(id: rocky30.id).exists?
+# child exists
+Movie.where(id: rocky31.id).exists?
+# it will still provide id of the rocky30 (parent)
+Movie.where(id: rocky31.id).first.sequel_of if Movie.where(id: rocky31.id).exists?
+# writer exists
+Writer.where(id: writer.id).exists?
+# nothing from writer
+Writer.where(id: writer.id).first.movie_ids if Writer.where(id: writer.id).exists?
