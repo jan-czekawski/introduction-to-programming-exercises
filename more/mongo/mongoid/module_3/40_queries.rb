@@ -72,6 +72,19 @@ Actor.near(:"place_of_birth.geolocation" => silver_spring.geolocation)
      .limit(5)
      .each { |actor| pp "#{actor.name}, pob=#{actor.place_of_birth.id}"}
 
+# WHERE(first_or_create)
+# Find the 1st doc by the provided attr
+# if not found, create and return new, persisted one
 
+Movie.where(title: "Rocky20").to_a
+Movie.where(title: "Rocky20").first_or_create
+Movie.where(title: "Rocky20").to_a
 
-
+# WHERE (first_or_initialize)
+# Find the 1st doc by the provided attr
+# if not found, instantiate and return new one
+Movie.where(title: "Rocky21").to_a
+m = Movie.where(title: "Rocky21").first_or_initialize
+Movie.where(title: "Rocky21").to_a
+m.save
+Movie.where(title: "Rocky21").to_a
