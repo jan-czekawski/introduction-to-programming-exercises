@@ -28,4 +28,50 @@ m = Movie.find_or_initialize_by(title: "Prisoners", year: "2013")
 m.save
 Movie.find_by(title: "Prisoners")
 
-# 2:08:08
+# WHERE (count, distinct)
+Movie.where(title: "Rocky").count
+# if there are multiple results of the query => distinct will return only
+# specific attr of each (distinct) record in Array
+Movie.where(:year.gt => 2000).distinct(:title)
+# Schema Design lecture reference => year should be a number => can use 'gt' or 'lt' queries
+# BUT Mongoid also supports ASCII compare => can compare strings
+
+Movie.where(rated: "R").first
+Movie.exists?
+Movie.where(title: "Titanic").exists?
+
+# WHERE(:$exists, :$regex)
+# locate first writer that doesn't have hometown
+writer = Writer.where(:hometown => { :$exists => 0 }).first
+# first actor with name matched
+damon = Actor.where(:name => { :$regex => "Matt Da" }).first
+
+# WHERE(geolocation query)
+# In mongoid, every model class has the built-in ability to express and execute
+# geolocation query
+
+class Actor
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  # (...)
+
+  # belongs to class Place
+  embeds_one :place_of_birth, class_name: "Place", as: :locatable
+  index ({ :"place_of_birth.geolocation" => Mongo::Index::GEO2DSPHERE })
+end
+
+# Point has lattitude and longitude defined in it
+class Point
+  # (...)
+  field :geolocation, type: Point
+  # (...)
+end
+
+silver_spring = Place.where(city: "Silver Spring", state: "MD").first
+Actor.near(:"place_of_birth.geolocation" => silver_spring.geolocation)
+     .limit(5)
+     .each { |actor| pp "#{actor.name}, pob=#{actor.place_of_birth.id}"}
+
+
+
+
