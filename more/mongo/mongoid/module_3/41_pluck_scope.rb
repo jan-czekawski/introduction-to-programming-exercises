@@ -30,3 +30,33 @@ Movie.current.where(rated: "R").pluck(:title, :year)
 
 # instead of providing criteria in the query => can do it
 # in the code on the db layer
+
+# default scope => can be useful when applying same criteria
+# to most queries and you want something to be there by default
+
+class Movie
+  field :active, type: Boolean, default: true
+end
+
+# same criteria to most queries and something to be there by default
+class Airline
+  include Mongoid::Document
+  field :name, type: String
+  field :active, type: Boolean, default: true
+  
+  default_scope ->{ where(active: true) }
+end
+
+airlineUA = Airline.create(name: "UNITED")
+airlineLH = Airline.create(name: "LUFTHANSA")
+airlinePA = Airline.create(name: "PANAM", active: false)
+
+Airline.each do |airline|
+  # all airlines here are active
+end
+
+Airline.all.count # => 2
+# SELECT * from airlines where active = true
+Airline.unscoped.all.count # => 3
+# SELECT * from airlines
+
