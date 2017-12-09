@@ -30,3 +30,14 @@
 
 # Director => models the detailed info of a movie director
 # rails g model Director name
+
+# DirectorRef => annotated reference to a director that gets embedded into the Movie
+# rails g model DirectorRef name
+
+# Writer => holds detailed info about the writer of the movie
+# this class is directly associated with the movie without an annotated link
+# rails g model Writer name
+
+# Actor => contains the info details of an actor in a Movie
+# rails g model Actor name birth_name date_of_birth:Date height:Measurement bio:text
+
