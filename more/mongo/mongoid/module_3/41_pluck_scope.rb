@@ -60,3 +60,12 @@ Airline.all.count # => 2
 Airline.unscoped.all.count # => 3
 # SELECT * from airlines
 
+# OR and IN
+
+# union with IN => second condition (AND)
+Movie.where(:year.gt => 2014).in(title: ["The Martian"]).pluck(:plot)
+
+# union with OR => or ID or title 
+Movie.or({id: "tt3659388"}, {title: "The Martian"}).pluck(:plot)
+# works even if we make a mistake with id => title stil works => id or title
+Movie.or({id: "tt3659388xxx"}, {title: "The Martian"}).pluck(:plot)
