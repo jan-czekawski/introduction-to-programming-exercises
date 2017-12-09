@@ -41,3 +41,21 @@
 # Actor => contains the info details of an actor in a Movie
 # rails g model Actor name birth_name date_of_birth:Date height:Measurement bio:text
 
+# MovieRole => holds the role-specific info and relation between the Movie and the Actor
+# rails g model MovieRole character actor_name main:boolean url_character url_photo url_profile
+
+# Movie => core info about the movie, its properties and supporting members
+# rails g model Movie title type rated year:integer release_date:date \
+# runtime:Measurement votes:integer countries:array languages:array \
+# genres:array filming_locations:array metascore simple_plot:text \
+# plot:text url_imdb url_poster directors:array actors:array
+
+# CONTROLLER/VIEW assembly
+# rails g scaffold_controller Movie title type rated year:integer \
+# release_date:date runtime:integer votes:integer countries:array \
+# languages:array genres:array filming_locations:array metascore \
+# simple_plot:text plot:text url_imdb url_poster directors:array actors:array
+
+# in config/routes.rb add:
+# resources :movies
+
