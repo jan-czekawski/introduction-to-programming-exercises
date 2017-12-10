@@ -31,3 +31,32 @@ class MovieRole
   embedded_in :movie
   belongs_to :actor
 end
+
+# create some data
+movie = Movie.create(id: "12345", title: "rocky25")
+actor = Actor.create(id: "100", name: "Sylvester Stallone")
+rocky = movie.roles.create(id: "0", character: "rocky")
+
+# find the data
+rocky = Movie.find("12345").roles.where(id: "0").first
+actor = Actor.find("100")
+
+# connect the data
+rocky.actor = actor
+rocky.save
+
+# erorr
+Movie.find("12345").roles.where(id: "0").first.actor.name
+# ok
+Movie.find("12345").roles.where(id: "100").first.actor.name
+
+# in actor.rb
+def roles
+  Movie.where(:"roles.actor_id"=>self.id).map {|m| m.roles.where(:actor_id=>self.id).first}
+end 
+def roles
+  Movie.where(:"roles._id"=>self.id).map {|m| m.roles.where(:_id=>self.id).first}
+end 
+
+
+actor.roles.map { |r| "#{r.movie.title}, #{r.character}"}
