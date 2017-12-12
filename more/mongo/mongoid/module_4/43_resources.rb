@@ -54,9 +54,11 @@ Movie.find("12345").roles.where(id: "100").first.actor.name
 def roles
   Movie.where(:"roles.actor_id"=>self.id).map {|m| m.roles.where(:actor_id=>self.id).first}
 end 
+
 def roles
   Movie.where(:"roles._id"=>self.id).map {|m| m.roles.where(:_id=>self.id).first}
 end 
 
-
 actor.roles.map { |r| "#{r.movie.title}, #{r.character}"}
+
+# 33:54
