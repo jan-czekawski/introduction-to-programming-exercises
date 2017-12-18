@@ -61,4 +61,13 @@ end
 
 actor.roles.map { |r| "#{r.movie.title}, #{r.character}"}
 
-# 33:54
+
+
+# URI vs URL vs URN
+# URI
+# expose resources using standard URIs
+# Rails will automatically create URIs
+# will register the resource in config/routes.rb
+
+# rails g scaffold_controller Movie title
+# rails g scaffold_controller Actor name
