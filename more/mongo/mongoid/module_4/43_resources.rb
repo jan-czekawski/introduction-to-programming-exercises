@@ -71,3 +71,11 @@ actor.roles.map { |r| "#{r.movie.title}, #{r.character}"}
 
 # rails g scaffold_controller Movie title
 # rails g scaffold_controller Actor name
+
+# in config/routes.rb
+Rails.application.routes.draw do
+  resources :movies
+  resources :actors
+end
+
+# rake routes => to check it
