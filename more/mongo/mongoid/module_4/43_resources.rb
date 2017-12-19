@@ -64,6 +64,19 @@ actor.roles.map { |r| "#{r.movie.title}, #{r.character}"}
 
 
 # URI vs URL vs URN
+
+# URI
+# uniform resource identifier => string of chars which identifies Internet resource
+# www.coursera.org
+
+# URL
+# uniform resource locator => most common URI out there
+# http://www.coursera.org
+
+# URN
+# uniform resource name => another form of URI
+# urn:isbn:0-619-0125356-5
+
 # URI
 # expose resources using standard URIs
 # Rails will automatically create URIs
