@@ -92,3 +92,19 @@ Rails.application.routes.draw do
 end
 
 # rake routes => to check it
+
+# to access URIs
+gem 'httparty'
+
+# server must be on
+HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/roles.json").response.code
+HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies.json").response.code
+
+pp HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies.json").parsed_response
+
+response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/tt3659388.json").response
+
+# if you request specific resource (movies ID, actors ID etc.) and if you don't have timestamp
+# you'll get modular exception
+# have to include in model:
+include Mongoid::Timestamps
