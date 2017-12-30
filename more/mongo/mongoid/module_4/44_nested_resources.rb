@@ -27,3 +27,16 @@ json.extract! @movie_role, :id, :character, :actor_id, :created_at, :updated_at
 
 # remove field for display
 json.extract! @movie_role, :id, :character, :actor_id
+
+HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/tt3659388/roles/0.json").parsed_response
+
+# returns nil
+HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/tt3659388/roles.json").parsed_response
+# generated index method is quering movie role as if it was global resource
+
+# to fix it
+movie.roles.create(:id => "1", :character => "challanger")
+Movie.find("12345").roles
+
+# define before_action and update set_movie_role
+# update JSON marshaller
