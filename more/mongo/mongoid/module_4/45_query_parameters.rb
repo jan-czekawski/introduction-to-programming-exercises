@@ -27,3 +27,17 @@ MoviesWS.post("/movies.json",
   :body => { :movie => { :id => "123457", :title => "rocky27", :foo => "bar"}}.to_json,
   :headers => { "Content-Type" => "application/json"})
   
+
+# White Listing Params
+# rails has built-in feature based on parameters
+# controller has a "white list" of acceptable params
+
+# white list with 2 fields:
+def movie_params
+  params.require(:movie).permit(:id, :title)
+end
+
+# usage:
+def create
+  @movie = Movie.new(movie_params)
+end
