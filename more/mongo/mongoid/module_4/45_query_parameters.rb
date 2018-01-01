@@ -23,6 +23,7 @@ MoviesWS.get("/movies/12345.json").parsed_response
 
 # example
 MoviesWS.get("/movies.json?title=rocky25&foo=1&bar=2&baz=3").parsed_response
+# POST will fail => protection CSRF
 MoviesWS.post("/movies.json",
   :body => { :movie => { :id => "123457", :title => "rocky27", :foo => "bar"}}.to_json,
   :headers => { "Content-Type" => "application/json"})
@@ -41,3 +42,32 @@ end
 def create
   @movie = Movie.new(movie_params)
 end
+
+# XSS - cross site scripting
+
+# browser can run scripts (JS)
+
+# if user trusts the website he might allow the scripts to run
+# <script type="text/javascript"> alert("Hard Disk Error. Click OK."); </script>
+# example of stupid script => someone might believe it
+
+# it's possible to inject malicious scripts into content from trusted sites
+# Scripts can hijack user sessions, redirect user to other sites
+
+# POST requst by default will fail
+# can't verify CSRF (Cross Site Request Forgery) token authenticity - message
+
+# Relax security
+# app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  # protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
+end
+
+# now can create new movie from the console
+response = MoviesWS.post("/movies.json",
+      :body => { :movie => { :id => "123457", :title => "rocky27", :foo => "bar"}}.to_json,
+      :headers => { "Content-Type" => "application/json"})
+
+response.response
+response.parsed_response
