@@ -76,3 +76,4 @@ end
 # test if it works
 pp HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/tt3659388/roles.json").parsed_response
 pp HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/12345/roles.json").parsed_response
+
