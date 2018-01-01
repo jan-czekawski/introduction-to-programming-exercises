@@ -26,9 +26,9 @@ end
 json.extract! @movie_role, :id, :character, :actor_id, :created_at, :updated_at
 
 # remove field for display
-json.extract! @movie_role, :id, :character, :actor_id
+json.extract! @movie_role, :id, :character, :actor_name
 
-HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/tt3659388/roles/0.json").parsed_response
+HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/tt3659388/roles/nm0000354.json").parsed_response
 
 # returns nil
 HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/tt3659388/roles.json").parsed_response
@@ -40,3 +40,23 @@ Movie.find("12345").roles
 
 # define before_action and update set_movie_role
 # update JSON marshaller
+
+# in movie_roles_controller.rb
+class MovieRolesController < ApplicationController
+  before_action :set_movie
+  before_action :set_movie_role, only: [:show, :edit, :update, :destroy]
+  
+  # ...
+  
+  def index
+    @movie_roles = @movie.roles
+  end
+  
+    def set_movie_role
+      @movie_role = @movie.roles.find_by(:id => params[:id])
+    end
+    
+    def set_movie
+      @movie = Movie.find(params[:movie_id])
+    end
+end
