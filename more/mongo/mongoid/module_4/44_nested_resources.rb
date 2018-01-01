@@ -60,3 +60,19 @@ class MovieRolesController < ApplicationController
       @movie = Movie.find(params[:movie_id])
     end
 end
+
+# update JSON marshaller from:
+json.array!(@movie_roles) do |movie_role|
+  json.extract! movie_role, :id, :character, :actor_id
+  json.url movie_role_url(movie_role, format: :json)
+end
+
+# to:
+json.array!(@movie_roles) do |movie_role|
+  json.extract! movie_role, :id, :character, :actor_name
+  json.url movie_role_url(@movie, movie_role, format: :json)
+end
+
+# test if it works
+pp HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/tt3659388/roles.json").parsed_response
+pp HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/12345/roles.json").parsed_response
