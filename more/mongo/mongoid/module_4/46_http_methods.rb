@@ -25,6 +25,21 @@ MoviesWS.patch("/movies/54321.json", :body => { :movie => { :title => "rocky5402
 # have the same implementation => it's for less bandwith => PATCH will use less bandwith
 
 
+# HEAD
+# basically GET without response body; useful to retrieve meta-info written in
+# response headers; issue GET and store Etag for comparison later
+response = MoviesWS.get("/movies/54321.json")
+response.header["etag"]
+doc = response.parsed_response
 
+response = MoviesWS.head("/movies/54321.json")
+response.header["etag"]
+doc = response.parsed_response # rets nil
 
+# HEAD, and then if etag changes, then you fetch actual data with GET
+
+# now we'll make a change (can save etag from get or head in var etag_before)
+response = MoviesWS.patch("/movies/54321.json", :body => { :movie => { :title => "rocky5500", :foo => "bar"}}.to_json, :headers => { "Content-Type" => "application/json"})
+etag_after = response.header["etag"]
+# etag changed
 
