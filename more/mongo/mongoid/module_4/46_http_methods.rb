@@ -14,3 +14,17 @@ response = MoviesWS.put("/movies/54321.json", :body => { :movie => { :title => "
 # PUT expects primary key to be in :id param; if the movie is found, processing
 # continues; builds white-list-checked set of params; supplies values to update
 # method; returns the result doc
+
+
+# PATCH is for partially updating a resource 
+# update a field vs entire resource
+
+MoviesWS.patch("/movies/54321.json", :body => { :movie => { :title => "rocky5402", :foo => "bar"}}.to_json, :headers => { "Content-Type" => "application/json"})
+
+# from rails implementation standpoint (scaffolding and command standpoint) PATCH and PUT
+# have the same implementation => it's for less bandwith => PATCH will use less bandwith
+
+
+
+
+
