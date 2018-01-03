@@ -43,3 +43,11 @@ response = MoviesWS.patch("/movies/54321.json", :body => { :movie => { :title =>
 etag_after = response.header["etag"]
 # etag changed
 
+# DELETE
+# for deleting a resource; accepts and :id param from the URI and removes
+# that doc from the db; no request body
+
+response = MoviesWS.delete("/movies/54321.json")
+response.response
+response.response.code
+doc = response.parsed_response # rets nil
