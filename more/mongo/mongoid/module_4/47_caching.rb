@@ -36,3 +36,23 @@ def show
 end
 
 HTTParty.head("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321.json").headers["Last-Modified"]
+
+
+# fresh_when
+# rails provides convenient methods that perform the roles discussed
+def show
+  # headers["ETag"] = Digest::MD5.hexdigest(@movie.cache_key)
+  # headers["Last-Modified"] = @movie.updated_at.httpdate
+  fresh_when(@movie)
+end
+
+response = HTTParty.head("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321")
+pp ["cache-control", "etag", "last-modified"].map { |h| {h => response.header[h]}}
+
+response = HTTParty.head("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321.json")
+pp ["cache-control", "etag", "last-modified"].map { |h| {h => response.header[h]}}
+
+# etag for /movies/54321 is different that etag for /movies/54321.json
+# but last-modified is the same
+
+# web caching can significantly enhance browsing expercience and reduce bandwith usage
