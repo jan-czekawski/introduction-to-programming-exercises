@@ -51,3 +51,10 @@ response = MoviesWS.delete("/movies/54321.json")
 response.response
 response.response.code
 doc = response.parsed_response # rets nil
+
+
+# GET
+# get is for data retrieval only; free of side effects, property also known as idempotence
+MoviesWS.get("/movies.json?title=rocky25&foo=1&bar=2&baz=3").parsed_response
+
+# HTTP methods map to CRUD operations; are elegant and easy for the clients
