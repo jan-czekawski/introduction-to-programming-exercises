@@ -56,3 +56,19 @@ pp ["cache-control", "etag", "last-modified"].map { |h| {h => response.header[h]
 # but last-modified is the same
 
 # web caching can significantly enhance browsing expercience and reduce bandwith usage
+
+
+
+# CACHE REVALIDATION HEADERS
+# Validate if what we have is current or stale using conditional cache validation headers:
+# If-Not-Match: (Etag)
+# If-Modified-Since (Timestamp)
+
+# If resource is NOT changed:
+# enable server-side to do less processing cause client doesn't need new copy
+# report the resource has not changed to client
+# enable client-side to do less processing => nothing's changed
+
+response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321",
+                        headers: {"Accept" => "application/json"})
+response.response
