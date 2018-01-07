@@ -127,3 +127,17 @@ response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/m
                                   "If-None-Match" => "123"})
 response.response # status 200 OK
 pp Movie.find("54321").movie_accesses.pluck(:created_at, :action).to_a
+
+
+
+# Browser test
+
+# chrome - developer tools - network(preserve logs)
+# "https://third-mongoid-workspace-michal8888.c9users.io/movies/54321.json" status - 200/ok
+
+# hit refresh (status - 304/not modified)
+# # If-Modified-Since and If-None-Match headers were supplied
+
+# click disable-cache at the top of the network tab and hit refresh
+# the conditional headers are not sent to the rails server and the full response is returned using 200/ok
+
