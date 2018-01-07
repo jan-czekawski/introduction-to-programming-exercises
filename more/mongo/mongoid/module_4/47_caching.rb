@@ -141,3 +141,26 @@ pp Movie.find("54321").movie_accesses.pluck(:created_at, :action).to_a
 # click disable-cache at the top of the network tab and hit refresh
 # the conditional headers are not sent to the rails server and the full response is returned using 200/ok
 
+
+
+# Cache control
+# uset to specify directives that must be obeyed by all caching mechanism along the request-response chain
+# provide better hints to the client as to how long the information is good
+
+Movie.find("54321").movie_accesses.delete_all
+10.times.each { HTTParty.head("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321")}
+pp MovieAccess.where(:movie_id => "54321", :action => "show-stale").pluck(:created_at, :action)
+
+pp MovieAccess.where(:movie_id => "54321").pluck(:created_at, :action)
+
+# Delegate responsibility
+# update the show method to include 2 caching headers:
+  # expires and cache-control
+  # overlap in meaning and if they ever conflict, Cache-Control is supposed to take precedence
+# document will expire at a certain time;
+# doc is not specific to an individual caller:
+  # you may cache this document for other callers as well
+  # if this info was specific to the caller (e.g. a personal bank statement), then Cache-Control would
+  # either be set to nocache or private to keep the resource from being served to other clients
+# the maximum time to cache = 10 seconds
+  
