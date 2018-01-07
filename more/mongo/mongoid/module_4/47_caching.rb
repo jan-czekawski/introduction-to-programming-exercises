@@ -90,3 +90,40 @@ response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/m
 response.response # 304 Not Modified
 
 
+
+# Conditional Logic
+# fire only if the caller is not getting 304/not_modified
+
+def show
+  # fresh_when(@movie)
+  @movie.movie_accesses.create(:action => "show")
+  if stale?(@movie)
+    @movie.movie_accesses.create(:action => "show-stale")
+    # do some additional, expensive work here
+  end
+end
+
+# stale? calls fresh_when undercovers
+
+
+response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321",
+                        headers: {"Accept" => "application/json",
+                                  "If-Modified-Since" => last_modified})
+response.response # 304 Not Modified
+pp Movie.find("54321").movie_accesses.pluck(:created_at, :action).to_a
+
+# last_modified value is being set to the most recent change in the collection
+def index
+  @movies = Movie.all?
+  fresh_when(last_modified: @movies.max(:updated_at))
+end
+
+# Provide both if-modified-since and if-none-match in the header
+# if either fires, our conditional logic will get triggered
+
+response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321",
+                        headers: {"Accept" => "application/json",
+                                  "If-Modified-Since" => last_modified,
+                                  "If-None-Match" => "123"})
+response.response # status 200 OK
+pp Movie.find("54321").movie_accesses.pluck(:created_at, :action).to_a
