@@ -71,4 +71,22 @@ pp ["cache-control", "etag", "last-modified"].map { |h| {h => response.header[h]
 
 response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321",
                         headers: {"Accept" => "application/json"})
-response.response
+response.response # status 200 OK
+etag = reponse.header["etag"]
+
+last_modified = response.header["last-modified"]
+response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321",
+                        headers: {"Accept" => "application/json")
+response.response # status 200 OK
+
+response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321",
+                        headers: {"Accept" => "application/json",
+                                  "If-None-Match" => etag})
+response.response # 304 Not Modified
+
+response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321",
+                        headers: {"Accept" => "application/json",
+                                  "If-Modified-Since" => last_modified})
+response.response # 304 Not Modified
+
+
