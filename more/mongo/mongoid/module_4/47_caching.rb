@@ -163,4 +163,46 @@ pp MovieAccess.where(:movie_id => "54321").pluck(:created_at, :action)
   # if this info was specific to the caller (e.g. a personal bank statement), then Cache-Control would
   # either be set to nocache or private to keep the resource from being served to other clients
 # the maximum time to cache = 10 seconds
+
+
+# #expires
+# Rails method - set the Cache-Control response header
+def show
+  @movie.movie_accesses.create(:action => "show")
+  if stale?(@movie)
+    @movie.movie_accesses.create(:action => "show-stale")
+    # do some additional, expensive work here
+    secs = 10
+    response.headers["Expires"] = secs.seconds.from_now.httpdate
+    # response.headers["Cache-Control"] = "public, max-age=#{secs}"
+    expires_in(secs.seconds, :public => true)
+  end
+end
   
+response = HTTParty.head("https://third-mongoid-workspace-michal8888.c9users.io/movies/54321")
+pp ["cache-control", "etag", "last-modified"].map { |h| {h => response.header[h]} }
+
+# Changes
+# add gems
+# gem 'httparty'
+# gem 'dry_ice'
+
+# app/services
+# in app/services/cached_ws.rb
+class CachedWS
+  include HTTParty
+  include HTTParty::DryIce
+  # debug_output $stdout
+  base_uri "https://third-mongoid-workspace-michal8888.c9users.io/"
+  cache Rails.cache
+end
+
+# demo
+# script - db is polled every 9 to 12 seconds; 3 second sleep and 10 second cache timeout
+10.times.each do |x|
+  p "look-#{x}, accesses=#{Movie.find("54321").movie_accesses.where(:action => "show").count}"
+  CachedWS.get("/movies/54321.json").parsed_response
+  sleep(3.seconds)
+end
+
+# cache control techniques can be done to offload some work that may not have to be done during steady-state
