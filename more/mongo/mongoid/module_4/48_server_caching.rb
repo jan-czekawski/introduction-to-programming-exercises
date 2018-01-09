@@ -33,3 +33,34 @@ config.action_controller.perform_caching = true
 config.action_controller.perform_caching = true
 config.action_controller.page_cache_directory = "#{Rails.root.to_s}/public/page_cache"
 
+# Add caches_page
+class MoviePagesController < ApplicationController
+  before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  caches_page :index, :show
+end
+
+# Caching setup - expiration
+# page expiration
+def update
+  respond_to do |format|
+    if @movie.update(movie_params)
+      expire_page action: "show", id: @movie, format: request.format.symbol
+      expire_page action: "index", format: request.format.symbol
+    end
+  end
+end
+
+def destroy
+  @movie.movie_acesses.create(:action => "destroy")
+  @movie.destroy
+  expire_page action: "show", id: @movie, format: request.format.symbol
+  expire_page action: "index", format: request.format.symbol
+end
+
+# caches folder
+# The rendered content is written to files in the public directory based on the URI
+# result of calling index and show methods
+# public/page_cache
+# -- movie_pages
+#   `--12345.json
+# `-- movie_pages.json
