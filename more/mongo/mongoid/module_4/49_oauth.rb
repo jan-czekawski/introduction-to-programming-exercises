@@ -32,3 +32,20 @@
 
 # integrate mongoid
 # rails g mongoid:config
+
+# define root url
+# rails g controller pages index
+
+# config/routes.rb
+Rails.application.routes.draw do
+  # get 'pages/index'
+  root to: 'pages/index'
+end
+
+
+# Resource access
+# html controller => movies
+# rails g model Movie id title
+
+# config/routes.rb
+resources :movies
