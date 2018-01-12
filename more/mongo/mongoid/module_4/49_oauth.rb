@@ -75,3 +75,14 @@ resources :movies
 # # gem 'responders', '~> 2.1', '>= 2.1.1'
 
 # Add controller (app/controller/api) and update routes.rb
+
+response = HTTParty.post("https://third-mongoid-workspace-michal8888.c9users.io/api/movies",
+                         :body => { :movie => { :id => "54321", :title => "rocky25" }})
+
+reponse.response
+# HTTPCreated 201 Created readbody=true
+
+pp JSON.parse(response.body)
+
+response = HTTParty.put("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/54321",
+                         :body => { :movie => { :title => "rocky25.5" }})
