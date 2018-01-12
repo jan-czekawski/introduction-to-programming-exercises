@@ -58,3 +58,20 @@ class Movie
   field :title, type: String
   field :last_modifier, type: String
 end
+
+# Resource controller
+
+# Movies Controller
+# rails g scaffold_controller Movies id title
+
+# config/routes.rb
+resources :movies
+
+# Two controllers: HTML and API specific
+
+# API controller
+# Update the gemfile with "responders" gem
+# # automatic marshalling
+# # gem 'responders', '~> 2.1', '>= 2.1.1'
+
+# Add controller (app/controller/api) and update routes.rb
