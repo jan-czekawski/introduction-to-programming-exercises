@@ -86,3 +86,11 @@ pp JSON.parse(response.body)
 
 response = HTTParty.put("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/54321",
                          :body => { :movie => { :title => "rocky25.5" }})
+
+response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/54321")
+response.response
+# HTTPOK 200 OK readbody=true
+
+response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/543")
+response.response
+# HTTPNotFound 404 Not Found readbody=true
