@@ -63,3 +63,19 @@ end
 #     <li><%= link_to 'Sign up', new_user_registration_path %></li>
 #   </ul>
 # <% end %>
+
+# start the server
+# click on sign up
+# create new user
+# harry@hogwarts.com
+# password
+
+# in rails console
+
+# User.mongo_client.database.collection_names
+# movies, users
+
+# User.collection.name
+# users
+
+# pp User.first.attributes
