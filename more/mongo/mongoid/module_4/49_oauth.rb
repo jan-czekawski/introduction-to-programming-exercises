@@ -54,9 +54,12 @@ resources :movies
 class Movie
   include Mongoid::Document
   include Mongoid::Timestamps
-
+  # field :id, type: String
   field :title, type: String
+
+  # last_modifier will store identity of who changed the movie last 
   field :last_modifier, type: String
+
 end
 
 # Resource controller
@@ -74,7 +77,7 @@ resources :movies
 # # automatic marshalling
 # # gem 'responders', '~> 2.1', '>= 2.1.1'
 
-# Add controller (app/controller/api) and update routes.rb
+# Add controller (create directory => app/controller/api) and update routes.rb
 
 response = HTTParty.post("https://third-mongoid-workspace-michal8888.c9users.io/api/movies",
                          :body => { :movie => { :id => "54321", :title => "rocky25" }})
@@ -94,3 +97,9 @@ response.response
 response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/543")
 response.response
 # HTTPNotFound 404 Not Found readbody=true
+
+
+response = HTTParty.delete("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/54321")
+response.response
+# HTTPNoContent 204
+
