@@ -53,3 +53,15 @@ response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/a
 
 response.response
 pp JSON.parse(response.body)
+
+
+# now try write methods
+response = HTTParty.post("https://third-mongoid-workspace-michal8888.c9users.io/api/movies",
+                         :body => { :movie => { :id => "54321", :title => "rocky25" }})
+# you'd get error message
+
+response.response
+# HTTPUnauthorized 401
+
+# we got 401, but there was no redirection to signup page (like in html) => devise has
+# some of the methods redirected automatically
