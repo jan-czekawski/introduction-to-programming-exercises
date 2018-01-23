@@ -140,6 +140,8 @@ namespace :api, defaults: { format: 'json'} do
   resources :movies
 end
 
+# in console (will use API controller)
+# create new movie
 response = HTTParty.post("https://third-mongoid-workspace-michal8888.c9users.io/api/movies",
                          :body => { :movie => { :id => "54321", :title => "rocky25" }})
 
@@ -148,18 +150,23 @@ reponse.response
 
 pp JSON.parse(response.body)
 
+# update a movie
 response = HTTParty.put("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/54321",
                          :body => { :movie => { :title => "rocky25.5" }})
+response.response
+# HTTP No content 204
 
+# find existing movie
 response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/54321")
 response.response
 # HTTPOK 200 OK readbody=true
 
+# do not find non-existing movie
 response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/543")
 response.response
 # HTTPNotFound 404 Not Found readbody=true
 
-
+# delete existing movie
 response = HTTParty.delete("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/54321")
 response.response
 # HTTPNoContent 204
