@@ -77,7 +77,19 @@ resources :movies
 # # automatic marshalling
 # # gem 'responders', '~> 2.1', '>= 2.1.1'
 
-# Add controller (create directory => app/controller/api) and update routes.rb
+# Add controller (create directory => app/controller/api)
+
+# add files to controller/api
+
+# base controller will be used to hold any properties that are common to all API classes
+# base_controller.rb
+module Api
+  class BaseController < ApplicationController
+    protect_from_forgery with: :null_session
+    respond_to :json
+  end
+end
+
 
 response = HTTParty.post("https://third-mongoid-workspace-michal8888.c9users.io/api/movies",
                          :body => { :movie => { :id => "54321", :title => "rocky25" }})
