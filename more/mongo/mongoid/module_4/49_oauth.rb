@@ -133,6 +133,12 @@ module Api
   end
 end
 
+# Add URI routes to the API controller
+# config/routes.rb
+resources :movies
+namespace :api, defaults: { format: 'json'} do
+  resources :movies
+end
 
 response = HTTParty.post("https://third-mongoid-workspace-michal8888.c9users.io/api/movies",
                          :body => { :movie => { :id => "54321", :title => "rocky25" }})
