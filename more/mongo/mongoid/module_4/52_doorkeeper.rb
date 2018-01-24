@@ -60,3 +60,26 @@ end
 # - user_id is within nested array when there's current user (when user is logged in)
 # - doorkeeper wants to run alternate code if there's no current user => find and
 # find_by user_id (either would throw exception if there was no current user)
+
+
+# go to login page and logout
+# go to /oauth/authorize/123
+
+# URI kicked in the resource_owner_authenticator and it will take you back
+# to the login page because redirect was run and the user was not found
+
+# log in and again attempt to go to /oauth/authorize/123
+# we're successfully signed in (with authorization code 123)
+
+
+# Integrating Authentication
+# setup registration between acme.com (Movie Editor App) and Movie Service and OAuth
+# provider (embedded in Movie Service)
+
+# MovieEditor (acme.com) -> signup for new account
+# go to /oauth/applications/new (have to be logged in)
+
+# name - Movie Client
+# redirect url - https://acme.com/auth/movies/callback
+
+# click SUBMIT
