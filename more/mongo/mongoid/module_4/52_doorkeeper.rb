@@ -1,3 +1,5 @@
+# https://github.com/jhu-ep-coursera/fullstack-course3-module4-oauth_movies
+
 # Doorkeeper is OAuth 2 provider for Rails
 # - built on top of Rails engines (easy to integrate with rails apps)
 # - so far it supports all protocol flows (eg. authorization code flow,
