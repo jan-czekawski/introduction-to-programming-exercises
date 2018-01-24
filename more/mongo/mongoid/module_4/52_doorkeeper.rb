@@ -149,3 +149,58 @@ access = client.auth_code.get_token(code, redirect_uri: callback)
 access.token
 # "c092780a967f90cca49e8af18730994659365035356c6b6856ebd320cd628e27" 
 
+
+# accessing the application
+
+# in api/base_controller.rb => we'll remove device as authentication check to gain access to API,
+# will replace it with doorkeeper
+module Api
+  class BaseController < ApplicationController
+    # before_action :authenticate_user!, except: [:index, :show]
+    # before_action :user_signed_in?, except: [:index, :show]
+    before_action :doorkeper_authorize!, except: [:index, :show]
+    protect_from_forgery with: :null_session
+    respond_to :json
+  end
+end
+
+# and in the rails console
+response = HTTParty.post("https://third-mongoid-workspace-michal8888.c9users.io/api/movies", 
+                         :body => { :movie => { :id => "12346", :title => "rocky" } })
+
+response.response
+# 401 Unauthorized
+
+response.header["www-authenticate"]
+# error_description = The access token is invalid
+# we need to use access token we've acquired from the previous step
+
+response = HTTParty.post("https://third-mongoid-workspace-michal8888.c9users.io/api/movies", 
+                         :body => { :movie => { :id => "12346", :title => "rocky" },
+                                    :access_token => "c092780a967f90cca49e8af18730994659365035356c6b6856ebd320cd628e27" })
+                         
+response.header["www-authenticate"]
+# but access token expired in our case
+# so we have to set up app_id, secret, callback and other methods
+new_access_token = "292da5fcf9461c229aab6e7871f4eff507750bae738f798d1348cc21c5ebc302"
+                         
+response = HTTParty.post("https://third-mongoid-workspace-michal8888.c9users.io/api/movies", 
+                         :body => { :movie => { :id => "12346", :title => "rocky" },
+                                    :access_token => "292da5fcf9461c229aab6e7871f4eff507750bae738f798d1348cc21c5ebc302" })
+  
+response.response
+# status 201 created
+
+# can do the same with PUT
+response = HTTParty.put("https://third-mongoid-workspace-michal8888.c9users.io/api/movies/12346", 
+                         :body => { :movie => { :title => "rocky26" },
+                                    :access_token => "292da5fcf9461c229aab6e7871f4eff507750bae738f798d1348cc21c5ebc302" })
+response.response
+# status 204 No content => so it's updated => can check it with get
+
+# DON'T HAVE TO USE TOKEN WITH GET (index and show are exceptions defined in base_controller)
+response = HTTParty.get("https://third-mongoid-workspace-michal8888.c9users.io/api/movies")
+response.response
+# status 200 OK
+pp JSON.parse(response.body)
+
