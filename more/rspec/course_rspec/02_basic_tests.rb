@@ -22,7 +22,7 @@ class Animal
   end
   
   def setAge(age)
-    @name = age
+    @age = age
   end
 end
 
