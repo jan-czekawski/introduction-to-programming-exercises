@@ -66,3 +66,6 @@ end
 # we can add more tests => in "it" block
 
 # before(:each) will be run before each "it" tests => before 1 test
+
+# before(:all) will be run only 1 time => before set of all tests in the file => similar to after(:all)
+
