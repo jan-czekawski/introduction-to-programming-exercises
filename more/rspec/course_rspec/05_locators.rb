@@ -6,21 +6,30 @@ describe "my test" do
   
   before(:all) do
     @driver = Selenium::WebDriver.for(:firefox)
+    # @driver = Selenium::WebDriver.for(:chrome)
     @driver.navigate.to("https://playball-michal8888.herokuapp.com/courts")
   end
   
   it "do something" do
     # id
-    @driver.find_element(:id, "contact_link").click
+    @driver.find_element(:id, "signupButton").click
     
-    # class
-    puts @driver.find_element(:class, "subhead").text # will print out the text
+    # # class
+    puts @driver.find_element(:class, "modal-title").text # will print out the text
+
+    # # css
+    @driver.find_element(:css, "[id=closeSignupModal]").click
+    sleep(2)
+    @driver.find_element(:css, "[id=closeLoginModal]").click
     
     # name
-    @driver.find_element(:name, "address_field").send_keys("dummy text")
+    sleep(1)
+    @driver.find_element(:name, "user[email]").send_keys("boss@wp.pl")
+    @driver.find_element(:name, "user[username]").send_keys("Boss")
+    @driver.find_element(:name, "user[password]").send_keys("password")
+    @driver.find_element(:name, "user[password_confirmation]").send_keys("password")
 
-    # css
-    @driver.find_element(:css, "[id=adoption_link]").click
+
   end
   
   after(:all) do
