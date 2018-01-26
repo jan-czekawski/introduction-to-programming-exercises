@@ -10,17 +10,22 @@ describe "My zoo site" do
     
     # we want to use selenium webdriver against firefox browser
     # it should open the browser
-    driver = Selenium::WebDriver.for(:firefox)
+    # driver = Selenium::WebDriver.for(:firefox)
+    driver = Selenium::WebDriver.for(:chrome)
     
     # navigate to some website (our zoo site => http://freelancer.geekngames.com/webapp)
-    driver.navigate.to("https://www.google.com") # zoo site is not available
+    # driver.navigate.to("https://www.google.com") # zoo site is not available
+    driver.navigate.to("https://playball-michal8888.herokuapp.com/courts") # zoo site is not available
     
     # click on contact link (assume id of the contact link is "contact_link")
-    driver.find_element(:id, "contact_link").click
+    # driver.find_element(:id, "contact_link").click
+    driver.find_element(:id, "loginButton").click
     
     # print out page title
     puts driver.title
     
+    puts driver.methods
+
     # close the browser
     driver.quit
     
