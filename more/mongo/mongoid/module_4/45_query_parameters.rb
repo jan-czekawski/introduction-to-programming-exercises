@@ -1,3 +1,4 @@
+
 # HTTParty Client class
 
 # helper class - app/services/movies_ws.rb
