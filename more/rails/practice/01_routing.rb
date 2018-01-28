@@ -130,3 +130,17 @@ mount SomeRackApp, at: "some_route"
 
 mount SomeRackApp, at: "some_route", as: :myapp
 # can rename it and generate "my_app_path/url" helpers
+
+# redirection
+get "/stories", to: redirect("/posts")
+
+# can redirect all unknown routes to given path
+match "*path" => redirect("/users"), via: :get
+get "*path" => redirect("/users") # same result
+
+# redirection and wildcard routes
+# you can provide URL for user for convenience, but map it directly to another
+# one you're already using
+
+# but when we need to send original parameters => it's different => USE SINGLE QUOTES
+get 'courses/:course_name' => redirect('/courses/%{course_name}/lessons'), :as => "course"
