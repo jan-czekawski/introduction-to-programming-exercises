@@ -144,3 +144,4 @@ get "*path" => redirect("/users") # same result
 
 # but when we need to send original parameters => it's different => USE SINGLE QUOTES
 get 'courses/:course_name' => redirect('/courses/%{course_name}/lessons'), :as => "course"
+
