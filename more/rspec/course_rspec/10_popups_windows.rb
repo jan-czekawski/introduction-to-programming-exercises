@@ -8,7 +8,7 @@ describe "popup test" do
   end
 
   after(:all) do
-    # @driver.quit
+    @driver.quit
   end
 
   it "check pop up window" do
@@ -26,6 +26,33 @@ describe "popup test" do
     puts alertBox.text
     alertBox.accept # it clicks on the button
   end
+
+  it "check window handle" do
+    # get the current window we are in control
+    mainWindow = @driver.window_handle
+    
+    # open a new window
+    @driver.find_element(:id, "windowClick").click
+    
+    # get all current windows (we're saving the current window state in the variable)
+    allWindows = @driver.window_handles # rets 0 or many windows (same as with elements)
+
+    # find any new windows open
+    allWindows.each do |window|
+      @newWindow = window unless mainWindow == window
+    end
+
+    # switch to the window of our choic
+    @driver.switch_to.window(@newWindow)
+    # do sth on that window
+    puts @driver.find_element(:tag_name, "h1").text
+    @driver.close
+
+    # we can switch back if we want
+    @driver.switch_to.window(mainWindow) 
+    puts @driver.find_element(:id, "exitButton").text
+  end
 end
 
 # #switch_to => allows to switch to another action
+# #window_handle => rets current window you're in control => acts as a reference to it
