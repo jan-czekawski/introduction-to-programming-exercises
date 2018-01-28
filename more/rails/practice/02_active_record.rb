@@ -26,4 +26,29 @@ class User < ActiveRecord::Base # class will inherit all AR features: query meth
 end
 
 # but also have to make sure that table for corresponding model exists (can generate migration for that)
-rails g migration AddUserTable
+# rails g migration CreateUser name bio
+
+# rails g migration AddTitleToCategories title:string
+# it would create migration that adds a title column to categories table
+
+# rails g migration RemoveTitleFromCategories title:string
+# would create migration that removes a title column from the categories table
+
+# rails db:migrate => to run migration
+
+# PROVIDING TYPE for migration of removing column is NOT NECESSARY but HELPFUL
+
+# to create join table (named participations) (of 2 tables => users and groups):
+# rails g CreateJoinTableParticipation user:reference group:reference
+
+# using model to update the row in the table
+class User < ActiveRecord::Base
+end
+
+# first user has to be created
+user = User.create(first_name: "Boss", last_name: "Nass")
+
+# then you can find him and update him
+user = User.find(1)
+user.update(first_name: "Make", last_name: "Peace") # => would return true or false
+
