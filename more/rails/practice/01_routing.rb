@@ -84,3 +84,49 @@ AppName::Application.routes.draw do
     resources :posts
   end
 end
+
+# additional RESTful actions
+resources :photos do
+  member do
+    get "preview"
+  end
+  
+  collection do
+    get "dashboard"
+  end
+end
+# would create resources and 2 additional GET routes "photos/:id/preview" and
+# "photos/dashboard"
+
+# can do it in 1 line
+resources :photos do
+  get "preview", on: :member
+  get "dashboard", on: :collection
+end
+
+# can also add an action to the "new" path
+resources :photos do
+  get "preview", on: :new
+end
+
+# BUT WHEN ADDING ACTIONS TO YOUR RESTFUL ROUTES => YOU MIGHT MISS ANOTHER
+# RESOURCE
+
+# defining a member block inside a resource creates a route that can act on an individual
+# member of that resource-based route
+# "photos/:id/preview"
+
+# collection routes allow for creating routes that can act on a collection of
+# resource objects
+# "photos/dashboard"
+
+
+# mount another app
+# "mount" can be used to mount another app (basically rack app) or rails engines
+# to be used within current app
+
+mount SomeRackApp, at: "some_route"
+# can access that mounted app by using route helper "some_rack_app_path/url"
+
+mount SomeRackApp, at: "some_route", as: :myapp
+# can rename it and generate "my_app_path/url" helpers
