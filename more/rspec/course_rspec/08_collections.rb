@@ -21,7 +21,24 @@ describe "Collection test" do
 
     tag_list.each do |item|
       puts "foreach value of i is #{item.text}"
+      # puts "LOG IN IS NEXT TO LAST ITEM" if item.text == "Log in"
+      # next if item.text == "Posts"
+      # break "COWABUNGA" if item.text == "Sign up"
+      
+      if item.text == "Log in"
+        next
+        puts "this line should not print out"
+      end
+
+      if item.text == "Posts"
+        puts "Found about"
+      end
+
+      if item.text == "Sign up"
+        break
+      end
     end
+
     # as we looking we want to do sth when we find the link we looking for
   end
 
