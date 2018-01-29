@@ -51,4 +51,3 @@ user = User.create(first_name: "Boss", last_name: "Nass")
 # then you can find him and update him
 user = User.find(1)
 user.update(first_name: "Make", last_name: "Peace") # => would return true or false
-
