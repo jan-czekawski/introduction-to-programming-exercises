@@ -30,3 +30,36 @@
 # app/views/application/_html_header.html.erb
 <%= render "html_header" %>
 
+
+# AssetTagHelper
+# can let rails automatically (and correctly) link assets (css/js/img) best
+# to use helpers (in most cases)
+
+# image helpers
+image_path("edit.png") # /assets/edit.png
+image_url("edit.png") # http://www.example.com/assets/edit.png
+image_tag("icon.png") # <img src="/assets/icon.png" alt="Icon"/>
+
+# js helpers
+javascript_include_tag "application" # <script src="/assets/application.js"></script>
+javascript_path "application" # /assets/application.js
+javascript_url "application" # http://www.example.com/assets/application.js
+
+# stylesheet helpers
+stylesheet_link_tag "application" # <link href="assets/application.css" media="screen" rel="stylesheet"/>
+stylesheet_path "application" # /assets/application.css
+stylesheet_url "application" # http://www.example.com/assets/application.css
+
+# replace html code in views => can print html content at runtime
+content_for
+
+<% content_for :header do %>
+  <ul>
+    <li>Line item 1</li>
+    <li>Line item 2</li>
+  </ul>
+<% end %>
+
+<div>
+  <%= yield :header %>
+</div
