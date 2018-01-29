@@ -71,3 +71,34 @@ change_table :orders do |t|
   t.index :skew_number #create index
   t.rename :location, :state #renames location column to state
 end
+
+# adding NOT NULL constraint to existing tables
+# want to add foreign key company_id to the users table with NOT NULL constraint
+# if you have data in table will have to use multiple steps
+class AddCompanyIdToUsers
+  def up
+    # add the column with NULL allowed
+    add_column :users, :company_id, :integer
+    
+    # make sure every row has a value
+    User.find_each do |user|
+      # find the appropriate company record for the user
+      # according to your business logic
+      company = Company.first
+      user.update!(company_id: company.id)
+    end
+    
+    # and NOT NULL constraint
+    change_column_null :users, :company_id, false
+  end
+  
+  # migrations that manipulate data must have up/down method instead of #change
+  def down
+    remove_column :users, :company_id
+  end
+end
+
+# can forbid NULL values
+def change
+  add_column :products, :float, null: false
+end
