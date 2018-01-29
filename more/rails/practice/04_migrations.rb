@@ -29,3 +29,45 @@ end
 def down
   change_column(:my_table, :my_columnn, :old_type)
 end
+
+# create hstore column => can be used to store settings (available in postgres
+# after you enable the extension)
+def change
+  create_table :pages do |t|
+    enable_extension "hstore" unless extension_enabled?("hstore")
+    t.hstore :settings
+    t.timestamps
+  end
+end
+
+# create join table
+# rails g migration CreateJoinTableStudentCourse student course
+
+# adding self reference
+# can be useful to build a hierarchical tree => use add_reference in migration
+def change
+  add_reference :pages, :pages
+end
+# foreign key column will be named "pages_id" but if you want to pick your own
+# have to create the column first and then add the reference
+def change
+  add_column :pages, :parent_id, :integer, null: true, index: true
+  add_foreign_key :pages, :pages, column: :parent_id
+end
+
+# array column is supported in postgres => rails will automatically convert ruby 
+# to postgres and back => array: true in migration
+
+# rails g migration AddEmailToUsers email:string:uniq
+# will also add index on email column and set unique: true
+
+# to check migration status
+# rails db:migrate:status
+
+# can change existing table
+change_table :orders do |t|
+  t.remove :ordered_at #removes column ordered at
+  t.string :skew_number #add new column
+  t.index :skew_number #create index
+  t.rename :location, :state #renames location column to state
+end
