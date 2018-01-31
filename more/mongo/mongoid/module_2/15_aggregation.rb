@@ -2,7 +2,7 @@
 # Mongo: db[:zips].find.aggregate([{ :$group => {  :_id => 0, count:  {  :$sum => 1  }  }   }  ])
 
 # SQL: SELECT SUM(pop) AS total FROM zips;
-# Mongo: db[:zips].find.aggregate([ {:$group => { :_id => 0, total:  {  :$sum => “$pop”  }   }   ])
+# Mongo: db[:zips].find.aggregate([ { :$group => { :_id => 0, total:  {  :$sum => "$pop"  }  }   }   ])
 
 # db.orders.aggregate([ 
 # $match stage =>    { $match: { status: “A” } },	=> give me all docs that have status “A”

@@ -102,3 +102,5 @@ end
 def change
   add_column :products, :float, null: false
 end
+
+# page 54
