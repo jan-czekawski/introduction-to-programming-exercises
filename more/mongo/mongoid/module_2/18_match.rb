@@ -8,6 +8,6 @@ db[:zips].find().aggregate([{:$match => { state: "DE"}}]).count
 # connected with other operators => $match early 
 db[:zips].find().aggregate([{:$match => {state: "NY"}},
                             {:$group => { _id: "$city", population: {:$sum => "$pop"}}},
-                            {:$project => { _id: 0, city: "$_id", population: 1}},
+                            {:$project => { _id: 1, city: "$_id", population: 1}},
                             {:$sort => { population: -1}},{:$limit => 5}]).each { |r| pp r }
 
