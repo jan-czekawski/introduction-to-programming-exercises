@@ -1,6 +1,6 @@
 # sum
-db[:zips].find.aggregate([{ :$group => { :_id => "$state", :populationasdfasdf => { :$sum => "$pop"}}},
-                            :$limit => 500]).each { |r| pp r}
+db[:zips].find.aggregate([{ :$group => { :_id => "$state", :population => { :$sum => "$pop"}}},
+                            :$limit => 5]).each { |r| pp r}
 
 # avg
 db[:zips].find.aggregate([{ :$group => { :_id => "$state", :ave_population => { :$avg => "$pop"}}},

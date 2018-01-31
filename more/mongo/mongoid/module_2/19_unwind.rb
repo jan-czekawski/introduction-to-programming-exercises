@@ -1,5 +1,5 @@
 # without $unwind
-# it will connect all the zipcodes for ELIMIRA NY to array
+# it will connect all the zipcodes for ELMIRA NY to array
 db[:zips].find().aggregate([{ :$match => { city: "ELMIRA" }},
                             { :$group => { _id: { city: "$city", state: "$state"},
                                            zips: { :$addToSet => "$_id"} } }
