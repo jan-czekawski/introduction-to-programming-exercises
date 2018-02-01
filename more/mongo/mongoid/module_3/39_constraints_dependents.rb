@@ -32,7 +32,7 @@ director2 = Director.create!(_id: "22332") # exception raised
 
 # :destroy => remove child doc after running model callbacks on the child
 
-# :delete => remvoe child doc without running model callbacks (M:M doesn't remove child doc
+# :delete => remove child doc without running model callbacks (M:M doesn't remove child doc
 # from the db => acts like :nullify)
 
 # :restrict => raise error if child references the parent being removed

@@ -60,7 +60,7 @@ class Actor
   index ({ :"place_of_birth.geolocation" => Mongo::Index::GEO2DSPHERE })
 end
 
-# Point has lattitude and longitude defined in it
+# Point has latitude and longitude defined in it
 class Point
   # (...)
   field :geolocation, type: Point

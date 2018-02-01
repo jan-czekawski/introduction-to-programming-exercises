@@ -1,7 +1,7 @@
-# parent doc of the relatoin must declare embeds_one macro to indicate it has one
+# parent doc of the relation must declare embeds_one macro to indicate it has one
 # embedded child
 
-# doc that is embeddes uses embedded_in
+# doc that is embedded uses embedded_in
 # Actor -> place_of_birth:Place
 
 class Place
