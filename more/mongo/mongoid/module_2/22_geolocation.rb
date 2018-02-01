@@ -2,7 +2,7 @@
 
 # adding 2dsphere index to mongo collection index
 db[:zips].indexes.create_one({loc: Mongo::Index::GEO2DSPHERE})
-# :loc contains [latitude, longitude] => IN THIS ORDER => OPPOSITE OF GEOJSON !!!
+# :loc contains [latitude, longitude] => OPPOSITE OF GEOJSON !!!
 
 # find city Baltimore
 db[:zips].find(city: "BALTIMORE").first

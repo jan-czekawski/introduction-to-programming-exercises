@@ -73,5 +73,3 @@ end
 Place.count
 loc = Location.create(city: "test", state: "test", country: "USA")
 Place.count # => incremented
-
-# 00:25:09
