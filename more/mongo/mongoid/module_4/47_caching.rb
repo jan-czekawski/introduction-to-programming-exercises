@@ -144,7 +144,7 @@ pp Movie.find("54321").movie_accesses.pluck(:created_at, :action).to_a
 
 
 # Cache control
-# uset to specify directives that must be obeyed by all caching mechanism along the request-response chain
+# use to specify directives that must be obeyed by all caching mechanism along the request-response chain
 # provide better hints to the client as to how long the information is good
 
 Movie.find("54321").movie_accesses.delete_all

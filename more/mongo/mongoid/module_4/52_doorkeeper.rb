@@ -56,7 +56,7 @@ resource_owner_authenticator do
   User.where(:id => user_id).first || redirect_to(new_user_session_url)
 end
 
-# Device
+# Devise
 # - is used to manage all the users
 # - it keeps user_id in the session variable called warden.user.user.key
 # - user_id is within nested array when there's current user (when user is logged in)
