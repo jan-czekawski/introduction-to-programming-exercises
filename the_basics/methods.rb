@@ -105,7 +105,7 @@ p a=(11)
 
 # scope
 def my_method
-  # scop
+  # scope
 end
 
 class A
