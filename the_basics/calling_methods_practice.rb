@@ -198,8 +198,8 @@ def my_method(*args)
   yield(args)
 end
 data = [1, 2, 3]
-argument = proc { |a| puts "#{a.inspect} was yielded"}
-# argument = proc { |*a| puts "#{a.inspect} was yielded"}
+# argument = proc { |a| puts "#{a.inspect} was yielded"}
+argument = proc { |*a| puts "#{a.inspect} was yielded"}
 my_method(1, 2, &argument)
 my_method(1, 2, *data, &argument)
 my_method(1, 2, data, &argument)
