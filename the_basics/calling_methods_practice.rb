@@ -137,7 +137,7 @@ my_method(1, *arr)
 # if method accepts keyword args, splat will convert hash at the end of array
 # into keyword args
 def my_method(a, b, d, c: 3)
-  p [a, b, c, d]
+  # p [a, b, c, d]
   p a: a, b: b, c: c, d: d
 end
 
