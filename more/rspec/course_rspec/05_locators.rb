@@ -13,7 +13,7 @@ describe "my test" do
   it "do something" do
     # id
     @driver.find_element(:id, "signupButton").click
-    
+
     # # class
     puts @driver.find_element(:class, "modal-title").text # will print out the text
     puts @driver.find_element(:class_name, "modal-title").text # same result
@@ -22,7 +22,7 @@ describe "my test" do
     @driver.find_element(:css, "[id=closeSignupModal]").click
     sleep(1)
     @driver.find_element(:css, "[id=closeLoginModal]").click
-    
+
     # name
     sleep(1)
     @driver.find_element(:name, "user[email]").send_keys("boss@wp.pl")

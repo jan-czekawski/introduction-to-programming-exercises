@@ -3,7 +3,7 @@ class Animal
   @name = nil
   @age = nil
   
-  # really basic constructor => assign values to class variables
+  # really basic constructor => assign values to instance variables
   def initialize(name, age)
     @name = name
     @age = age
