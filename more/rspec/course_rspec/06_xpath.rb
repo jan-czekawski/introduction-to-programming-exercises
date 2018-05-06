@@ -14,6 +14,7 @@ describe "Practice xpath" do
 
     # example of full absolute path
     puts @driver.find_element(:xpath, "/html/body/div[3]/p").text
+    
     # count in square bracket starts from "1" => not from "0"
 
     # example of using "//" => decendants concept
@@ -22,7 +23,7 @@ describe "Practice xpath" do
     puts @driver.find_element(:xpath, "//div[3]/p").text
 
     # can use wildcard
-    puts @driver.find_element(:xpath, "//*/*/p").text    
+    puts @driver.find_element(:xpath, "//*/*/p").text
 
     # can use attribute
     # when using classes => have to list all of them, not just the one

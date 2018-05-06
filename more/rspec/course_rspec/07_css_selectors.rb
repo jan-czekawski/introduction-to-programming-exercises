@@ -15,14 +15,14 @@ describe "Css selector test" do
     puts @driver.find_element(:css, "h1").text + " :: found by tag"
     
     # find by absolute path
-    # very brittle => use div:nth-child 
+    # very brittle => use div:nth-child
     puts @driver.find_element(:css, "html>body>nav>div:nth-child(1)>div:nth-child(2)>ul>li:nth-child(2)>a").text + " :: found by absolute path"
     # puts @driver.find_element(:css, "html>body>nav>div:nth-child(1)").text + " :: found by absolute path"
-  
+        
     # find by child node or subnode
     # puts @driver.find_element(:css, "html body nav div.nth-child(1)>div.nth-child(2)>ul>li.nth-child(2)>a").text + " :: found by child node or subnodeh"  
     puts @driver.find_element(:css, "html body nav").text + " :: found by child node or subnode"  
-    
+
     # find by attribute
     puts @driver.find_element(:css, "[id=bs-example-navbar-collapse-1]").text + " :: found by attribute"
     puts @driver.find_element(:css, "[name=viewport]").text + " :: found by attribute"
