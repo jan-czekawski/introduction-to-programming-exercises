@@ -14,7 +14,7 @@ describe "popup test" do
   it "check pop up window" do
     # @driver.find_element(:id, "exitButton").click
     @driver.find_element(:id, "boomButton").click
-    
+
     alertBox = @driver.switch_to.alert
     puts alertBox.text
     alertBox.accept # it clicks on the button
@@ -42,14 +42,14 @@ describe "popup test" do
       @newWindow = window unless mainWindow == window
     end
 
-    # switch to the window of our choic
+    # switch to the window of our choice
     @driver.switch_to.window(@newWindow)
     # do sth on that window
     puts @driver.find_element(:tag_name, "h1").text
     @driver.close
 
     # we can switch back if we want
-    @driver.switch_to.window(mainWindow) 
+    @driver.switch_to.window(mainWindow)
     puts @driver.find_element(:id, "exitButton").text
   end
 end

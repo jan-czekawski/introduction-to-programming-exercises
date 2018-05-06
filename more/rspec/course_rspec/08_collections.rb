@@ -13,7 +13,7 @@ describe "Collection test" do
     # grab all the links on the page
     tag_list = @driver.find_elements(:tag_name, "a") # rets 0 or many(all) results
     # @driver.find_element(:by, "") # => returns 0 or 1(first one) result
-
+  
     # look through them => by using loops
     for i in tag_list
       puts "value of i is #{i.text}"
